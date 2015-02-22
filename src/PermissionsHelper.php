@@ -147,6 +147,25 @@ class PermissionsHelper {
 	}
 
 	/**
+	 *
+	 * @param string $attributeNameInDomElement
+	 *
+	 * @return bool
+	 */
+	public function pageTitleIs( $attributeNameInDomElement ) {
+
+		if ( !$this->hasAttribute( $attributeNameInDomElement ) ) {
+			return $this->default;
+		}
+
+		$expectedPagesTitles = $this->getValueListFromAttribute( $attributeNameInDomElement );
+
+		$pageTitle = $this->skin->getTitle()->getDBkey();
+
+		return in_array( $pageTitle, $expectedPagesTitles );
+	}
+
+	/**
 	 * @param null|string $value
 	 *
 	 * @return int

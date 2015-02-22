@@ -55,7 +55,7 @@ class ShowOnlyFor extends Modification {
 	 */
 	private function isShown() {
 		$p = $this->getPermissionsHelper();
-		return $p->userHasGroup( 'group' ) || $p->userHasPermission( 'permission' ) || $p->pageIsInNamespace( 'namespace' );
+		return $p->userHasGroup( 'group' ) || $p->userHasPermission( 'permission' ) || $p->pageIsInNamespace( 'namespace' ) || $p->pageTitleIs( 'page' );
 	}
 
 	/**
