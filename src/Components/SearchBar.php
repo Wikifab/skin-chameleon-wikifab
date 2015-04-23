@@ -62,11 +62,13 @@ class SearchBar extends Component {
 				)
 			) . ' action="' . $this->getSkinTemplate()->data[ 'wgScript' ] . '">' .
 
-			$this->indent( 1 ) . '<input type="hidden" name="title" value="' . $this->getSkinTemplate()->data[ 'searchtitle' ] . '" />' .
+			$this->indent( 1 ) . '<input type="hidden" name="title" value="' . \SpecialPage::getTitleFor( 'WfSearch') . '" />' .
 			$this->indent() . '<div class="input-group">' .
-			$this->indent( 1 ) . $this->getSkinTemplate()->makeSearchInput( array( 'id' => IdRegistry::getRegistry()->getId( 'searchInput' ), 'type' => 'text', 'class' => 'form-control' ) ) .
+			'<input class="form-control" id="searchInput" accesskey="f" title="Rechercher dans Wikifab [Alt+Maj+f]" placeholder="Rechercher" name="wfsearch" autocomplete="off">' .
+			// old search input :
+			//$this->indent( 1 ) . $this->getSkinTemplate()->makeSearchInput( array( 'id' => IdRegistry::getRegistry()->getId( 'searchInput' ), 'type' => 'text', 'class' => 'form-control' ) ) .
 			$this->indent() . '<div class="input-group-btn">' .
-			$this->indent( 1 ) . $this->getSearchButton( 'go' ) . $this->getSearchButton( 'fulltext' ) .
+			$this->indent( 1 ) . $this->getSearchButton( 'fulltext' ) .
 			$this->indent( -1 ) . '</div>' .
 			$this->indent( -1 ) . '</div>' .
 			$this->indent( -1 ) . '</form>' .
