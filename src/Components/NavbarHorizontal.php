@@ -219,6 +219,9 @@ class NavbarHorizontal extends Component {
 			case 'Menu':
 				$html = $this->getMenu( $node );
 				break;
+			case 'NewTutoBar':
+				$html = $this->getNewTutoBar( $node );
+				break;
 			default:
 				$html = '';
 		}
@@ -294,6 +297,19 @@ class NavbarHorizontal extends Component {
 
 		$search = new SearchBar( $this->getSkinTemplate(), $domElement, $this->getIndent() );
 		$search->addClasses( 'navbar-form' );
+
+		return $search->getHtml();
+	}
+
+	/**
+	 * @param \DOMElement $domElement
+	 *
+	 * @return string
+	 */
+	protected function getNewTutoBar( \DOMElement $domElement = null ) {
+
+		$search = new NewTutoBar( $this->getSkinTemplate(), $domElement, $this->getIndent() );
+		$search->addClasses( 'navbar-newTuto' );
 
 		return $search->getHtml();
 	}
