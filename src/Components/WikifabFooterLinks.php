@@ -38,23 +38,23 @@ class WikifabFooterLinks extends Component {
 				<div class="col-md-6 col-sm-6 col-xs-6">
 					<h4>A propos</h4>
 					<ul class="list-unstyled">
-						<li>Qu\'est-ce que Wikifab ?</li>
-						<li>Qui sommes nous ?</li>
-						<li>Nous rejoindre</li>
-						<li>Presse</li>
-						<li>Fablabs et makerspaces</li>
-						<li>Faire un don</li>
+						<li><a href="/index.php/Wikifab:À_propos">Qu\'est-ce que Wikifab ?</a></li>
+						<li><a href="/index.php/Wikifab:Equipe">Qui sommes nous ?</a></li>
+						<li><a href="/index.php/Wikifab:Nous_rejoindre">Nous rejoindre</a></li>
+						<li><a href="/index.php/Wikifab:Presse">Presse</a></li>
+						<li><a href="/index.php/Wikifab:Fablabs">Fablabs et makerspaces</a></li>
+						<li><a href="/index.php/Wikifab:Faire_un_don">Faire un don</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-6">
 					<h4>Aide</h4>
 					<ul class="list-unstyled">
-						<li>Toute l\'aide</li>
-						<li>L\'indispensable</li>
-						<li>Confiance et sécurité</li>
-						<li>Contactez-nous</li>
-						<li>Mentions légales</li>
-						<li>Conditions générales</li>
+						<li><a href="/index.php/Aide">Toute l\'aide</a></li>
+						<li><a href="/index.php/Apprendre">L\'indispensable</a></li>
+						<li><a href="/index.php/Wikifab:Confiance_et_securité">Confiance et sécurité</a></li>
+						<li><a href="/index.php/Wikifab:Contactez_nous">Contactez-nous</a></li>
+						<li><a href="/index.php/Wikifab:Mentions_légales">Mentions légales</a></li>
+						<li><a href="/index.php/Wikifab:Conditions_générales">Conditions générales</a></li>
 					</ul>
 				</div>
 				</div>
@@ -64,34 +64,34 @@ class WikifabFooterLinks extends Component {
 				<div class="col-md-4 col-sm-4 col-xs-6">
 					<h4>Découvrir</h4>
 					<ul class="list-unstyled">
-						<li>Bois</li>
+						<li>Art</li>
+						<li>Arduino & Raspberry pi</li>
+						<li>Artisanat & Fait main</li>
+						<li>Musique & Sons</li>
+						<li>Énergie & Transport</li>
 						<li>Mobilier</li>
-						<li>Extérieur</li>
-						<li>Couture</li>
-						<li>Véhicule</li>
-						<li>Lampe</li>
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-6">
 					<h4>&nbsp;</h4>
 					<ul class="list-unstyled">
+						<li>Vêtement & couture</li>
+						<li>Nourriture & agriculture</li>
+						<li>Sport & Extérieur</li>
 						<li>Technologie</li>
-						<li>Electronique</li>
-						<li>Art</li>
-						<li>Papier</li>
-						<li>Technique</li>
-						<li>Réparation</li>
+						<li>Science & Biologie</li>
+						<li>Impression 3D</li>
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-12">
 					<h4>Bonjour</h4>
 					<ul class="list-unstyled">
-						<li>Facebook</li>
-						<li>Twitter</li>
-						<li>Instagram</li>
-						<li>Pinterest</li>
-						<li>GitHhub</li>
-						<li>Le Blog</li>
+						<li><a href="https://www.facebook.com/wikifab.org" target="_blank">Facebook</a></li>
+						<li><a href="https://twitter.com/wikifab_org" target="_blank">Twitter</a></li>
+						<li><a href="https://instagram.com/wikifab/" target="_blank">Instagram</a></li>
+						<li><a href="https://www.pinterest.com/wikifab_org/" target="_blank">Pinterest</a></li>
+						<li><a href="https://github.com/wiki-fab" target="_blank">GitHhub</a></li>
+						<li><a href="http://blog.wikifab.org" target="_blank">Le Blog</a></li>
 					</ul>
 				</div>
 				</div>
