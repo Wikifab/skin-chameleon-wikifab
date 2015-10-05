@@ -49,12 +49,12 @@ class WikifabFooterLinks extends Component {
 				<div class="col-md-6 col-sm-6 col-xs-6">
 					<h4>Aide</h4>
 					<ul class="list-unstyled">
-						<li><a href="/index.php/Aide">Toute l\'aide</a></li>
-						<li><a href="/index.php/L%27indispensable">L\'indispensable</a></li>
-						<li><a href="/index.php/Wikifab:Confiance_et_securité">Confiance et sécurité</a></li>
-						<li><a href="/index.php/Wikifab:Contactez_nous">Contactez-nous</a></li>
+						<li><a href="/index.php/Wikifab:Aide">Toute l\'aide</a></li>
+						<li><a href="/index.php/Wikifab:Indispensable">L\'indispensable</a></li>
+						<li><a href="/index.php/Wikifab:Politique_de_confidentialité">Politique de confidentialité</a></li>
 						<li><a href="/index.php/Wikifab:Mentions_légales">Mentions légales</a></li>
 						<li><a href="/index.php/Wikifab:Conditions_générales">Conditions générales</a></li>
+						<li><a href="/index.php/Wikifab:Contactez_nous">Contactez-nous</a></li>
 					</ul>
 				</div>
 				</div>
@@ -89,9 +89,8 @@ class WikifabFooterLinks extends Component {
 						<li><a href="https://www.facebook.com/wikifab.org" target="_blank">Facebook</a></li>
 						<li><a href="https://twitter.com/wikifab_org" target="_blank">Twitter</a></li>
 						<li><a href="https://instagram.com/wikifab/" target="_blank">Instagram</a></li>
-						<li><a href="https://www.pinterest.com/wikifab_org/" target="_blank">Nous rejoindre</a></li>
 						<li><a href="https://github.com/wiki-fab" target="_blank">GitHub</a></li>
-						<li><a href="http://blog.wikifab.org" target="_blank">Le Blog</a></li>
+						<li><a href="http://blog.wikifab.org" target="_blank">Blog</a></li>
 					</ul>
 				</div>
 				</div>
