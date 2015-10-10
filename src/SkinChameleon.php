@@ -80,6 +80,7 @@ class SkinChameleon extends SkinTemplate {
 		// load Bootstrap scripts
 		$out = $this->output;
 		$out->addModules( array( 'ext.bootstrap.scripts' ) );
+		$out->addModules( array( 'ext.Wikifab.js' ) );
 		$out->addModules( $this->getComponentFactory()->getRootComponent()->getResourceLoaderModules() );
 
 	}
