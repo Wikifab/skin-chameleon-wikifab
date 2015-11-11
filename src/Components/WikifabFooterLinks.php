@@ -64,23 +64,23 @@ class WikifabFooterLinks extends Component {
 				<div class="col-md-4 col-sm-4 col-xs-6">
 					<h4>Découvrir</h4>
 					<ul class="list-unstyled">
-						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Art=on">Art</a></li>
-						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Arduino%20%26%20Raspberry%20pi=on">Arduino & Raspberry pi</a></li>
-						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Artisanat%20%26%20Fait%20main=on">Artisanat & Fait main</a></li>
-						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Musique%20%26%20Sons=on">Musique & Sons</a></li>
-						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Énergie%20%26%20Transport=on">Énergie & Transport</a></li>
+						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Alimentation%20%26%20Agriculture=on">Alimentation & Agriculture</a></li>
+						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Art%20%26%20Déco=on">Art & Déco</a></li>
+						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Bien-être%20%26%20Santé=on">Bien-être & Santé</a></li>
+						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Électronique=on">Électronique</a></li>
+						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Énergie=on">Énergie</a></li>
 						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Mobilier=on">Mobilier</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-6">
 					<h4>&nbsp;</h4>
 					<ul class="list-unstyled">
-						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Vêtement%20%26%20couture=on">Vêtement & couture</a></li>
-						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Nourriture%20%26%20agriculture=on">Nourriture & agriculture</a></li>
-						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Sport%20%26%20Extérieur=on">Sport & Extérieur</a></li>
-						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Technologie=on">Technologie</a></li>
+						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Musique%20%26%20Sons=on">Musique & Sons</a></li>
+						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Robotique=on">Robotique</a></li>
 						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Science%20%26%20Biologie=on">Science & Biologie</a></li>
-						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Impression%203D=on">Impression 3D</a></li>
+						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Sport%20%26%20Extérieur=on">Sport & Extérieur</a></li>
+						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Transport=on">Transport</a></li>
+						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Vêtement%20%26%20Couture=on">Vêtement & Couture</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-12">
