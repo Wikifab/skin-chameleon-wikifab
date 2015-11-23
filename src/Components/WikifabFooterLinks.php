@@ -65,8 +65,9 @@ class WikifabFooterLinks extends Component {
 					<h4>Découvrir</h4>
 					<ul class="list-unstyled">
 						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Alimentation%20%26%20Agriculture=on">Alimentation & Agriculture</a></li>
-						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Art%20%26%20Déco=on">Art & Déco</a></li>
+						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Art=on">Art</a></li>
 						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Bien-être%20%26%20Santé=on">Bien-être & Santé</a></li>
+						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Décoration=on">Décoration</a></li>
 						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Électronique=on">Électronique</a></li>
 						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Énergie=on">Énergie</a></li>
 						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Mobilier=on">Mobilier</a></li>
@@ -80,7 +81,7 @@ class WikifabFooterLinks extends Component {
 						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Science%20%26%20Biologie=on">Science & Biologie</a></li>
 						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Sport%20%26%20Extérieur=on">Sport & Extérieur</a></li>
 						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Transport=on">Transport</a></li>
-						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Vêtement%20%26%20Couture=on">Vêtement & Couture</a></li>
+						<li><a href="/index.php/Spécial:WfExplore?wf-expl-area-Vêtement%20%26%20Accessoire=on">Vêtement & Accessoire</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-12">
