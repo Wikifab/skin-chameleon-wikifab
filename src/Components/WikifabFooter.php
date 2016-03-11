@@ -32,7 +32,7 @@ class WikifabFooter extends Component {
 	public function getHtml() {
 
 		$ret = '
-					Une association à but non lucratif gérée avec <span class="glyphicon glyphicon-heart" style="color:red" aria-hidden="true"></span> par un groupe de bénévoles passionnés.
+					'. wfMessage( 'wffootersubtitle-1' )->text() .' <span class="glyphicon glyphicon-heart" style="color:red" aria-hidden="true"></span> '. wfMessage( 'wffootersubtitle-2' )->text() .'. 
 		';
 		return $ret;
 
