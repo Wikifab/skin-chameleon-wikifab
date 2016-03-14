@@ -6,6 +6,7 @@
 		]
 	},
 	"wfexplore": "Explore tutorials",
+	"wfTopButton-Tutorial": "Tutorial",
 	"skinname-chameleon": "Chameleon",
 	"chameleon-desc": "The Chameleon skin",
 	"chameleon-loggedin": "You are logged in as $1.",
