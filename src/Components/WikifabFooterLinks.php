@@ -53,6 +53,7 @@ class WikifabFooterLinks extends Component {
 					<ul class="list-unstyled">
 						<li><a href="/index.php/Wikifab:'. wfMessage( 'wffooterlinks-help' )->text() .'">'. wfMessage( 'wffooter-help' )->text() .'</a></li>
 						<li><a href="/index.php/Wikifab:'. wfMessage( 'wffooterlinks-get-started' )->text() .'">'. wfMessage( 'wffooter-get-started' )->text() .'</a></li>
+						<li><a href="/index.php/Wikifab:'. wfMessage( 'wffooterlinks-rules' )->text() .'">'. wfMessage( 'wffooter-rules' )->text() .'</a></li>
 						<li><a href="/index.php/Special:Recentchanges">'. wfMessage( 'wffooter-recent-changes' )->text() .'</a></li>
 						<li><a href="/index.php/Wikifab:'. wfMessage( 'wffooterlinks-privacy-policy' )->text() .'">'. wfMessage( 'wffooter-privacy-policy' )->text() .'</a></li>
 						<li><a href="/index.php/Wikifab:'. wfMessage( 'wffooterlinks-cookie-policy' )->text() .'">'. wfMessage( 'wffooter-cookie-policy' )->text() .'</a></li>
