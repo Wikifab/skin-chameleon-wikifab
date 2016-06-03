@@ -53,7 +53,7 @@ class WikifabFooterLinks extends Component {
 					<ul class="list-unstyled">
 						<li><a href="/index.php/Wikifab:'. wfMessage( 'wffooterlinks-help' )->text() .'">'. wfMessage( 'wffooter-help' )->text() .'</a></li>
 						<li><a href="/index.php/Wikifab:'. wfMessage( 'wffooterlinks-get-started' )->text() .'">'. wfMessage( 'wffooter-get-started' )->text() .'</a></li>
-						<li><a href="/index.php/Wikifab:'. wfMessage( 'wffooterlinks-rules' )->text() .'">'. wfMessage( 'wffooter-rules' )->text() .'</a></li>
+						<li><a href="/index.php/Wikifab:'. wfMessage( 'wffooterlinks-best-practices' )->text() .'">'. wfMessage( 'best-practices' )->text() .'</a></li>
 						<li><a href="/index.php/Special:Recentchanges">'. wfMessage( 'wffooter-recent-changes' )->text() .'</a></li>
 						<li><a href="/index.php/Wikifab:'. wfMessage( 'wffooterlinks-privacy-policy' )->text() .'">'. wfMessage( 'wffooter-privacy-policy' )->text() .'</a></li>
 						<li><a href="/index.php/Wikifab:'. wfMessage( 'wffooterlinks-cookie-policy' )->text() .'">'. wfMessage( 'wffooter-cookie-policy' )->text() .'</a></li>
@@ -81,6 +81,7 @@ class WikifabFooterLinks extends Component {
 					<h4>&nbsp;</h4>
 					<ul class="list-unstyled">
 					<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-health-wellbeing' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-health-wellbeing' )->text() .'</a></li>
+					<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-house' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-house' )->text() .'</a></li>
 					<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-music-sound' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-music-sound' )->text() .'</a></li>
 					<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-play-outside' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-play-outside' )->text() .'</a></li>
 					<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-robotics' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-robotics' )->text() .'</a></li>
