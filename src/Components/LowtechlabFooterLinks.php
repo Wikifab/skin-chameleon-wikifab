@@ -40,7 +40,7 @@ class LowtechlabFooterLinks extends Component {
 					<p class="ltl-footer-text">Le Low-tech Lab est porté par Gold of Bengal.</p>
 					<p class="ltl-footer-text">Association 1901, Gold of Bengal a pour mission la recherche, l’aide au développement et la promotion de solutions répondant à des problématiques d’intérêt général, dans le respect et la valorisation de la nature ainsi que des ressources propres à chaque territoire.</p>
 					<div><img src="/skins/lowtechlab-skin/images/logo-gob.png">
-					<span class="ltl-footer-link">www.goldofbengal.com</span>
+					<span class="ltl-footer-link"><a href="http://goldofbengal.com">www.goldofbengal.com</a></span>
 					</div>
 				</div>
 				<div class="col-md-5 col-sm-5 col-xs-6">
