@@ -75,15 +75,17 @@ class WikifabFooterLinks extends Component {
 						<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-energy' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-energy' )->text() .'</a></li>
 						<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-food-agriculture' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-food-agriculture' )->text() .'</a></li>
 						<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-furniture' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-furniture' )->text() .'</a></li>
+						<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-health-wellbeing' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-health-wellbeing' )->text() .'</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-6">
 					<h4>&nbsp;</h4>
 					<ul class="list-unstyled">
-					<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-health-wellbeing' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-health-wellbeing' )->text() .'</a></li>
 					<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-house' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-house' )->text() .'</a></li>
+					<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-machines-tools' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-machines-tools' )->text() .'</a></li>
 					<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-music-sound' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-music-sound' )->text() .'</a></li>
 					<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-play-outside' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-play-outside' )->text() .'</a></li>
+					<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-recycling-upcycling' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-recycling-upcycling' )->text() .'</a></li>
 					<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-robotics' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-robotics' )->text() .'</a></li>
 					<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-science-biology' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-science-biology' )->text() .'</a></li>
 					<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-transport-mobility' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-transport-mobility' )->text() .'</a></li>
