@@ -275,6 +275,7 @@ class NavbarHorizontal extends Component {
 		$pageTools->removeClasses( 'text-center list-inline' );
 		$pageTools->addClasses( 'dropdown-menu' );
 
+
 		$ret = $pageTools->getHtml();
 
 		if ( $ret !== '' ) {
@@ -331,9 +332,32 @@ class NavbarHorizontal extends Component {
 			$toolsLinkText = $this->getSkinTemplate()->getMsg( 'chameleon-notloggedin' )->text();
 		}
 
+		// add personal tools (links to user page, user talk, prefs, ...)
+		$ret = '';
+
+		// start notifications widgets :
+		$personnalsToolsWidgets = [
+				"notifications-alert",
+				"notifications-notice"
+		];
+		$widgets='';
+		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
+			if ( !in_array($key, $personnalsToolsWidgets)) {
+				continue;
+			}
+			$widgets .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+		}
+		if ($widgets) {
+			$ret .=
+				$this->indent() . '<!-- personal widgets -->' .
+				$this->indent() . '<ul class="navbar-personaltools navbar-nav navbar-personaltoolwidgets navbar-nav-widgets" >' .
+				$widgets .
+				$this->indent( -1 ) . '</ul>' ;
+		}
+
 		// start personal tools element
 
-		$ret =
+		$ret .=
 			$this->indent() . '<!-- personal tools -->' .
 			$this->indent() . '<ul class="navbar-personaltools navbar-nav" >' .
 			$this->indent( 1 ) . '<li class="dropdown navbar-personaltools-tools">' .
@@ -342,10 +366,16 @@ class NavbarHorizontal extends Component {
 
 		$this->indent( 1 );
 
+
 		// add personal tools (links to user page, user talk, prefs, ...)
 		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
+			if(in_array($key, $personnalsToolsWidgets)) {
+				continue;
+			}
+
 			$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 		}
+
 
 		$ret .=
 			$this->indent( -1 ) . '</ul>' . $this->indent( -1 ) . '</li>';
