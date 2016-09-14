@@ -77,6 +77,11 @@ class MainContent extends Component {
 		return $ret;
 	}
 
+	protected function getNetworksButtons() {
+		$component = new PageNetworksLinks($this->getSkinTemplate());
+		return $component->getHtml();
+	}
+
 	/**
 	 * @return string
 	 */
@@ -88,8 +93,8 @@ class MainContent extends Component {
 		$ret = $this->indent( 1 ) . '<div class ="contentHeader">' .
 
 			$this->indent( 1 ) . '<!-- title of the page -->' .
+			$this->indent() . $this->getNetworksButtons() .
 			$this->indent() . $idRegistry->element( 'h1', array( 'id' => 'firstHeading', 'class' => 'firstHeading' ), $skintemplate->get( 'title' ) ) .
-
 			$this->indent() . '<!-- tagline; usually goes something like "From WikiName" primary purpose of this seems to be for printing to identify the source of the content -->' .
 			$this->indent() . $idRegistry->element( 'div', array( 'id'=> 'siteSub' ), $skintemplate->getMsg( 'tagline' )->escaped() );
 

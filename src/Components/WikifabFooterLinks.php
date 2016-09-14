@@ -32,9 +32,9 @@ class WikifabFooterLinks extends Component {
 	public function getHtml() {
 
 		$ret = '
-			<div class="row footer-links">		
+			<div class="row footer-links">
 				<div class="col-md-6 col-sm-6 col-xs-12">
-				<div class="row">				
+				<div class="row">
 				<div class="col-md-6 col-sm-6 col-xs-6">
 					<h4>'. wfMessage( 'wffootertitle-about' )->text() .'</h4>
 					<ul class="list-unstyled">
@@ -106,6 +106,8 @@ class WikifabFooterLinks extends Component {
 				</div>
 			</div>
 		';
+
+
 		return $ret;
 	}
 }
