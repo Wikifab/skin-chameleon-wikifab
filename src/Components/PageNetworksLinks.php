@@ -66,9 +66,6 @@ class PageNetworksLinks extends Component {
 		$button .= '<button class=" doActionLabel">';
 		$button .= '<span class=" "><i class="'.$faClass.'"></i> '.$doLabel.'</span>';
 		$button .= '</button>';
-		$button .= '<button class=" undoActionLabel">';
-		$button .= '<span class=" "><i class="'.$faClass.'"></i>  '.$undoLabel.'</span>';
-		$button .= '</button>';
 		$button .= '</a>';
 
 		$button .= '<a class="UsersPagesLinksButtonCounter '.$addClass.'" data-linkstype="'.$type.'" data-page="'.$pageUri.'" >';
