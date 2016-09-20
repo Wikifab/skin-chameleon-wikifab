@@ -77,6 +77,69 @@ class PageNetworksLinks extends Component {
 		return $button;
 	}
 
+
+	public function getDropDownButton($type, $label, $pageUri, $groups, $data){
+
+
+		$groupsAdded = [];
+		foreach ($data['groupsAdded'] as $group ) {
+			$groupPageUri = $group->getPrefixedDBKey();
+			$groupsAdded[$groupPageUri] = $groupPageUri;
+		}
+
+		$button = "<!-- DropDown button -->\n";
+		$button .= '<div class="btn-group dropdownButton-' . $type .'">';
+		$button .= '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+		$button .= $label . ' <span class="caret"></span>';
+		$button .= '</button>';
+		$button .= '<ul class="dropdown-menu dropdown-menu-right">';
+		foreach ($groups as $group) {
+			$groupPageUri = $group->getPrefixedDBKey();
+			$groupPageName = $group->getText();
+			$class='';
+			if(isset($groupsAdded[$groupPageUri])) {
+				$class='groupAdded';
+			}
+			$button .= '<li><a href="#" class="addToGroupLink '.$class.'" data-grouppage="'.$groupPageUri.'" data-page="'.$pageUri.'">'.$groupPageName.'</a></li>';
+		}
+		if (1 || isset($data['message'])) {
+			$button .= '<li role="separator" class="divider"></li>';
+			$button .= '<li>'.$data['message'].'</li>';
+		}
+		$button .= '</ul>';
+		$button .= '</div>';
+
+		return $button;
+
+		switch($type) {
+			case 'star':
+				$faClass ='fa fa-heart';
+				break;
+			case 'member':
+				$faClass ='fa fa-group';
+				break;
+			case 'ididit':
+				$faClass ='fa fa-hand-peace-o';
+				break;
+			default:
+				$faClass ='fa fa-eye';
+				break;
+		}
+		$button = '<a class="UsersPagesLinksButton '.$addClass.'" data-linkstype="'.$type.'" data-page="'.$pageUri.'" >';
+		$button .= '<button class=" doActionLabel">';
+		$button .= '<span class=" "><i class="'.$faClass.'"></i> '.$doLabel.'</span>';
+		$button .= '</button>';
+		$button .= '</a>';
+
+		$button .= '<a class="UsersPagesLinksButtonCounter '.$addClass.'" data-linkstype="'.$type.'" data-page="'.$pageUri.'" >';
+		$button .= '<button>';
+		$button .= $counter;
+		$button .= '</button>';
+		$button .= '</a>';
+
+		return $button;
+	}
+
 	/**
 	 * Builds the HTML code for this component
 	 *
@@ -93,9 +156,19 @@ class PageNetworksLinks extends Component {
 		$ret = $this->indent() . '<div class="PageNetworkLinks">';
 
 		$this->indent( 2 );
+		// Buttons for social link counter :
 		foreach ( $contentNavigation['NetworksLinks'] as $type => $link ) {
-			$ret .= $this->indent() . $this->getButton($type, $link['pageUri'], $link['count'], $link['active']);
+			if ($link['buttonType'] == 'counter') {
+				$ret .= $this->indent() . $this->getButton($type, $link['pageUri'], $link['count'], $link['active']);
+			}
 		}
+		// button with dropdown :
+		foreach ( $contentNavigation['NetworksLinks'] as $type => $link ) {
+			if ($link['buttonType'] == 'dropDown') {
+				$ret .= $this->indent() . $this->getDropDownButton($type, $link['label'], $link['pageUri'], $link['groups'], $link);
+			}
+		}
+
 		$this->indent( -2 );
 
 		$ret .= $this->indent() . '</div>';
