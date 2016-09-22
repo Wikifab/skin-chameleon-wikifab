@@ -36,6 +36,11 @@ See the [Chameleon documentation](docs/index.md).
 It may also be worthwhile to have a look at the [Chameleon site on
 MediaWiki][mw-chameleon] and the related [talk page][mw-chameleon-talk]
 
+## Additionnal Configuration : 
+
+ * $egChameleonSearchPage : Special page used for search bar : 'WfSearch' (default) or 'Search'
+ 
+
 ## License
 
 You can use the Chameleon skin under the [GNU General Public License, version
