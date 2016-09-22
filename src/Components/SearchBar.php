@@ -78,7 +78,7 @@ class SearchBar extends Component {
 
 			$this->indent( 1 ) . '<input type="hidden" name="title" value="' . \SpecialPage::getTitleFor( $searchPageName) . '" />' .
 			$this->indent() . '<div class="input-group">' .
-			'<input class="form-control" id="searchInput" accesskey="f" title="Rechercher dans Wikifab [Alt+Maj+f]" placeholder="Rechercher" name="' . $inputName . '" autocomplete="off">' .
+			'<input class="form-control" id="searchInput" accesskey="f" title="'. wfMessage('search').'" placeholder="'. wfMessage('search').'" name="' . $inputName . '" autocomplete="off">' .
 			// old search input :
 			//$this->indent( 1 ) . $this->getSkinTemplate()->makeSearchInput( array( 'id' => IdRegistry::getRegistry()->getId( 'searchInput' ), 'type' => 'text', 'class' => 'form-control' ) ) .
 			$this->indent() . '<div class="input-group-btn">' .
