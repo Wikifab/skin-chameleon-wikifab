@@ -97,14 +97,16 @@ class PageNetworksLinks extends Component {
 			$groupPageUri = $group->getPrefixedDBKey();
 			$groupPageName = $group->getText();
 			$class='';
+			$box = '<i class="fa fa-square-o" aria-hidden="true"></i>';
 			if(isset($groupsAdded[$groupPageUri])) {
 				$class='groupAdded';
+				$box = '<i class="fa fa-square-o" aria-hidden="true"></i>';
 			}
-			$button .= '<li><a href="#" class="addToGroupLink '.$class.'" data-grouppage="'.$groupPageUri.'" data-page="'.$pageUri.'">'.$groupPageName.'</a></li>';
+			$button .= '<li><a href="#" class="addToGroupLink '.$class.'" data-grouppage="'.$groupPageUri.'" data-page="'.$pageUri.'">'. $box . ' ' . $groupPageName.'</a></li>';
 		}
 		if (1 || isset($data['message'])) {
 			$button .= '<li role="separator" class="divider"></li>';
-			$button .= '<li>'.$data['message'].'</li>';
+			$button .= '<li class="dropdownInfoMessage">'.$data['message'].'</li>';
 		}
 		$button .= '</ul>';
 		$button .= '</div>';
