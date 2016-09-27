@@ -100,7 +100,7 @@ class PageNetworksLinks extends Component {
 			$box = '<i class="fa fa-square-o" aria-hidden="true"></i>';
 			if(isset($groupsAdded[$groupPageUri])) {
 				$class='groupAdded';
-				$box = '<i class="fa fa-square-o" aria-hidden="true"></i>';
+				$box = '<i class="fa fa-check-square-o" aria-hidden="true"></i>';
 			}
 			$button .= '<li><a href="#" class="addToGroupLink '.$class.'" data-grouppage="'.$groupPageUri.'" data-page="'.$pageUri.'">'. $box . ' ' . $groupPageName.'</a></li>';
 		}
