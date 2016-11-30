@@ -38,8 +38,17 @@
 @media print {
 	.noprint,
 	.navbar,
+	.wiki-nav,
+	.feedback,
+	.PageNetworkLinks,
+	.footerdata,
+	.footer-main,
 	.mw-editsection, .mw-editsection-like, .toctoggle, .magnify, .footer-places {
 		.hidden();
 	}
+	
+	a[href]:after {
+	    content: none;
+	  }
 
 }
