@@ -4,7 +4,7 @@
  *
  * This file is part of the MediaWiki skin Chameleon.
  *
- * @copyright 2013 - 2014, Stephan Gambke
+ * @copyright 2013 - 2016, Stephan Gambke
  * @license   GNU General Public License, version 3 (or any later version)
  *
  * The Chameleon skin is free software: you can redistribute it and/or modify
@@ -29,12 +29,7 @@ namespace Skins\Chameleon\Components;
 use Skins\Chameleon\IdRegistry;
 
 /**
- * The NavbarHorizontal class.
- *
- * A horizontal navbar containing the sidebar items.
- * Does not include standard items (toolbox, search, language links). They need to be added to the page elsewhere
- *
- * The navbar is a list of lists wrapped in a nav element: <nav role="navigation" id="p-navbar" >
+ * The MainContent class.
  *
  * @author Stephan Gambke
  * @since 1.0
@@ -60,6 +55,7 @@ class MainContent extends Component {
 			) .
 
 			$idRegistry->element( 'a', array( 'id' => 'top' ) ) .
+			$this->indent(1) . $idRegistry->element( 'div', array( 'id' => 'mw-indicators', 'class' => 'mw-indicators',  ), $this->buildMwIndicators() ) .
 
 			$this->indent() . '<div ' . \Html::expandAttributes( array(
 					'id'    => $idRegistry->getId( 'mw-js-message' ),
@@ -71,7 +67,7 @@ class MainContent extends Component {
 		$ret .= $this->buildContentBody();
 		$ret .= $this->buildCategoryLinks();
 
-		$ret .= $this->indent( -1 ) . '</div>' . "\n";
+		$ret .= $this->indent( -1 ) . '</div>';
 		// END content
 
 		return $ret;
@@ -90,7 +86,7 @@ class MainContent extends Component {
 		$skintemplate = $this->getSkinTemplate();
 		$idRegistry = IdRegistry::getRegistry();
 
-		$ret = $this->indent( 1 ) . '<div class ="contentHeader">' .
+		$ret = $this->indent() . '<div class ="contentHeader">' .
 
 			$this->indent( 1 ) . '<!-- title of the page -->' .
 			$this->indent() . $this->getNetworksButtons() .
@@ -114,7 +110,9 @@ class MainContent extends Component {
 				$this->indent() . $idRegistry->element( 'div', array( 'id' => 'contentSub2', 'class' => 'small' ), $skintemplate->get( 'undelete' ) );
 		}
 
-		// TODO: Do we need this? Seems to be an accessibility thing. It's used in vector to jump to the nav wich is at the bottom of the document, but our nav is usually at the top
+		// TODO: Do we need this? Seems to be an accessibility thing. It's used
+		// in vector to jump to the nav which is at the bottom of the document,
+		// but our nav is usually at the top
 		$ret .= $idRegistry->element( 'div', array( 'id' => 'jump-to-nav', 'class' => 'mw-jump' ),
 			$skintemplate->getMsg( 'jumpto' )->escaped() . '<a href="#mw-navigation">' . $skintemplate->getMsg( 'jumptonavigation' )->escaped() . '</a>' .
 			$skintemplate->getMsg( 'comma-separator' )->escaped() . '<a href="#p-search">' . $skintemplate->getMsg( 'jumptosearch' )->escaped() . '</a>'
@@ -128,10 +126,12 @@ class MainContent extends Component {
 	 * @return string
 	 */
 	protected function buildContentBody() {
-		return IdRegistry::getRegistry()->element( 'div', array( 'id' => 'bodyContent' ),
-			$this->indent() . '<!-- body text -->' . "\n" .
+		return $this->indent() . IdRegistry::getRegistry()->element( 'div', array( 'id' => 'bodyContent' ),
+			$this->indent( 1 ) . '<!-- body text -->' . "\n" .
 			$this->indent() . $this->getSkinTemplate()->get( 'bodytext' ) .
-			$this->buildDataAfterContent()
+			$this->indent() . '<!-- end body text -->' .
+			$this->buildDataAfterContent() .
+			$this->indent( -1 )
 		);
 	}
 
@@ -142,7 +142,7 @@ class MainContent extends Component {
 		// TODO: Category links should be a separate component, but
 		// * dataAfterContent should come after the the category links.
 		// * only one extension is known to use it dataAfterContent and it is geared specifically towards MonoBook
-		// => provide an attribut hideCatLinks for the XML and -if present- hide category links and assume somebody knows what they are doing
+		// => provide an attribute hideCatLinks for the XML and -if present- hide category links and assume somebody knows what they are doing
 		return
 			$this->indent() . '<!-- category links -->' .
 			$this->indent() . $this->getSkinTemplate()->get( 'catlinks' );
@@ -163,4 +163,40 @@ class MainContent extends Component {
 
 		return '';
 	}
+
+	/**
+	 * @return string
+	 */
+	private function buildMwIndicators() {
+
+		$idRegistry = IdRegistry::getRegistry();
+		$indicators = $this->getSkinTemplate()->get( 'indicators' );
+
+		if ( !is_array( $indicators ) || count( $indicators ) === 0 ) {
+			return '';
+		}
+
+		$this->indent( 1 );
+
+		$ret = '';
+
+		foreach ( $indicators as $id => $content ) {
+			$id = \Sanitizer::escapeId( "mw-indicator-$id" );
+
+			$ret .=
+				$this->indent() .
+				$idRegistry->element( 'div',
+					array(
+						'id' => $id,
+						'class' => "mw-indicator $id",
+					),
+					$content
+				);
+		}
+
+		$ret .= $this->indent( -1 );
+
+		return $ret;
+	}
+
 }

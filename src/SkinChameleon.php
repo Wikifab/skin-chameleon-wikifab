@@ -4,7 +4,7 @@
  *
  * This file is part of the MediaWiki skin Chameleon.
  *
- * @copyright 2013 - 2014, Stephan Gambke
+ * @copyright 2013 - 2016, Stephan Gambke
  * @license   GNU General Public License, version 3 (or any later version)
  *
  * The Chameleon skin is free software: you can redistribute it and/or modify
@@ -40,28 +40,44 @@ class SkinChameleon extends SkinTemplate {
 	public $useHeadElement = true;
 
 	private $componentFactory;
-	private $output;
 
 	/**
 	 * @param $out OutputPage object
 	 */
-	function setupSkinUserCss( OutputPage $out ) {
-
-		$this->output = $out;
+	public function setupSkinUserCss( OutputPage $out ) {
 
 		// load Bootstrap styles
-		$out->addModuleStyles( 'ext.bootstrap.styles' );
+		$out->addModuleStyles(
+			array(
+				'ext.bootstrap.styles'
+			)
+		);
 	}
 
 	/**
 	 * @param \OutputPage $out
 	 */
-	function initPage( OutputPage $out ) {
+	public function initPage( OutputPage $out ) {
 
 		parent::initPage( $out );
 
 		// Enable responsive behaviour on mobile browsers
 		$out->addMeta( 'viewport', 'width=device-width, initial-scale=1.0' );
+	}
+
+	/**
+	 * @return QuickTemplate
+	 */
+	protected function setupTemplateForOutput() {
+
+		$tpl = parent::setupTemplateForOutput();
+
+		$this->getComponentFactory()->setSkinTemplate( $tpl );
+
+		$tpl->setRef( 'skin', $this );
+		$this->addSkinModulesToOutput();
+
+		return $tpl;
 	}
 
 	/**
@@ -78,7 +94,7 @@ class SkinChameleon extends SkinTemplate {
 
 	public function addSkinModulesToOutput() {
 		// load Bootstrap scripts
-		$out = $this->output;
+		$out = $this->getOutput();
 		$out->addModules( array( 'ext.bootstrap.scripts' ) );
 		$out->addModules( array( 'ext.Wikifab.js' ) );
 		$out->addModules( $this->getComponentFactory()->getRootComponent()->getResourceLoaderModules() );
@@ -90,7 +106,7 @@ class SkinChameleon extends SkinTemplate {
 	 * @return string
 	 */
 	public function getPageClasses( $title ) {
-		$layoutName = Sanitizer::encodeAttribute( 'layout-' . basename( $GLOBALS['egChameleonLayoutFile'], '.xml' ) );
+		$layoutName = Sanitizer::escapeClass( 'layout-' . basename( $GLOBALS['egChameleonLayoutFile'], '.xml' ) );
 		return implode( ' ', array( parent::getPageClasses( $title ), $layoutName ) );
 	}
 }

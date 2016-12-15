@@ -5,7 +5,7 @@ platform][travis] or manually by executing the `mw-phpunit-runner.php` script or
 [`phpunit`][mw-testing] together with the PHPUnit configuration file found in
 the root directory of the skin.
 ```sh
-php mw-phpunit-runner.php [options]
+php tests/mw-phpunit-runner.php [options]
 ```
 
 Useful optional parameters:
@@ -22,5 +22,5 @@ this setting sparingly. If you do this, you may also want to set
 additional attribute in the `phpunit` element to colorize then tests that
 connect to the external service.
 
-[travis]: https://travis-ci.org/wikimedia/mediawiki-skins-chameleon
+[travis]: https://travis-ci.org/cmln/chameleon
 [mw-testing]: https://www.mediawiki.org/wiki/Manual:PHP_unit_testing

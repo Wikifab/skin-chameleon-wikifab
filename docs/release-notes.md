@@ -1,5 +1,114 @@
 ## Release Notes
 
+### Chameleon 1.5
+
+Released on 23-Nov-2016
+
+Changes:
+* Move from WMF server to GitHub: Updates of documentation, some scripts,
+  registration with [translatewiki](https://translatewiki.net)
+* Improve documentation
+* Replace [jquery-sticky](https://github.com/garand/sticky) by
+  [sticky-kit](http://leafo.net/sticky-kit/)
+* Use sticky for the navbar of the fixedhead layout
+* NavbarHorizontal: Allow custom types and classes for Navbar elements
+* PersonalTools: Add attribute *hideNewtalkNotifier*
+* Standard layout: Use separate NewtalkNotifier and PersonalTools components
+* Add schema description for layout files: [layout.rng](../layouts/layout.rng)
+* Add validation script for layout files:<br>
+  Call `php maintenance/validateLayout.php <layout.xml>`
+* Add composer scripts: test, phpunit, build
+* Add JS linting for better code quality
+
+Fixes:
+* Javascript modules were not loading in MW 1.28+
+* Logo: Link to main page when *addLink* attribute is not present
+
+### Chameleon 1.4
+
+Released on 20-Sep-2016
+
+Changes:
+* Logo: add *addLink* attribute to Logo component
+
+Fixes:
+* Restore "Edit with form" link for Semantic Forms 3.5 and later
+* Show dropdown menus of NavBar in front of maps (Maps extension)
+
+### Chameleon 1.3
+
+Released on 08-Mar-2016
+
+Changes:
+* Add URL parameter 'uselayout'
+* Add attributes 'showTools' and 'showLanguages' for the NavMenu
+* Add attributes 'hideTools' and 'hideLanguages' for the ToolbarHorizontal
+* Add support for [Page status indicators]
+  (https://www.mediawiki.org/wiki/Help:Page_status_indicators)
+
+Fixes:
+* Correctly follow symlinks
+  ([Bug: T124714](https://phabricator.wikimedia.org/T124714))
+* Provide correct box-sizing model and z-index for VisualEditor components
+* Float the VisualEditor UI toolbar below a fixed or sticky navbar
+
+### Chameleon 1.2
+
+Released on 16-Jan-2016
+
+This release may break customized styles for the NavbarHorizontal component.
+
+Changes:
+* Restructured the Page Tools on Navbars: The 'Edit' action and the Page Tools'
+  menu button got icons and were offset from the rest of the menus.
+* 'Edit' link links to the proper Visual Editor action if the
+  [VE extension](https://www.mediawiki.org/wiki/VisualEditor) is present
+* 'Edit' link links to the proper Semantic Forms action if the
+  [SF extension](https://www.mediawiki.org/wiki/Extension:Semantic_Forms) is
+  present and `$sfgRenameEditTabs` is set
+* Improve styleability of tool buttons in NavbarHorizontal (wrap the button
+  label in a span) and rework styling of the buttons
+* Add ChameleonNavbarHorizontalPersonalToolsLinkText hook
+* Add ChameleonNavbarHorizontalNewTalkLinkText hook
+* New less style variables @toolbar-height, @toolbar-padding-vertical,
+  @toolbar-padding-horizontal
+
+Fixes:
+* Use variable @hr-border for color of lower border of first heading
+* Some style issues for VisualEditor
+* The 'Page' link was not shown in Edit mode
+* Some themes (e.g. spacelab, cerulian) overrode the toolbar padding when the
+  mouse hovered over links
+
+### Chameleon 1.1.4
+
+Released on 27-May-2015
+
+Fixes:
+* Do not show mw-headline-anchor
+* Fix Message icon linking to non-existent page
+  ([Bug: T100550](https://phabricator.wikimedia.org/T100550))
+
+### Chameleon 1.1.3
+
+Released on 01-Mar-2015
+
+Bump minimum Bootstrap extension version to 1.1
+
+Fixes:
+* Set @navbar-default-link-active-bg to @navbar-default-bg color
+* Bullets for ULs respond to list-style:none again 
+* Align personal tools drop-down with lower edge of navbar
+* Let .tleft float left 
+* Let jumped-to section heads appear below fixed/sticky header 
+* Add mediawiki.sectionAnchor module (for compatibility with MW 1.25)
+* Fix i18n for page tools link 
+
+Other changes:
+* Minor doc fixes
+* Add integration test StylesCompileTest
+* Restructure test file layout 
+
 ### Chameleon 1.1.2
 
 Released on 19-Nov-2014
