@@ -304,7 +304,7 @@ class NavbarHorizontal extends Component {
 		if ( $editLinkHtml || $pageToolsHtml ) {
 			$ret =
 				$this->indent() . '<!-- page tools -->' .
-				$this->indent() . '<ul class="navbar-tools navbar-nav" >';
+				$this->indent() . '<ul class="navbar-tools navbar-nav navbar-personaltools-tools" >';
 
 			if ( $editLinkHtml !== '' ) {
 				$ret .= $this->indent( 1 ) . $editLinkHtml;
