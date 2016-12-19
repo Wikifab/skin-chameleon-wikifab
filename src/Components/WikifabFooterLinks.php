@@ -32,9 +32,9 @@ class WikifabFooterLinks extends Component {
 	public function getHtml() {
 
 		$ret = '
-			<div class="row footer-links">		
+			<div class="row footer-links">
 				<div class="col-md-6 col-sm-6 col-xs-12">
-				<div class="row">				
+				<div class="row">
 				<div class="col-md-6 col-sm-6 col-xs-6">
 					<h4>'. wfMessage( 'wffootertitle-about' )->text() .'</h4>
 					<ul class="list-unstyled">
@@ -76,6 +76,7 @@ class WikifabFooterLinks extends Component {
 						<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-food-agriculture' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-food-agriculture' )->text() .'</a></li>
 						<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-furniture' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-furniture' )->text() .'</a></li>
 						<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-health-wellbeing' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-health-wellbeing' )->text() .'</a></li>
+						<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-health-wellbeing' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-play-recreation' )->text() .'</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-6">
