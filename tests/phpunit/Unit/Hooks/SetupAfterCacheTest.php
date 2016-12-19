@@ -2,7 +2,7 @@
 /**
  * This file is part of the MediaWiki skin Chameleon.
  *
- * @copyright 2013 - 2014, Stephan Gambke, mwjames
+ * @copyright 2013 - 2016, Stephan Gambke, mwjames
  * @license   GNU General Public License, version 3 (or any later version)
  *
  * The Chameleon skin is free software: you can redistribute it and/or modify
@@ -51,6 +51,22 @@ class SetupAfterCacheTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * @return string
+	 */
+	private function getWorkDirectory() {
+
+		$directory = $GLOBALS[ 'argv' ][ 0 ];
+
+		if ( $directory[ 0 ] !== DIRECTORY_SEPARATOR ) {
+			$directory = $_SERVER[ 'PWD' ] . DIRECTORY_SEPARATOR . $directory;
+		}
+
+		$directory = dirname( $directory );
+
+		return $directory;
+	}
+
+	/**
 	 * @covers ::__construct
 	 */
 	public function testCanConstruct() {
@@ -61,9 +77,13 @@ class SetupAfterCacheTest extends \PHPUnit_Framework_TestCase {
 
 		$configuration = array();
 
+		$request = $this->getMockBuilder('\WebRequest')
+			->disableOriginalConstructor()
+			->getMock();
+
 		$this->assertInstanceOf(
 			'\Skins\Chameleon\Hooks\SetupAfterCache',
-			new SetupAfterCache( $bootstrapManager, $configuration )
+			new SetupAfterCache( $bootstrapManager, $configuration, $request )
 		);
 	}
 
@@ -109,9 +129,14 @@ class SetupAfterCacheTest extends \PHPUnit_Framework_TestCase {
 			'wgStylePath'                     => 'notTestingwgStylePath',
 		);
 
+		$request = $this->getMockBuilder('\WebRequest')
+			->disableOriginalConstructor()
+			->getMock();
+
 		$instance = new SetupAfterCache(
 			$bootstrapManager,
-			$configuration
+			$configuration,
+			$request
 		);
 
 		$instance->process();
@@ -143,9 +168,14 @@ class SetupAfterCacheTest extends \PHPUnit_Framework_TestCase {
 			'wgStylePath'                     => 'notTestingwgStylePath'
 		);
 
+		$request = $this->getMockBuilder('\WebRequest')
+			->disableOriginalConstructor()
+			->getMock();
+
 		$instance = new SetupAfterCache(
 			$bootstrapManager,
-			$configuration
+			$configuration,
+			$request
 		);
 
 		$this->setExpectedException( 'RuntimeException' );
@@ -185,12 +215,108 @@ class SetupAfterCacheTest extends \PHPUnit_Framework_TestCase {
 			'wgStylePath'                      => 'notTestingwgStylePath'
 		);
 
+		$request = $this->getMockBuilder('\WebRequest')
+			->disableOriginalConstructor()
+			->getMock();
+
 		$instance = new SetupAfterCache(
 			$bootstrapManager,
-			$configuration
+			$configuration,
+			$request
 		);
 
 		$instance->process();
+	}
+
+	/**
+	 * @covers ::process
+	 * @covers ::registerExternalLessVariables
+	 *
+	 * @dataProvider processWithRequestedLayoutFileProvider
+	 */
+	public function testProcessWithRequestedLayoutFile( $availableLayoutFiles, $defaultLayoutFile, $requestedLayout, $expectedLayoutfile ) {
+
+		$bootstrapManager = $this->getMockBuilder( '\Bootstrap\BootstrapManager' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$configuration = array(
+			'egChameleonAvailableLayoutFiles'  => $availableLayoutFiles,
+			'egChameleonLayoutFile'            => $defaultLayoutFile,
+			'IP'                               => 'notTestingIP',
+			'wgScriptPath'                     => 'notTestingwgScriptPath',
+			'wgStyleDirectory'                 => 'notTestingwgStyleDirectory',
+			'wgStylePath'                      => 'notTestingwgStylePath'
+		);
+
+		$request = $this->getMockBuilder('\WebRequest')
+			->disableOriginalConstructor()
+			->getMock();
+
+		$request->expects( $this->once() )
+			->method( 'getVal' )
+			->will( $this->returnValue( $requestedLayout ) );
+
+		$instance = new SetupAfterCache(
+			$bootstrapManager,
+			$configuration,
+			$request
+		);
+
+		$instance->process();
+
+		$this->assertEquals(
+			$expectedLayoutfile,
+			$configuration['egChameleonLayoutFile']
+		);
+	}
+
+	public function processWithRequestedLayoutFileProvider() {
+
+		$provider = array();
+
+		// no layout files available => keep default layout file
+		$provider[] = array(
+			null,
+			'standard.xml',
+			'someOtherLayout',
+			'standard.xml'
+		);
+
+		// no specific layout requested => keep default layout file
+		$provider[] = array(
+			array(
+				'layout1' => 'layout1.xml',
+				'layout2' => 'layout2.xml',
+			),
+			'standard.xml',
+			null,
+			'standard.xml'
+		);
+
+		// requested layout not available => keep default layout file
+		$provider[] = array(
+			array(
+				'layout1' => 'layout1.xml',
+				'layout2' => 'layout2.xml',
+			),
+			'standard.xml',
+			'someOtherLayout',
+			'standard.xml'
+		);
+
+		// requested layout available => return requested layout file
+		$provider[] = array(
+			array(
+				'layout1' => 'layout1.xml',
+				'layout2' => 'layout2.xml',
+			),
+			'standard.xml',
+			'layout1',
+			'layout1.xml'
+		);
+
+		return $provider;
 	}
 
 	/**
@@ -204,9 +330,14 @@ class SetupAfterCacheTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
+		$request = $this->getMockBuilder('\WebRequest')
+			->disableOriginalConstructor()
+			->getMock();
+
 		$instance = new SetupAfterCache(
 			$bootstrapManager,
-			$changes
+			$changes,
+			$request
 		);
 
 		$instance->adjustConfiguration( $origConfig );
@@ -228,17 +359,19 @@ class SetupAfterCacheTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$IP = str_replace( DIRECTORY_SEPARATOR, '/', realpath( __DIR__ . '/../../../../../../' ) );
+		$dir = $this->getWorkDirectory();
+		$IP = dirname(dirname($dir));
 
 		$defaultConfiguration = array(
 			'IP'                => $IP,
 			'wgScriptPath'      => 'notTestingwgScriptPath',
+			'wgStylePath'      => 'notTestingwgStylePath',
 			'wgStyleDirectory'  => 'notTestingwgStyleDirectory',
 			'wgResourceModules' => array(),
 		);
 
-		$expected[ 'chameleonLocalPath' ] = $IP . '/skins/chameleon';
-		$expected[ 'chameleonRemotePath' ] = $defaultConfiguration[ 'wgScriptPath' ] . '/skins/chameleon';
+		$expected[ 'chameleonLocalPath' ] = $defaultConfiguration[ 'wgStyleDirectory' ] . '/chameleon';
+		$expected[ 'chameleonRemotePath' ] = $defaultConfiguration[ 'wgStylePath' ] . '/chameleon';
 
 		$expected[ 'wgResourceModules' ] = array();
 		$expected[ 'wgResourceModules' ][ 'skin.chameleon.jquery-sticky' ] = array(
@@ -246,15 +379,20 @@ class SetupAfterCacheTest extends \PHPUnit_Framework_TestCase {
 			'remoteBasePath' => $expected[ 'chameleonRemotePath' ] . '/resources/js',
 			'group'          => 'skin.chameleon',
 			'skinScripts'    => array(
-				'chameleon' => array( 'jquery-sticky/jquery.sticky.js', 'Components/Modifications/sticky.js' )
+				'chameleon' => array( 'sticky-kit/jquery.sticky-kit.js', 'Components/Modifications/sticky.js' )
 			)
 		);
 
 		$configurationToBeAdjusted = $configuration + $defaultConfiguration;
 
+		$request = $this->getMockBuilder('\WebRequest')
+			->disableOriginalConstructor()
+			->getMock();
+
 		$instance = new SetupAfterCache(
 			$bootstrapManager,
-			$configurationToBeAdjusted
+			$configurationToBeAdjusted,
+			$request
 		);
 
 		$instance->process();
@@ -331,6 +469,9 @@ class SetupAfterCacheTest extends \PHPUnit_Framework_TestCase {
 		return $provider;
 	}
 
+	/**
+	 * Provides test data for the adjustConfiguration test
+	 */
 	public function adjustConfigurationProvider() {
 
 		$provider = array();

@@ -47,6 +47,20 @@ class SearchBar extends Component {
 	 */
 	public function getHtml() {
 
+		global $egChameleonSearchPage;
+
+		switch ($egChameleonSearchPage ) {
+			case 'Search' :
+				$searchPageName = 'Search';
+				$inputName = 'search';
+				break;
+			case 'WfSearch' :
+			default :
+				$searchPageName = 'WfSearch';
+				$inputName = 'wfsearch';
+				break;
+		}
+
 		$ret = $this->indent() . '<!-- search form -->' .
 
 			$this->indent() . '<div ' . \Html::expandAttributes( array(
@@ -62,13 +76,14 @@ class SearchBar extends Component {
 				)
 			) . ' action="' . $this->getSkinTemplate()->data[ 'wgScript' ] . '">' .
 
-			$this->indent( 1 ) . '<input type="hidden" name="title" value="' . \SpecialPage::getTitleFor( 'WfSearch') . '" />' .
+			$this->indent( 1 ) . '<input type="hidden" name="title" value="' . \SpecialPage::getTitleFor( $searchPageName) . '" />' .
 			$this->indent() . '<div class="input-group">' .
-			'<input class="form-control" id="searchInput" accesskey="f" title="Rechercher dans Wikifab [Alt+Maj+f]" placeholder="Rechercher" name="wfsearch" autocomplete="off">' .
+			'<input class="form-control" id="searchInput" accesskey="f" title="'. wfMessage('search').'" placeholder="'. wfMessage('search').'" name="' . $inputName . '" autocomplete="off">' .
 			// old search input :
 			//$this->indent( 1 ) . $this->getSkinTemplate()->makeSearchInput( array( 'id' => IdRegistry::getRegistry()->getId( 'searchInput' ), 'type' => 'text', 'class' => 'form-control' ) ) .
 			$this->indent() . '<div class="input-group-btn">' .
-			$this->indent( 1 ) . $this->getSearchButton( 'fulltext' ) .
+			//$this->indent( 1 ) . $this->getSearchButton( 'go' ) .
+			$this->indent( 0 ) . $this->getSearchButton( 'fulltext' ) .
 			$this->indent( -1 ) . '</div>' .
 			$this->indent( -1 ) . '</div>' .
 			$this->indent( -1 ) . '</form>' .

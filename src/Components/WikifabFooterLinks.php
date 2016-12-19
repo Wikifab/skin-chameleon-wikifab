@@ -107,6 +107,8 @@ class WikifabFooterLinks extends Component {
 				</div>
 			</div>
 		';
+
+
 		return $ret;
 	}
 }

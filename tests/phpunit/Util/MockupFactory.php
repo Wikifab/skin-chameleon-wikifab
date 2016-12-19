@@ -2,7 +2,7 @@
 /**
  * This file is part of the MediaWiki skin Chameleon.
  *
- * @copyright 2013 - 2014, Stephan Gambke
+ * @copyright 2013 - 2015, Stephan Gambke
  * @license   GNU General Public License, version 3 (or any later version)
  *
  * The Chameleon skin is free software: you can redistribute it and/or modify
@@ -133,6 +133,7 @@ class MockupFactory {
 
 			// Required by Logo
 			'logopath'           => 'foo',
+			'sitename'           => 'bar',
 
 			// Required by NavMenu
 			'nav_urls'           => array(
@@ -224,6 +225,7 @@ class MockupFactory {
 	protected function getSkinStub() {
 
 		$title = \Title::newFromText( 'FOO' );
+		$request = new \FauxRequest();
 
 		$skin = $this->testCase->getMockBuilder( '\SkinChameleon' )
 			->disableOriginalConstructor()
@@ -236,6 +238,10 @@ class MockupFactory {
 		$skin->expects( $this->testCase->any() )
 			->method( 'getUser' )
 			->will( $this->testCase->returnValue( $this->getUserStub() ) );
+
+		$skin->expects( $this->testCase->any() )
+			->method( 'getRequest' )
+			->will( $this->testCase->returnValue( $request ) );
 
 		return $skin;
 	}

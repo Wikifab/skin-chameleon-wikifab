@@ -32,7 +32,7 @@ class WikifabFooter extends Component {
 	public function getHtml() {
 
 		$ret = '
-					'. wfMessage( 'wffootersubtitle-1' )->text() .' <span class="glyphicon glyphicon-heart" style="color:red" aria-hidden="true"></span> '. wfMessage( 'wffootersubtitle-2' )->text() .'. 
+					'. wfMessage( 'wffootersubtitle-1' )->text() .' <span class="glyphicon glyphicon-heart" style="color:red" aria-hidden="true"></span> '. wfMessage( 'wffootersubtitle-2' )->text() .'.
 		';
 		return $ret;
 
@@ -76,6 +76,7 @@ class WikifabFooter extends Component {
 
 		$ret .= $this->indent( -1 ) . '</ul>' .
 				$this->indent( -1 ) . '</nav>' . "\n";
+
 
 		return $ret;
 	}

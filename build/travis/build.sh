@@ -3,7 +3,7 @@
 #####
 # This file is part of the MediaWiki skin Chameleon.
 #
-# @copyright 2013 - 2014, Stephan Gambke, mwjames
+# @copyright 2013 - 2016, Stephan Gambke, mwjames
 # @license   GNU General Public License, version 3 (or any later version)
 #
 # The Chameleon skin is free software: you can redistribute it and/or modify
@@ -24,7 +24,10 @@
 # @ingroup Skins
 #####
 
-set -x
+set -x  # display commands and their expanded arguments
+set -u  # treat unset variables as an error when performing parameter expansion
+set -o pipefail  # pipelines exit with last (rightmost) non-zero exit code
+set -e  # exit immediately if a command exits with an error
 
 originalDirectory=$(pwd)
 
@@ -37,10 +40,10 @@ function installMediaWiki {
 
 	cd mw
 
-	## MW 1.25 requires Psr\Logger
-	if [ "$MW" == "master" ]
+	## MW 1.25+ installs packages using composer
+	if [ -f composer.json ]
 	then
-		composer install
+		composer install --prefer-source
 	fi
 
 	mysql -e 'create database its_a_mw;'
@@ -49,10 +52,13 @@ function installMediaWiki {
 
 function installSkinViaComposerOnMediaWikiRoot {
 
-	composer init
+	if [ ! -f composer.json ]
+	then
+		composer init
+	fi
 
-	composer require 'phpunit/phpunit=~4.0' --prefer-source
-	composer require 'mediawiki/chameleon-skin=@dev' --prefer-source
+	composer remove --dev --update-with-dependencies 'phpunit/phpunit'
+	composer require 'phpunit/phpunit=~4.0' 'mediawiki/chameleon-skin=@dev' --prefer-source
 
 	cd skins
 	cd chameleon
@@ -80,13 +86,15 @@ function installSkinViaComposerOnMediaWikiRoot {
 	echo '$wgDevelopmentWarnings = true;' >> LocalSettings.php
 	echo "putenv( 'MW_INSTALL_PATH=$(pwd)' );" >> LocalSettings.php
 
-	php maintenance/update.php --quick
+	php maintenance/update.php --quick --skip-external-dependencies
 }
 
 function uploadCoverageReport {
 	wget https://scrutinizer-ci.com/ocular.phar
-	php ocular.phar code-coverage:upload --repository='g/wikimedia/mediawiki-skins-chameleon' --format=php-clover coverage.clover
+	php ocular.phar code-coverage:upload --repository='g/cmln/chameleon' --format=php-clover coverage.clover
 }
+
+composer self-update
 
 installMediaWiki
 installSkinViaComposerOnMediaWikiRoot

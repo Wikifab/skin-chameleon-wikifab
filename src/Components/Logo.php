@@ -4,7 +4,7 @@
  *
  * This file is part of the MediaWiki skin Chameleon.
  *
- * @copyright 2013 - 2014, Stephan Gambke
+ * @copyright 2013 - 2016, Stephan Gambke
  * @license   GNU General Public License, version 3 (or any later version)
  *
  * The Chameleon skin is free software: you can redistribute it and/or modify
@@ -47,15 +47,18 @@ class Logo extends Component {
 	 */
 	public function getHtml() {
 
-		$attribs  = array_merge(
-			array( 'href' => $this->getSkinTemplate()->data[ 'nav_urls' ][ 'mainpage' ][ 'href' ] ),
-			Linker::tooltipAndAccesskeyAttribs( 'p-logo' )
-		);
+		$attribs = NULL;
+		if ( $this->addLink() ) {
+			$attribs = array_merge(
+				array( 'href' => $this->getSkinTemplate()->data[ 'nav_urls' ][ 'mainpage' ][ 'href' ] ),
+				Linker::tooltipAndAccesskeyAttribs( 'p-logo' )
+			);
+		}
 
 		$contents = \Html::element( 'img',
 			array(
 				'src' => $this->getSkinTemplate()->data[ 'logopath' ],
-				'alt' => $GLOBALS[ 'wgSitename' ]
+				'alt' => $this->getSkinTemplate()->data[ 'sitename' ],
 			)
 		);
 
@@ -72,4 +75,24 @@ class Logo extends Component {
 			$this->indent( -1 ) . '</div>' . "\n";
 	}
 
+	/**
+	 * Return true if addLink attribute is unset or set to 'yes' in the Logo
+	 * component description. Clicking on the logo should redirect to Main Page
+	 * in that case. Else the logo should just display an inactive image.
+	 *
+	 * @return bool
+	 */
+	private function addLink() {
+		if ( $this->getDomElement() === null ) {
+			return true;
+		}
+
+		$addLink = $this->getDomElement()->getAttribute( 'addLink' );
+
+		if ( $addLink === '' ) {
+			return true;
+		}
+
+		return filter_var( $addLink, FILTER_VALIDATE_BOOLEAN );
+	}
 }

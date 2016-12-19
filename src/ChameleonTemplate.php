@@ -4,7 +4,7 @@
  *
  * This file is part of the MediaWiki skin Chameleon.
  *
- * @copyright 2013 - 2014, Stephan Gambke
+ * @copyright 2013 - 2016, Stephan Gambke
  * @license   GNU General Public License, version 3 (or any later version)
  *
  * The Chameleon skin is free software: you can redistribute it and/or modify
@@ -43,10 +43,6 @@ class ChameleonTemplate extends BaseTemplate {
 	 */
 	public function execute() {
 
-		$this->getSkin()->getComponentFactory()->setSkinTemplate( $this );
-		$this->getSkin()->addSkinModulesToOutput();
-		$this->set( 'bottomscripts', $this->getSkin()->bottomScripts() );
-
 		// output the head element
 		// The headelement defines the <body> tag itself, it shouldn't be included in the html text
 		// To add attributes or classes to the body tag override addToBodyAttributes() in SkinChameleon
@@ -64,7 +60,7 @@ class ChameleonTemplate extends BaseTemplate {
 	 *
 	 * @return string|void
 	 */
-	function html( $key ) {
+	public function html( $key ) {
 		echo $this->get( $key );
 	}
 
@@ -104,7 +100,7 @@ class ChameleonTemplate extends BaseTemplate {
 	 *
 	 * @return string
 	 */
-	function makeListItem( $key, $item, $options = array() ) {
+	public function makeListItem( $key, $item, $options = array() ) {
 
 		foreach ( array( 'id', 'single-id' ) as $attrib ) {
 
