@@ -76,7 +76,7 @@ class WikifabFooterLinks extends Component {
 						<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-food-agriculture' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-food-agriculture' )->text() .'</a></li>
 						<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-furniture' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-furniture' )->text() .'</a></li>
 						<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-health-wellbeing' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-health-wellbeing' )->text() .'</a></li>
-						<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-health-wellbeing' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-play-recreation' )->text() .'</a></li>
+						<li><a href="/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-play-recreation' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-play-recreation' )->text() .'</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-6">
