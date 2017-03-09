@@ -30,7 +30,7 @@
 
 @media not print {
 
-	.printfooter {
+	.printWikifabFooter {
 		.hidden();
 	}
 }
@@ -45,6 +45,12 @@
 	.footer-main,
 	.mw-editsection, .mw-editsection-like, .toctoggle, .magnify, .footer-places {
 		.hidden();
+	}
+	
+	.printWikifabFooter {
+	    position: fixed;
+	    bottom: 0;
+	    display: table-footer-group;
 	}
 	
 	a[href]:after {
