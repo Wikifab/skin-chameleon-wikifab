@@ -100,19 +100,26 @@
    .row .col-md-1 {
         width: 8.33333333%;
    }
-   .tuto-step-image .carousel-indicators li:first-child { 
+   #bodyContent .tuto-step-image .carousel-indicators li:first-child { 
    		display:none;
    }
-   .tuto-step-image .carousel-indicators li {
+   #bodyContent .tuto-step-image .carousel-indicators li {
    		width:100%;
    		height:auto;
    }
-   .tuto-main-image img {
+   #bodyContent .tuto-main-image img, #bodyContent .tuto-step-image img {
    		height:auto;
    }
-   .hrContentMinor {
+   #bodyContent .hrContentMinor {
    	  margin: 15px 0;
-	    border-bottom: 2px solid #ccc;
+	  border-bottom: 2px solid #ccc;
    }
+   #bodyContent .row {
+	  page-break-inside: avoid;
+	}
+	#bodyContent .form-intro label.label-danger{
+		background-color: #d9534f;
+		color:#fff;
+	}
 
 }
