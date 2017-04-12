@@ -31,9 +31,22 @@ class WikifabPrintFooter extends Component {
 	 */
 	public function getHtml() {
 
-		$ret = '<div class="printWikifabFooter">
-					'. wfMessage( 'wffootersubtitle-1' )->text() .' <span class="glyphicon glyphicon-heart" style="color:red" aria-hidden="true"></span> '. wfMessage( 'wffootersubtitle-2' )->text() .'.
-		</div>';
+		return '';
+
+		$ret = \Html::openElement("div", array('class'=> 'printWikifabFooter'));
+		$ret .= \Html::openElement("div", array('class'=> 'logo'));
+		$ret .= \Html::element( 'img',
+				array(
+						'src' => $this->getSkinTemplate()->data[ 'logopath' ],
+						'alt' => $this->getSkinTemplate()->data[ 'sitename' ],
+				)
+				);
+		$ret .= \Html::closeElement("div");
+		$ret .= \Html::openElement("div", array('class'=> 'footerText'));
+		$ret .= wfMessage( 'wffootersubtitle-1' )->text() .' <span class="glyphicon glyphicon-heart" style="color:red" aria-hidden="true"></span> '. wfMessage( 'wffootersubtitle-2' )->text();
+
+		$ret .= \Html::closeElement("div");
+
 		return $ret;
 	}
 }

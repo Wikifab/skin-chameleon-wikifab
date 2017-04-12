@@ -87,7 +87,9 @@
 	"wfsearch": "Rechercher un tutoriel",
 	"wffooter-recent-changes": "Modifications récentes",
 	"wffootersubtitle-1": "Wikifab - une association à but non lucratif gérée avec",
-	"wffootersubtitle-2": "par des passionnés"
+	"wffootersubtitle-2": "par des passionnés",
+	"wfprint-pagelink": "URL du tutoriel : $1",
+	"wfprint-versionnumber": "Dernière modification le $1, à $2."
 }
 
 
