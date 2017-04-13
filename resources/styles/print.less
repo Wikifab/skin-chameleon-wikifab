@@ -121,8 +121,11 @@
    	  margin: 15px 0;
 	  border-bottom: 2px solid #ccc;
    }
-   #bodyContent .row {
+	#bodyContent .row > div {
 	  page-break-inside: avoid;
+	}
+	#bodyContent .row > div:first-child {
+		page-break-after: avoid;
 	}
 	#bodyContent .form-intro label.label-danger{
 		background-color: #d9534f;
