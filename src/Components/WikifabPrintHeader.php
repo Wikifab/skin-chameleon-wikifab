@@ -31,8 +31,6 @@ class WikifabPrintHeader extends Component {
 	 */
 	public function getHtml() {
 
-		return '';
-
 		// get page info :
 		$pageUrl = " " . $this->getSkin()->getTitle()->getFullURL();
 		$timestamp = $this->getSkin()->getOutput()->getRevisionTimestamp();
@@ -44,7 +42,7 @@ class WikifabPrintHeader extends Component {
 		$ret .= \Html::openElement("div", array('class'=> 'row'));
 
 		// Logo
-		$ret .= \Html::openElement("div", array('class'=> 'col-md-3 logo'));
+		$ret .= \Html::openElement("div", array('class'=> 'col-md-2 logo'));
 		$ret .= \Html::element( 'img',
 				array(
 						'src' => $this->getSkinTemplate()->data[ 'logopath' ],
@@ -55,22 +53,19 @@ class WikifabPrintHeader extends Component {
 		$ret .= \Html::closeElement("div");
 
 		// title
-		$ret .= \Html::openElement("div", array('class'=> 'col-md-9 title'));
-		$ret .= \Html::Element("h1", array('class'=> 'footerText'), $this->getSkinTemplate()->data['title']);
+		$ret .= \Html::openElement("div", array('class'=> 'col-md-10 title'));
+		$ret .= \Html::Element("h1", array('class'=> 'footerText firstHeading'), $this->getSkinTemplate()->data['title']);
 
 		$ret .= \Html::openElement("span",['class' => 'urllink']);
-		$ret .= wfMessage( 'wfprint-pagelink', $pageUrl );
+		//$ret .= wfMessage( 'wfprint-pagelink', $pageUrl );
+		$ret .= $pageUrl ;
 		$ret .= \Html::closeElement("span");
-		$ret .= "<br/> ";
 
-		$ret .= \Html::Element("span",['class' => 'lastedit'], wfMessage( 'wfprint-versionnumber', $lasteditDate, $lasteditTime )->parse());
+		//$ret .= \Html::Element("span",['class' => 'lastedit'], wfMessage( 'wfprint-versionnumber', $lasteditDate, $lasteditTime )->parse());
 
-
+		//close title div
 		$ret .= \Html::closeElement("div");
 
-
-
-		$pageUrl = $this->getSkin()->getTitle()->getLatestRevID();
 
 		// close row div
 		$ret .= \Html::closeElement("div");
