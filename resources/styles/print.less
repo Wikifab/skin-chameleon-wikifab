@@ -90,6 +90,13 @@
 	    page-break-inside: avoid;
 	}
 	
+	.printPageBreakBefore {
+	    page-break-before: always;
+	}
+	.printPageBreakAfter {
+	    page-break-after: always;
+	}
+	
 	.row .col-md-1, .row .col-md-2, .row .col-md-3, .row .col-md-4, .row .col-md-5, .row .col-md-6, .row .col-md-7, .row .col-md-8, .row .col-md-9, .row .col-md-10, .row .col-md-11, .row .col-md-12 {
         float: left;
    }
@@ -128,6 +135,9 @@
    }
    .row .col-md-1 {
         width: 8.33333333%;
+   }
+   .row div.fullWidthPrint {
+        width: 100%;
    }
    #bodyContent .tuto-step-image .carousel-indicators li:first-child { 
    		display:none;
