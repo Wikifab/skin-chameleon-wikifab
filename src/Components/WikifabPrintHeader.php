@@ -37,7 +37,7 @@ class WikifabPrintHeader extends Component {
 		$lasteditDate = $this->getSkin()->getLanguage()->userDate( $timestamp, $this->getSkin()->getUser() );
 		$lasteditTime = $this->getSkin()->getLanguage()->userTime( $timestamp, $this->getSkin()->getUser() );
 
-		$ret = \Html::openElement("div", array('class'=> 'printWikifabHeader'));
+		$ret = \Html::openElement("div", array('class'=> 'print-only printWikifabHeader'));
 		$ret .= \Html::openElement("div", array('class'=> 'container'));
 		$ret .= \Html::openElement("div", array('class'=> 'row'));
 
