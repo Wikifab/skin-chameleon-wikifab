@@ -153,17 +153,51 @@
    #bodyContent .tuto-items-container .tuto-items-details-container {
    	    background: #f1f1f1 !important;
    }
+    #bodyContent .tuto-items-container .tuto-items-details-container.printTOC {
+    	background: #ffffff !important;
+    	border:none;
+   }
+
+   #bodyContent .tuto-items-container .tuto-items-details-container.printTOC #toctitle,
+   #bodyContent .tuto-items-container .tuto-items-details-container.printTOC .fa {
+   		display:none;
+   }
+
    #bodyContent .tuto-items-container {
    		margin-top:25px
    }
+   #bodyContent .printMainTitle {
+    margin-top: -129px;
+    padding-bottom: 14px;
+    padding-left: 23px;
+    width: 100%;
+    background: #000 !important;
+    background: -webkit-linear-gradient(transparent, #000) !important;
+    background: -o-linear-gradient(transparent, #000) !important;
+    background: -moz-linear-gradient(transparent, #000) !important;
+    background: linear-gradient(transparent, #000) !important;
+   }
+   #bodyContent .printMainTitle h1 .mw-headline, #bodyContent .printMainTitle .tuto-details-author-name {
+	    color: #fff !important;
+	    text-shadow: rgba(0,0,0,0.498039) 0px 1px 3px !important;
+	}
+	#bodyContent .printMainTitle .tuto-details-author-name {
+	    font-size:18px;
+	}
 
    #bodyContent .tuto-main-image .annotatedImageContainer {
    		height: 500px;
     	overflow: hidden;
    }
-   #bodyContent .tuto-details-author-box a.image img {
-   		max-height: 50px;
+   #bodyContent .tuto-details-author-box a.image {
+   		width: 45px;
+    	height: 45px;
+        margin: 0px 8px 2px 0px;
    }
+   #bodyContent .tuto-details-author-box a.image img {
+    	max-height: 45px;
+        border-radius: 100%;
+	}
     #bodyContent .tuto-main-image {
    		background: black !important;
    }
