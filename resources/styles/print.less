@@ -58,15 +58,14 @@
 	 * header
 	 ***********************/
 	.printWikifabHeader {
-	    border-bottom: 1px solid #eeeeee;
-	    border-bottom-width: 1px;
-	    border-bottom-style: solid;
-	    border-bottom-color: rgb(238, 238, 238);
-	    padding-bottom: .2em;
 	    margin-bottom: .4em;
 	}
 	.printWikifabHeader .logo img {
 		margin-top:20px;
+		width:100%;
+	}
+	.printWikifabHeader .header-info {
+		display:none;
 	}
 	.printWikifabHeader .firstHeading {
 	    border-bottom-width: 0px;
@@ -148,6 +147,25 @@
    }
    #bodyContent .tuto-main-image img, #bodyContent .tuto-step-image img {
    		height:auto;
+   		border: none;
+    	border-radius: 0;
+   }
+   #bodyContent .tuto-items-container .tuto-items-details-container {
+   	    background: #f1f1f1 !important;
+   }
+   #bodyContent .tuto-items-container {
+   		margin-top:25px
+   }
+
+   #bodyContent .tuto-main-image .annotatedImageContainer {
+   		height: 500px;
+    	overflow: hidden;
+   }
+   #bodyContent .tuto-details-author-box a.image img {
+   		max-height: 50px;
+   }
+    #bodyContent .tuto-main-image {
+   		background: black !important;
    }
    #bodyContent .hrContentMinor {
    	  margin: 15px 0;

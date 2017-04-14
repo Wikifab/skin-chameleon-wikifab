@@ -42,7 +42,7 @@ class WikifabPrintHeader extends Component {
 		$ret .= \Html::openElement("div", array('class'=> 'row'));
 
 		// Logo
-		$ret .= \Html::openElement("div", array('class'=> 'col-md-2 logo'));
+		$ret .= \Html::openElement("div", array('class'=> 'col-md-3 logo'));
 		$ret .= \Html::element( 'img',
 				array(
 						'src' => $this->getSkinTemplate()->data[ 'logopath' ],
@@ -53,7 +53,7 @@ class WikifabPrintHeader extends Component {
 		$ret .= \Html::closeElement("div");
 
 		// title
-		$ret .= \Html::openElement("div", array('class'=> 'col-md-10 title'));
+		$ret .= \Html::openElement("div", array('class'=> 'col-md-9 header-info'));
 		$ret .= \Html::Element("h1", array('class'=> 'footerText firstHeading'), $this->getSkinTemplate()->data['title']);
 
 		$ret .= \Html::openElement("span",['class' => 'urllink']);
