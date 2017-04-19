@@ -146,8 +146,8 @@
    		height:auto;
    }
    #bodyContent .tuto-main-image img, #bodyContent .tuto-step-image img {
-   		height:auto;
-   		border: none;
+   		height: auto;
+   		border: 1px solid #ddd;
     	border-radius: 0;
    }
    #bodyContent .tuto-items-container .tuto-items-details-container {
@@ -163,12 +163,25 @@
    		display:none;
    }
 
+   .step-instructions p.step-title-print {
+      font-size: 24px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-family: inherit;
+      font-weight: 500;
+      line-height: 1.1;
+   }
+
+   hr.printPageBreakBefore, hr.printPageBreakAfter {
+       border-top: none;
+   }
+
    #bodyContent .tuto-items-container {
    		margin-top:25px
    }
    #bodyContent .printMainTitle {
-    margin-top: -129px;
-    padding-bottom: 14px;
+    margin-top: -113px;
+    padding-bottom: 28px;
     padding-left: 23px;
     width: 100%;
     position: relative;
