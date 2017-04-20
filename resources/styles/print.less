@@ -27,219 +27,216 @@
  * @since 1.0
  * @ingroup Skins
  */
-
 @media not print {
-
-	.printWikifabFooter {
-		.hidden();
+	.printWikifabFooter { .hidden ();
+		
 	}
-	.print-only {
-		.hidden();
+	.print-only { .hidden ();
+		
 	}
 }
 
 @media print {
-	.noprint,
-	.navbar,
-	.wiki-nav,
-	.feedback,
-	.PageNetworkLinks,
-	.footerdata,
-	.footer-main,
-	.mw-editsection, .mw-editsection-like, .toctoggle, .magnify, .footer-places {
-		.hidden();
+	.noprint, .navbar, .wiki-nav, .feedback, .PageNetworkLinks, .footerdata,
+		.footer-main, .mw-editsection, .mw-editsection-like, .toctoggle,
+		.magnify, .footer-places { .hidden ();
+		
 	}
-	
-	.tuto_print_url{
-		margin-top:-1em;
+	.tuto_print_url {
+		margin-top: -1em;
 	}
-	
+
 	/***********************
 	 * header
 	 ***********************/
 	.printWikifabHeader {
-	    margin-bottom: .4em;
+		margin-bottom: .4em;
 	}
 	.printWikifabHeader .logo img {
-		margin-top:20px;
-		width:100%;
+		margin-top: 20px;
+		width: 100%;
 	}
 	.printWikifabHeader .header-info {
-		display:none;
+		display: none;
 	}
 	.printWikifabHeader .firstHeading {
-	    border-bottom-width: 0px;
-	    padding-bottom: .1em;
-	    margin-bottom: 0;
+		border-bottom-width: 0px;
+		padding-bottom: .1em;
+		margin-bottom: 0;
 	}
-	.contentHeader {
-		display:none;
+	.mw-jump {
+		display: none;
+	}
+	#firstHeading {
+		font-size: 3em;
+		text-align: center;
+		border-bottom: 0px;
 	}
 	.printWikifabFooter {
-	    position: fixed;
-	    bottom: 0;
-	    display: table-footer-group;
+		position: fixed;
+		bottom: 0;
+		display: table-footer-group;
 	}
-	
 	a[href]:after {
-	    content: none;
+		content: none;
 	}
-	
 	#bodyContent .row {
-	    page-break-inside: avoid;
+		page-break-inside: avoid;
 	}
-	
 	.printPageBreakBefore {
-	    page-break-before: always;
+		page-break-before: always;
 	}
 	.printPageBreakAfter {
-	    page-break-after: always;
+		page-break-after: always;
 	}
-	
-	.row .col-md-1, .row .col-md-2, .row .col-md-3, .row .col-md-4, .row .col-md-5, .row .col-md-6, .row .col-md-7, .row .col-md-8, .row .col-md-9, .row .col-md-10, .row .col-md-11, .row .col-md-12 {
-        float: left;
-   }
-   .row .col-md-12 {
-        width: 100%;
-   }
-   .row .col-md-11 {
-        width: 91.66666667%;
-   }
-   .row .col-md-10 {
-        width: 83.33333333%;
-   }
-   .row .col-md-9 {
-        width: 75%;
-   }
-   .row .col-md-8 {
-        width: 66.66666667%;
-   }
-   .row .col-md-7 {
-        width: 58.33333333%;
-   }
-   .row .col-md-6 {
-        width: 50%;
-   }
-   .row .col-md-5 {
-        width: 41.66666667%;
-   }
-   .row .col-md-4 {
-        width: 33.33333333%;
-   }
-   .row .col-md-3 {
-        width: 25%;
-   }
-   .row .col-md-2 {
-        width: 16.66666667%;
-   }
-   .row .col-md-1 {
-        width: 8.33333333%;
-   }
-   .row div.fullWidthPrint {
-        width: 100%;
-   }
-   #bodyContent .tuto-step-image .carousel-indicators li:first-child { 
-   		display:none;
-   }
-   #bodyContent .tuto-step-image .carousel-indicators li {
-   		width:100%;
-   		height:auto;
-   }
-   #bodyContent .tuto-main-image img, #bodyContent .tuto-step-image img {
-   		height: auto;
-   		border: 1px solid #ddd;
-    	border-radius: 0;
-   }
-   #bodyContent .tuto-items-container .tuto-items-details-container {
-   	    background: #f1f1f1 !important;
-   }
-    #bodyContent .tuto-items-container .tuto-items-details-container.printTOC {
-    	background: #ffffff !important;
-    	border:none;
-   }
-
-   #bodyContent .tuto-items-container .tuto-items-details-container.printTOC #toctitle,
-   #bodyContent .tuto-items-container .tuto-items-details-container.printTOC .fa {
-   		display:none;
-   }
-
-   .step-instructions p.step-title-print {
-      font-size: 24px;
-      margin-top: 20px;
-      margin-bottom: 10px;
-      font-family: inherit;
-      font-weight: 500;
-      line-height: 1.1;
-   }
-
-   hr.printPageBreakBefore, hr.printPageBreakAfter {
-       border-top: none;
-   }
-
-   #bodyContent .tuto-items-container {
-   		margin-top:25px
-   }
-   #bodyContent .printMainTitle {
-    margin-top: -113px;
-    padding-bottom: 28px;
-    padding-left: 23px;
-    width: 100%;
-    position: relative;
-    background: #000 !important;
-    background: -webkit-linear-gradient(transparent, #000) !important;
-    background: -o-linear-gradient(transparent, #000) !important;
-    background: -moz-linear-gradient(transparent, #000) !important;
-    background: linear-gradient(transparent, #000) !important;
-   }
-   #bodyContent .printMainTitle h1 .mw-headline, #bodyContent .printMainTitle .tuto-details-author-name {
-	    color: #fff !important;
-	    text-shadow: rgba(0,0,0,0.498039) 0px 1px 3px !important;
+	.row .col-md-1, .row .col-md-2, .row .col-md-3, .row .col-md-4, .row .col-md-5,
+		.row .col-md-6, .row .col-md-7, .row .col-md-8, .row .col-md-9, .row .col-md-10,
+		.row .col-md-11, .row .col-md-12 {
+		float: left;
 	}
-
-  #bodyContent .printMainTitle h1 .mw-headline {
-    font-weight:bold;
-  }
+	.row .col-md-12 {
+		width: 100%;
+	}
+	.row .col-md-11 {
+		width: 91.66666667%;
+	}
+	.row .col-md-10 {
+		width: 83.33333333%;
+	}
+	.row .col-md-9 {
+		width: 75%;
+	}
+	.row .col-md-8 {
+		width: 66.66666667%;
+	}
+	.row .col-md-7 {
+		width: 58.33333333%;
+	}
+	.row .col-md-6 {
+		width: 50%;
+	}
+	.row .col-md-5 {
+		width: 41.66666667%;
+	}
+	.row .col-md-4 {
+		width: 33.33333333%;
+	}
+	.row .col-md-3 {
+		width: 25%;
+	}
+	.row .col-md-2 {
+		width: 16.66666667%;
+	}
+	.row .col-md-1 {
+		width: 8.33333333%;
+	}
+	.row div.fullWidthPrint {
+		width: 100%;
+	}
+	#bodyContent .tuto-step-image .carousel-indicators li:first-child {
+		display: none;
+	}
+	#bodyContent .tuto-step-image .carousel-indicators li {
+		width: 100%;
+		height: auto;
+	}
+	#bodyContent .tuto-main-image img, #bodyContent .tuto-step-image img {
+		height: auto;
+		border: 1px solid #ddd;
+		border-radius: 0;
+	}
+	#bodyContent .tuto-items-container .tuto-items-details-container {
+		background: #f1f1f1 !important;
+	}
+	#bodyContent .tuto-items-container .tuto-items-details-container.printTOC
+		{
+		background: #ffffff !important;
+		border: none;
+	}
+	#bodyContent .tuto-items-container .tuto-items-details-container.printTOC #toctitle,
+		#bodyContent .tuto-items-container .tuto-items-details-container.printTOC .fa
+		{
+		display: none;
+	}
+	.step-instructions p.step-title-print {
+		font-size: 24px;
+		margin-top: 20px;
+		margin-bottom: 10px;
+		font-family: inherit;
+		font-weight: 500;
+		line-height: 1.1;
+	}
+	hr.printPageBreakBefore, hr.printPageBreakAfter {
+		border-top: none;
+	}
+	#bodyContent .tuto-items-container {
+		margin-top: 25px
+	}
+	#bodyContent .printMainTitle {
+		margin-top: -113px;
+		padding-bottom: 28px;
+		padding-left: 23px;
+		width: 100%;
+		position: relative;
+		background: #000 !important;
+		background: -webkit-linear-gradient(transparent, #000) !important;
+		background: -o-linear-gradient(transparent, #000) !important;
+		background: -moz-linear-gradient(transparent, #000) !important;
+		background: linear-gradient(transparent, #000) !important;
+	}
+	#bodyContent .printMainTitle h1 .mw-headline, #bodyContent .printMainTitle .tuto-details-author-name
+		{
+		color: #fff !important;
+		text-shadow: rgba(0, 0, 0, 0.498039) 0px 1px 3px !important;
+	}
+	#bodyContent .printMainTitle h1 .mw-headline {
+		font-weight: bold;
+	}
 	#bodyContent .printMainTitle .tuto-details-author-name {
-    font-size: 19px;  
-    position: absolute;
-    margin-left: 57px;
-    margin-top: 8px;
+		font-size: 19px;
+		position: absolute;
+		margin-left: 57px;
+		margin-top: 8px;
 	}
-
-   #bodyContent .tuto-main-image .annotatedImageContainer {
-   		height: 500px;
-    	overflow: hidden;
-   }
-   #bodyContent .tuto-details-author-box a.image {
-    width: 45px;
-    height: 45px;
-    margin: 0px 8px 2px 0px;
-    display: block;
-    position: absolute;
-   }
-   #bodyContent .tuto-main-image p {
-    margin-bottom: 40px;
-  }
-   #bodyContent .tuto-details-author-box a.image img {
-    	max-height: 45px;
-        border-radius: 100%;
+	#bodyContent .tuto-main-image .annotatedImageContainer {
+		height: 500px;
+		overflow: hidden;
 	}
-    #bodyContent .tuto-main-image {
-   		background: black !important;
-   }
-   #bodyContent .hrContentMinor {
-   	  margin: 15px 0;
-	    border-bottom: 2px dotted #ccc;
-   }
-	#bodyContent .row > div {
-	  page-break-inside: avoid;
+	#bodyContent .tuto-main-image p {
+		margin-bottom: 40px;
 	}
-	#bodyContent .row > div:first-child {
+	.tuto-main-image .pageurl {
+		padding: 1em 0 0.6em 0;
+		font-size: 1.2em;
+		text-align:center;
+	}
+	.lasteditdateinfo {
+		font-size: 1.1em;
+		text-align:center;
+	}
+	#bodyContent .tuto-details-author-box a.image {
+		width: 45px;
+		height: 45px;
+		margin: 0px 8px 2px 0px;
+		display: block;
+		position: absolute;
+	}
+	#bodyContent .tuto-details-author-box a.image img {
+		max-height: 45px;
+		border-radius: 100%;
+	}
+	#bodyContent .hrContentMinor {
+		margin: 15px 0;
+		border-bottom: 2px dotted #ccc;
+	}
+	#bodyContent .row>div {
+		page-break-inside: avoid;
+	}
+	#bodyContent .row>div:first-child {
 		page-break-after: avoid;
 	}
-	#bodyContent .form-intro label.label-danger{
+	#bodyContent .form-intro label.label-danger {
 		background-color: #d9534f;
-		color:#fff;
+		color: #fff;
 	}
-
 }
