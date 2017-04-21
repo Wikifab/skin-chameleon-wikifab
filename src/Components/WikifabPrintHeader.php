@@ -30,6 +30,7 @@ class WikifabPrintHeader extends Component {
 	 * @return String the HTML code
 	 */
 	public function getHtml() {
+		global $wgLogoMD;
 
 		// get page info :
 		$pageUrl = " " . $this->getSkin()->getTitle()->getFullURL();
@@ -42,30 +43,19 @@ class WikifabPrintHeader extends Component {
 		$ret .= \Html::openElement("div", array('class'=> 'row'));
 
 		// Logo
-		$ret .= \Html::openElement("div", array('class'=> 'col-md-3 logo'));
+		$logo = $this->getSkinTemplate()->data[ 'logopath' ];
+		if ($wgLogoMD) {
+			$logo = $wgLogoMD;
+		}
+		$ret .= \Html::openElement("div", array('class'=> 'col-md-12 logo'));
 		$ret .= \Html::element( 'img',
 				array(
-						'src' => $this->getSkinTemplate()->data[ 'logopath' ],
+						'src' => $logo,
 						'alt' => $this->getSkinTemplate()->data[ 'sitename' ],
 				)
 				);
 		// close logo div
 		$ret .= \Html::closeElement("div");
-
-		// title
-		$ret .= \Html::openElement("div", array('class'=> 'col-md-9 header-info'));
-		$ret .= \Html::Element("h1", array('class'=> 'footerText firstHeading'), $this->getSkinTemplate()->data['title']);
-
-		$ret .= \Html::openElement("span",['class' => 'urllink']);
-		//$ret .= wfMessage( 'wfprint-pagelink', $pageUrl );
-		$ret .= $pageUrl ;
-		$ret .= \Html::closeElement("span");
-
-		//$ret .= \Html::Element("span",['class' => 'lastedit'], wfMessage( 'wfprint-versionnumber', $lasteditDate, $lasteditTime )->parse());
-
-		//close title div
-		$ret .= \Html::closeElement("div");
-
 
 		// close row div
 		$ret .= \Html::closeElement("div");
@@ -74,16 +64,24 @@ class WikifabPrintHeader extends Component {
 		// close printWikifabHeader div
 		$ret .= \Html::closeElement("div");
 
-		/*
-		var_dump($this->getSkinTemplate()->data['lastmod']);
+		return $ret;
+	}
 
-		var_dump($d); echo '<br/>';
-		var_dump($t); echo '<br/>';
-		var_dump($s); echo '<br/>';
+	/**
+	 * unused
+	 *
+	 * @param string $class
+	 * @return string
+	 */
+	private function getTitleInfoDiv ($class='') {
+		$ret = \Html::openElement("div", array('class'=> $class . ' header-info'));
+		$ret .= \Html::Element("h1", array('class'=> 'footerText firstHeading'), $this->getSkinTemplate()->data['title']);
 
-		foreach ($this->getSkinTemplate()->data as $key => $val) {
-			echo "$key <br/>";
-		}*/
+		$ret .= \Html::openElement("span",['class' => 'urllink']);
+		//$ret .= wfMessage( 'wfprint-pagelink', $pageUrl );
+		$ret .= $pageUrl ;
+		$ret .= \Html::closeElement("span");
+		$ret .= \Html::closeElement("div");
 
 		return $ret;
 	}
