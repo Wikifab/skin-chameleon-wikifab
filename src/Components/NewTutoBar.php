@@ -29,6 +29,7 @@ class NewTutoBar extends Component {
 	 */
 	public function getHtml() {
 		global $wgExploreIsLocalized;
+		// in not translatable wiki, Formulaire used name is the value mathcing key 'wfTopButton-Tutorial' whereas in i18n wiki, it is always 'Tutorial'
 		if ($wgExploreIsLocalized) {
 			$newTutoPageTitle = \Title::makeTitle( SF_NS_FORM, 'Tutorial');
 		} else {
