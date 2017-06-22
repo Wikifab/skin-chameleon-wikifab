@@ -351,6 +351,13 @@ class NavbarHorizontal extends Component {
 		return $search->getHtml();
 	}
 
+	protected function getLanguageIcon($item) {
+		if (isset($item['html'])) {
+			return $item['html'];
+		}
+		return $this->getSkinTemplate()->makeListItem( 'uls', $item );
+	}
+
 	/**
 	 * Creates a user's personal tools and the newtalk notifier
 	 *
@@ -377,21 +384,35 @@ class NavbarHorizontal extends Component {
 		// start notifications widgets :
 		$personnalsToolsWidgets = [
 				"notifications-alert",
-				"notifications-notice"
+				"notifications-notice",
+				"uls",
+				"language"
 		];
-		$widgets='';
+		$widgets = '';
+		$widgetsUls = null;
 		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
 			if ( !in_array($key, $personnalsToolsWidgets)) {
 				continue;
 			}
+			if ($key == 'uls' || $key == 'language' ) {
+				$widgetsUls = $item ;
+				continue;
+			}
 			$widgets .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+		}
+		if ($widgetsUls) {
+			$ret .=
+				$this->indent() . '<!-- personal widgets uls -->' .
+				$this->indent(+1) . '<ul class="navbar-personaltools navbar-nav navbar-personaltoolwidgets navbar-nav-widgets" >' .
+				$this->getLanguageIcon($widgetsUls) .
+				$this->indent(-1) . '</ul>' ;
 		}
 		if ($widgets) {
 			$ret .=
 				$this->indent() . '<!-- personal widgets -->' .
-				$this->indent() . '<ul class="navbar-personaltools navbar-nav navbar-personaltoolwidgets navbar-nav-widgets" >' .
+				$this->indent(+1) . '<ul class="navbar-personaltools navbar-nav navbar-personaltoolwidgets navbar-nav-widgets" >' .
 				$widgets .
-				$this->indent( -1 ) . '</ul>' ;
+				$this->indent(-1) . '</ul>' ;
 		}
 
 		// start personal tools element
