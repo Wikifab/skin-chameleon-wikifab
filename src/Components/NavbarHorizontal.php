@@ -377,7 +377,8 @@ class NavbarHorizontal extends Component {
 		// start notifications widgets :
 		$personnalsToolsWidgets = [
 				"notifications-alert",
-				"notifications-notice"
+				"notifications-notice",
+				"language"
 		];
 		$widgets='';
 		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
