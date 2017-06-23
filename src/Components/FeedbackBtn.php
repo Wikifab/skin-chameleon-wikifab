@@ -31,11 +31,18 @@ class FeedbackBtn extends Component {
 	 */
 	public function getHtml() {
 
-		$ret = '
-			<div class="Feedback-btn">		
-				<a href="http://feedback.wikifab.org" target="_blank"><img src="/skins/wikifabStyleModule/images/feedback-btn.jpg" alt="feedback"></a>
-			</div>
-		';
-		return $ret;
+		global $wgWfFeedbackUrl;
+
+		if ($wgWfFeedbackUrl) {
+			$ret = '
+				<div class="Feedback-btn">
+					<a href="http://feedback.wikifab.org" target="_blank"><img src="/skins/wikifabStyleModule/images/feedback-btn.jpg" alt="feedback"></a>
+				</div>
+			';
+			return $ret;
+		} else {
+			return '';
+		}
+
 	}
 }

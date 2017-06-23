@@ -28,8 +28,13 @@ class NewTutoBar extends Component {
 	 * @return string
 	 */
 	public function getHtml() {
-
-		$newTutoPageTitle = \Title::makeTitle( SF_NS_FORM, ''. wfMessage( 'wfTopButton-Tutorial' )->text() .'');
+		global $wgExploreIsLocalized;
+		// in not translatable wiki, Formulaire used name is the value mathcing key 'wfTopButton-Tutorial' whereas in i18n wiki, it is always 'Tutorial'
+		if ($wgExploreIsLocalized) {
+			$newTutoPageTitle = \Title::makeTitle( SF_NS_FORM, 'Tutorial');
+		} else {
+			$newTutoPageTitle = \Title::makeTitle( SF_NS_FORM, ''. wfMessage( 'wfTopButton-Tutorial' )->text() .'');
+		}
 
 		$ret = $this->indent() . '<!-- new tuto button -->' .
 			$this->indent() . '<div class="wf-top-button">' .
