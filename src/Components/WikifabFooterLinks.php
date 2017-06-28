@@ -30,6 +30,9 @@ class WikifabFooterLinks extends Component {
 	 * @return String the HTML code
 	 */
 	public function getHtml() {
+		global $wgScriptPath, $wgLang;
+
+		$langCode = $wgLang->getCode();
 
 		$ret = '
 			<div class="row footer-links">
@@ -38,27 +41,27 @@ class WikifabFooterLinks extends Component {
 				<div class="col-md-6 col-sm-6 col-xs-6">
 					<h4>'. wfMessage( 'wffootertitle-about' )->text() .'</h4>
 					<ul class="list-unstyled">
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:About/' . $wLang . '">'. wfMessage( 'wffooter-about' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Organization/' . $wLang . '">'. wfMessage( 'wffooter-organization' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Team/' . $wLang . '">'. wfMessage( 'wffooter-team' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:About/' . $langCode . '">'. wfMessage( 'wffooter-about' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Organization/' . $langCode . '">'. wfMessage( 'wffooter-organization' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Team/' . $langCode . '">'. wfMessage( 'wffooter-team' )->text() .'</a></li>
 						<li><a href="http://feedback.wikifab.org" target="_blank">'. wfMessage( 'wffooter-community' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Press/' . $wLang . '">'. wfMessage( 'wffooter-press' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Fablabs/' . $wLang . '">'. wfMessage( 'wffooter-fablabs' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Press/' . $langCode . '">'. wfMessage( 'wffooter-press' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Fablabs/' . $langCode . '">'. wfMessage( 'wffooter-fablabs' )->text() .'</a></li>
 						<li><a href="http://feedback.wikifab.org/t/about-the-wikifab-software-source-code" target="_blank">'. wfMessage( 'wffooter-developers' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Donate/' . $wLang . '">'. wfMessage( 'wffooter-make-a-donation' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Donate/' . $langCode . '">'. wfMessage( 'wffooter-make-a-donation' )->text() .'</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-6">
 					<h4>'. wfMessage( 'wffootertitle-support' )->text() .'</h4>
 					<ul class="list-unstyled">
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Help/' . $wLang . '">'. wfMessage( 'wffooter-help' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Get_started/' . $wLang . '">'. wfMessage( 'wffooter-get-started' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Best_practices/' . $wLang . '">'. wfMessage( 'wffooter-best-practices' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Help/' . $langCode . '">'. wfMessage( 'wffooter-help' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Get_started/' . $langCode . '">'. wfMessage( 'wffooter-get-started' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Best_practices/' . $langCode . '">'. wfMessage( 'wffooter-best-practices' )->text() .'</a></li>
 						<li><a href="' . $wgScriptPath . '/index.php/Special:Recentchanges">'. wfMessage( 'wffooter-recent-changes' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Privacy_policy/' . $wLang . '">'. wfMessage( 'wffooter-privacy-policy' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Cookie_policy/' . $wLang . '">'. wfMessage( 'wffooter-cookie-policy' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Terms_of_use/' . $wLang . '">'. wfMessage( 'wffooter-terms-of-use' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Contact_us/' . $wLang . '">'. wfMessage( 'wffooter-contact' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Privacy_policy/' . $langCode . '">'. wfMessage( 'wffooter-privacy-policy' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Cookie_policy/' . $langCode . '">'. wfMessage( 'wffooter-cookie-policy' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Terms_of_use/' . $langCode . '">'. wfMessage( 'wffooter-terms-of-use' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Contact_us/' . $langCode . '">'. wfMessage( 'wffooter-contact' )->text() .'</a></li>
 					</ul>
 				</div>
 				</div>
