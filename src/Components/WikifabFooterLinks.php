@@ -54,7 +54,7 @@ class WikifabFooterLinks extends Component {
 				<div class="col-md-6 col-sm-6 col-xs-6">
 					<h4>'. wfMessage( 'wffootertitle-support' )->text() .'</h4>
 					<ul class="list-unstyled">
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Help/' . $langCode . '">'. wfMessage( 'wffooter-help' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:HelpCenter/' . $langCode . '">'. wfMessage( 'wffooter-help' )->text() .'</a></li>
 						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Get_started/' . $langCode . '">'. wfMessage( 'wffooter-get-started' )->text() .'</a></li>
 						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Best_practices/' . $langCode . '">'. wfMessage( 'wffooter-best-practices' )->text() .'</a></li>
 						<li><a href="' . $wgScriptPath . '/index.php/Special:Recentchanges">'. wfMessage( 'wffooter-recent-changes' )->text() .'</a></li>
