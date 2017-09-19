@@ -41,27 +41,27 @@ class WikifabFooterLinks extends Component {
 				<div class="col-md-6 col-sm-6 col-xs-6">
 					<h4>'. wfMessage( 'wffootertitle-about' )->text() .'</h4>
 					<ul class="list-unstyled">
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:About/' . $langCode . '">'. wfMessage( 'wffooter-about' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Organization/' . $langCode . '">'. wfMessage( 'wffooter-organization' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Team/' . $langCode . '">'. wfMessage( 'wffooter-team' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:About/">'. wfMessage( 'wffooter-about' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Organization/">'. wfMessage( 'wffooter-organization' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Team/">'. wfMessage( 'wffooter-team' )->text() .'</a></li>
 						<li><a href="http://feedback.wikifab.org" target="_blank">'. wfMessage( 'wffooter-community' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Press/' . $langCode . '">'. wfMessage( 'wffooter-press' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Fablabs/' . $langCode . '">'. wfMessage( 'wffooter-fablabs' )->text() .'</a></li>
-						<li><a href="http://feedback.wikifab.org/t/about-the-wikifab-software-source-code" target="_blank">'. wfMessage( 'wffooter-developers' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Donate/' . $langCode . '">'. wfMessage( 'wffooter-make-a-donation' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Press/">'. wfMessage( 'wffooter-press' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Fablabs/">'. wfMessage( 'wffooter-fablabs' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Developers/">'. wfMessage( 'wffooter-developers' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Donate/">'. wfMessage( 'wffooter-make-a-donation' )->text() .'</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-6">
 					<h4>'. wfMessage( 'wffootertitle-support' )->text() .'</h4>
 					<ul class="list-unstyled">
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Help/' . $langCode . '">'. wfMessage( 'wffooter-help' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Get_started/' . $langCode . '">'. wfMessage( 'wffooter-get-started' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Best_practices/' . $langCode . '">'. wfMessage( 'wffooter-best-practices' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Help/">'. wfMessage( 'wffooter-help' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Get_started/">'. wfMessage( 'wffooter-get-started' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Best_practices/">'. wfMessage( 'wffooter-best-practices' )->text() .'</a></li>
 						<li><a href="' . $wgScriptPath . '/index.php/Special:Recentchanges">'. wfMessage( 'wffooter-recent-changes' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Privacy_policy/' . $langCode . '">'. wfMessage( 'wffooter-privacy-policy' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Cookie_policy/' . $langCode . '">'. wfMessage( 'wffooter-cookie-policy' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Terms_of_use/' . $langCode . '">'. wfMessage( 'wffooter-terms-of-use' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Contact_us/' . $langCode . '">'. wfMessage( 'wffooter-contact' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Privacy_policy/">'. wfMessage( 'wffooter-privacy-policy' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Cookie_policy/">'. wfMessage( 'wffooter-cookie-policy' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Terms_of_use/">'. wfMessage( 'wffooter-terms-of-use' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Contact_us/">'. wfMessage( 'wffooter-contact' )->text() .'</a></li>
 					</ul>
 				</div>
 				</div>
@@ -71,28 +71,28 @@ class WikifabFooterLinks extends Component {
 				<div class="col-md-4 col-sm-4 col-xs-6">
 					<h4>'. wfMessage( 'wffootertitle-discover' )->text() .'</h4>
 					<ul class="list-unstyled">
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-art' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-art' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-clothing-accessories' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-clothing-accessories' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-decoration' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-decoration' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-electronics' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-electronics' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-energy' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-energy' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-food-agriculture' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-food-agriculture' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-furniture' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-furniture' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-health-wellbeing' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-health-wellbeing' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-play-recreation' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-play-recreation' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Art=on">'. wfMessage( 'wffooter-categoriename-art' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Clothing+and+Accessories=on">'. wfMessage( 'wffooter-categoriename-clothing-accessories' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Decoration=on">'. wfMessage( 'wffooter-categoriename-decoration' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Electronics=on">'. wfMessage( 'wffooter-categoriename-electronics' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Energy=on">'. wfMessage( 'wffooter-categoriename-energy' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Food+and+Agriculture=on">'. wfMessage( 'wffooter-categoriename-food-agriculture' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Furniture=on">'. wfMessage( 'wffooter-categoriename-furniture' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Health+and+Wellbeing=on">'. wfMessage( 'wffooter-categoriename-health-wellbeing' )->text() .'</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-6">
 					<h4>&nbsp;</h4>
 					<ul class="list-unstyled">
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-house' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-house' )->text() .'</a></li>
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-machines-tools' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-machines-tools' )->text() .'</a></li>
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-music-sound' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-music-sound' )->text() .'</a></li>
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-play-outside' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-play-outside' )->text() .'</a></li>
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-recycling-upcycling' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-recycling-upcycling' )->text() .'</a></li>
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-robotics' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-robotics' )->text() .'</a></li>
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-science-biology' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-science-biology' )->text() .'</a></li>
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-'. wfMessage( 'wffooterlinks-categoriename-transport-mobility' )->text() .'=on">'. wfMessage( 'wffooter-categoriename-transport-mobility' )->text() .'</a></li>
+					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-House=on">'. wfMessage( 'wffooter-categoriename-house' )->text() .'</a></li>
+					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Machines+and+Tools=on">'. wfMessage( 'wffooter-categoriename-machines-tools' )->text() .'</a></li>
+					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Music+and+Sound=on">'. wfMessage( 'wffooter-categoriename-music-sound' )->text() .'</a></li>
+					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Sport+and+Outside=on">'. wfMessage( 'wffooter-categoriename-play-outside' )->text() .'</a></li>
+					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Play+and+Hobbies=on">'. wfMessage( 'wffooter-categoriename-play-recreation' )->text() .'</a></li>
+					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Recycling+and+Upcycling=on">'. wfMessage( 'wffooter-categoriename-recycling-upcycling' )->text() .'</a></li>
+					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Robotics=on">'. wfMessage( 'wffooter-categoriename-robotics' )->text() .'</a></li>
+					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Science+and+Biology=on">'. wfMessage( 'wffooter-categoriename-science-biology' )->text() .'</a></li>
+					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Transport+and+Mobility=on">'. wfMessage( 'wffooter-categoriename-transport-mobility' )->text() .'</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-12">
