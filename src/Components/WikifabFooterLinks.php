@@ -41,27 +41,27 @@ class WikifabFooterLinks extends Component {
 				<div class="col-md-6 col-sm-6 col-xs-6">
 					<h4>'. wfMessage( 'wffootertitle-about' )->text() .'</h4>
 					<ul class="list-unstyled">
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:About/">'. wfMessage( 'wffooter-about' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Organization/">'. wfMessage( 'wffooter-organization' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Team/">'. wfMessage( 'wffooter-team' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:About">'. wfMessage( 'wffooter-about' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Organization">'. wfMessage( 'wffooter-organization' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Team">'. wfMessage( 'wffooter-team' )->text() .'</a></li>
 						<li><a href="http://feedback.wikifab.org" target="_blank">'. wfMessage( 'wffooter-community' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Press/">'. wfMessage( 'wffooter-press' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Fablabs/">'. wfMessage( 'wffooter-fablabs' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Developers/">'. wfMessage( 'wffooter-developers' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Donate/">'. wfMessage( 'wffooter-make-a-donation' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Press">'. wfMessage( 'wffooter-press' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Fablabs">'. wfMessage( 'wffooter-fablabs' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Developers">'. wfMessage( 'wffooter-developers' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Donate">'. wfMessage( 'wffooter-make-a-donation' )->text() .'</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-6">
 					<h4>'. wfMessage( 'wffootertitle-support' )->text() .'</h4>
 					<ul class="list-unstyled">
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Help/">'. wfMessage( 'wffooter-help' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Get_started/">'. wfMessage( 'wffooter-get-started' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Best_practices/">'. wfMessage( 'wffooter-best-practices' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Help">'. wfMessage( 'wffooter-help' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Get_started">'. wfMessage( 'wffooter-get-started' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Best_practices">'. wfMessage( 'wffooter-best-practices' )->text() .'</a></li>
 						<li><a href="' . $wgScriptPath . '/index.php/Special:Recentchanges">'. wfMessage( 'wffooter-recent-changes' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Privacy_policy/">'. wfMessage( 'wffooter-privacy-policy' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Cookie_policy/">'. wfMessage( 'wffooter-cookie-policy' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Terms_of_use/">'. wfMessage( 'wffooter-terms-of-use' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Contact_us/">'. wfMessage( 'wffooter-contact' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Privacy_policy">'. wfMessage( 'wffooter-privacy-policy' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Cookie_policy">'. wfMessage( 'wffooter-cookie-policy' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Terms_of_use">'. wfMessage( 'wffooter-terms-of-use' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Contact_us">'. wfMessage( 'wffooter-contact' )->text() .'</a></li>
 					</ul>
 				</div>
 				</div>
