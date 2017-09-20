@@ -47,7 +47,7 @@ class WikifabFooterLinks extends Component {
 						<li><a href="http://feedback.wikifab.org" target="_blank">'. wfMessage( 'wffooter-community' )->text() .'</a></li>
 						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Press/' . $langCode . '">'. wfMessage( 'wffooter-press' )->text() .'</a></li>
 						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Fablabs/' . $langCode . '">'. wfMessage( 'wffooter-fablabs' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Developers/' . $langCode . '">'. wfMessage( 'wffooter-developers' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Developers">'. wfMessage( 'wffooter-developers' )->text() .'</a></li>
 						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Donate/' . $langCode . '">'. wfMessage( 'wffooter-make-a-donation' )->text() .'</a></li>
 					</ul>
 				</div>
