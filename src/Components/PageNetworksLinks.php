@@ -6,6 +6,10 @@ use MWNamespace;
 use Skins\Chameleon\ChameleonTemplate;
 use Skins\Chameleon\IdRegistry;
 
+use \UsersPagesLinks\Buttons;
+// use function getUsersListHtml ;
+
+
 /**
  * The PageTools class.
  *
@@ -38,7 +42,11 @@ class PageNetworksLinks extends Component {
 
 
 	public function getButton($type, $pageUri, $counter, $active){
-
+		
+		static $buttonId=0;
+		$buttonId++;
+		$numPage =1;
+		
 		if ($active){
 			$addClass='rmAction';
 		} else {
@@ -70,11 +78,38 @@ class PageNetworksLinks extends Component {
 		$button .= '</button>';
 		$button .= '</a>';
 
-		$button .= '<a class="UsersPagesLinksButtonCounter '.$addClass.'" data-linkstype="'.$type.'" data-page="'.$pageUri.'" >';
+		$pageTitle = \Title::newFromText($pageUri);
+		$urlParams = array(
+				'pageName' => $pageTitle,
+				'typeButton' => $type,
+ 				'numPage'=>$numPage,
+		);
+		
+		$displayLinkPage = \SpecialPage::getTitleFor('DisplayUsersList');
+		$url= $displayLinkPage->getFullURL($urlParams);
+			
+		$button .= '<a href="'.$url.'" class="UsersPagesLinksButtonCounter '.$addClass.'" data-linkstype="'.$type.'" data-page="'.$pageUri.'" data-listid ="'.$buttonId.'" >';
 		$button .= '<button>';
 		$button .= $counter;
 		$button .= '</button>';
 		$button .= '</a>';
+
+		$button .= '<div class="UsersListContent" id="boutonContent'.$buttonId.'"> ';
+		$pageTitle = \Title::newFromText($pageUri);
+		
+		$test = Buttons::getUsersListHtml($pageTitle, $type,3) ;
+		$button .= $test ;
+		if ($counter>3)
+		{
+			$peopleHide = $counter - 3 ;
+			$button .= '<div>';
+			$button .= 'Et  '.$peopleHide.' de plus ... </div>';
+		}
+		$button .= '</div>';
+		
+		//$button .= '<button class="hideButton" data-listid ="'.$buttonId.'" id="hideList'.$buttonId.'"  > X';
+		//$button .= '</button>';
+		
 
 		return $button;
 	}
