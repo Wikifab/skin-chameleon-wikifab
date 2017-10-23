@@ -96,21 +96,10 @@ class PageNetworksLinks extends Component {
 
 		$button .= '<div class="UsersListContent" id="boutonContent'.$buttonId.'"> ';
 		$pageTitle = \Title::newFromText($pageUri);
-		
-		$test = Buttons::getUsersListHtml($pageTitle, $type,3) ;
+		$test = Buttons::getShortUsersListHtml($pageTitle, $type,3,$numPage,$counter) ;
 		$button .= $test ;
-		if ($counter>3)
-		{
-			$peopleHide = $counter - 3 ;
-			$button .= '<div>';
-			$button .= 'Et  '.$peopleHide.' de plus ... </div>';
-		}
 		$button .= '</div>';
 		
-		//$button .= '<button class="hideButton" data-listid ="'.$buttonId.'" id="hideList'.$buttonId.'"  > X';
-		//$button .= '</button>';
-		
-
 		return $button;
 	}
 
