@@ -42,11 +42,11 @@ class PageNetworksLinks extends Component {
 
 
 	public function getButton($type, $pageUri, $counter, $active){
-		
+
 		static $buttonId=0;
 		$buttonId++;
 		$numPage =1;
-		
+
 		if ($active){
 			$addClass='rmAction';
 		} else {
@@ -84,10 +84,10 @@ class PageNetworksLinks extends Component {
 				'typeButton' => $type,
  				'numPage'=>$numPage,
 		);
-		
+
 		$displayLinkPage = \SpecialPage::getTitleFor('DisplayUsersList');
 		$url= $displayLinkPage->getFullURL($urlParams);
-			
+
 		$button .= '<a href="'.$url.'" class="UsersPagesLinksButtonCounter '.$addClass.'" data-linkstype="'.$type.'" data-page="'.$pageUri.'" data-listid ="'.$buttonId.'" >';
 		$button .= '<button>';
 		$button .= $counter;
@@ -99,7 +99,7 @@ class PageNetworksLinks extends Component {
 		$test = Buttons::getShortUsersListHtml($pageTitle, $type,3,$numPage,$counter) ;
 		$button .= $test ;
 		$button .= '</div>';
-		
+
 		return $button;
 	}
 
@@ -128,7 +128,7 @@ class PageNetworksLinks extends Component {
 				$class='groupAdded';
 				$box = '<i class="fa fa-check-square-o" aria-hidden="true"></i>';
 			}
-			$button .= '<li><a href="#" class="addToGroupLink '.$class.'" data-grouppage="'.$groupPageUri.'" data-page="'.$pageUri.'">'. $box . ' ' . $groupPageName.'</a></li>';
+			$button .= '<li><a href="#" class="addToGroupLink '.$class.'" data-grouppage="'.str_replace('"','&quot;',$groupPageUri).'" data-page="'.str_replace('"','&quot;',$pageUri).'">'. $box . ' ' . $groupPageName.'</a></li>';
 		}
 		if (1 || isset($data['message'])) {
 			$button .= '<li role="separator" class="divider"></li>';
