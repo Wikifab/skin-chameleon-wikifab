@@ -88,6 +88,9 @@ class PageNetworksLinks extends Component {
 		$displayLinkPage = \SpecialPage::getTitleFor('DisplayUsersList');
 		$url= $displayLinkPage->getFullURL($urlParams);
 
+		if ($counter == 0) {
+			$url = '#';
+		}
 		$button .= '<a href="'.$url.'" class="UsersPagesLinksButtonCounter '.$addClass.'" data-linkstype="'.$type.'" data-page="'.$pageUri.'" data-listid ="'.$buttonId.'" >';
 		$button .= '<button>';
 		$button .= $counter;
