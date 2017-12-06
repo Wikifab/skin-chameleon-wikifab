@@ -106,10 +106,10 @@ class ChameleonTemplate extends BaseTemplate {
 
 			if ( isset ( $item[ $attrib ] ) ) {
 				$item[ $attrib ] = IdRegistry::getRegistry()->getId( $item[ $attrib ], $this );
+
 			}
 
 		}
-
 		return parent::makeListItem( $key, $item, $options );
 	}
 }

@@ -385,8 +385,9 @@ class NavbarHorizontal extends Component {
 		$personnalsToolsWidgets = [
 				"notifications-alert",
 				"notifications-notice",
+		        "social-message-link",
 				"uls",
-				"language"
+				"language",
 		];
 		$widgets = '';
 		$widgetsUls = null;
@@ -398,7 +399,11 @@ class NavbarHorizontal extends Component {
 				$widgetsUls = $item ;
 				continue;
 			}
-			$widgets .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+
+			$widgets .=
+                $this->indent(+1) . '<ul class="navbar-personaltools navbar-nav navbar-personaltoolwidgets navbar-nav-widgets" >' .
+			 	$this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item ) .
+			    $this->indent(-1) . '</ul>';
 		}
 		if ($widgetsUls) {
 			$ret .=
@@ -410,9 +415,7 @@ class NavbarHorizontal extends Component {
 		if ($widgets) {
 			$ret .=
 				$this->indent() . '<!-- personal widgets -->' .
-				$this->indent(+1) . '<ul class="navbar-personaltools navbar-nav navbar-personaltoolwidgets navbar-nav-widgets" >' .
-				$widgets .
-				$this->indent(-1) . '</ul>' ;
+				$widgets ;
 		}
 
 		// start personal tools element
@@ -460,8 +463,6 @@ class NavbarHorizontal extends Component {
 					$newtalkLinkText = $this->getSkinTemplate()->getMsg( 'chameleon-nonewmessages' )->text();
 				}
 
-				$linkText = '<span class="glyphicon glyphicon-envelope"></span>';
-				\Hooks::run('ChameleonNavbarHorizontalNewTalkLinkText', array( &$linkText, $this->getSkin() ) );
 
 				$ret .= $this->indent() . '<li class="navbar-newtalk-notifier">' .
 					$this->indent( 1 ) . '<a class="dropdown-toggle ' . $newtalkClass . '" title="' .
