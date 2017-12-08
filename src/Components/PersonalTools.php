@@ -47,13 +47,13 @@ class PersonalTools extends Component {
 		$ret = $this->indent() . '<!-- personal tools -->' .
 			   $this->indent() . '<div class="p-personal ' . $this->getClassString() . '" id="p-personal" >';
 
-		$ret .= $this->indent( 1 ) . '<ul class="p-personal-tools list-inline pull-right" >';
+		$ret .= $this->indent( 1 ) . '<ul class="p-personal-tools list-inline pull-left" >';
 
 		$this->indent( 1 );
 
 		// add personal tools (links to user page, user talk, prefs, ...)
 		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
-			$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+		    $ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item, array( 'tag' => 'span' ));
 		}
 
 		$ret .= $this->indent( -1 ) . '</ul>' .

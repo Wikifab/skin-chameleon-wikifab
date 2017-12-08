@@ -391,6 +391,7 @@ class NavbarHorizontal extends Component {
 		];
 		$widgets = '';
 		$widgetsUls = null;
+		$options = array( 'text-wrapper' => [ 'tag' => 'span' ]);
 		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
 			if ( !in_array($key, $personnalsToolsWidgets)) {
 				continue;
@@ -402,7 +403,7 @@ class NavbarHorizontal extends Component {
 
 			$widgets .=
                 $this->indent(+1) . '<ul class="navbar-personaltools navbar-nav navbar-personaltoolwidgets navbar-nav-widgets" >' .
-			 	$this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item ) .
+			 	$this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item, $options ) .
 			    $this->indent(-1) . '</ul>';
 		}
 		if ($widgetsUls) {
