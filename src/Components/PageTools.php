@@ -208,20 +208,25 @@ class PageTools extends Component {
 	 * @return string
 	 */
 	protected function buildTab( $tabDescription, $key ) {
+	    // skip redundant links (i.e. the 'view' link)
+	    // TODO: make this dependent on an option
+	    if ( array_key_exists( 'redundant', $tabDescription ) && $tabDescription[ 'redundant' ] === true ) {
+	        return '';
+	    }
 
-		// skip redundant links (i.e. the 'view' link)
-		// TODO: make this dependent on an option
-		if ( array_key_exists( 'redundant', $tabDescription ) && $tabDescription[ 'redundant' ] === true ) {
-			return '';
-		}
+	    // apply a link class if specified, e.g. for the currently active namespace
+	    $options = array();
+	    if ( array_key_exists( 'class', $tabDescription ) ) {
+	        $options[ 'link-class' ] = $tabDescription[ 'class' ];
+	    }
+	    $html = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $tabDescription, $options );
 
-		// apply a link class if specified, e.g. for the currently active namespace
-		$options = array();
-		if ( array_key_exists( 'class', $tabDescription ) ) {
-			$options[ 'link-class' ] = $tabDescription[ 'class' ];
-		}
+	    if(array_key_exists('count', $tabDescription) ){
+	        $html =  str_replace('</li>', '<span class="counterTalk"> '.$tabDescription['count'].' </span></li>', $html);
+	    }
 
-		return $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $tabDescription, $options );
+	    return $html;
+
 
 	}
 
