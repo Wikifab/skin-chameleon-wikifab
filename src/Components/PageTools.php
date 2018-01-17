@@ -222,7 +222,7 @@ class PageTools extends Component {
 	    $html = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $tabDescription, $options );
 
 	    if(array_key_exists('count', $tabDescription) ){
-	        $html =  str_replace('</li>', '<span class="counterTalk"> '.$tabDescription['count'].' </span></li>', $html);
+	        $html =  str_replace('</li>', '<span class="counterTalk">'.$tabDescription['count'].'</span></li>', $html);
 	    }
 
 	    return $html;
