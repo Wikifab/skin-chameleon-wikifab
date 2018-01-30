@@ -54,8 +54,7 @@
 	"wfsearchbar-placeholder": "Search",
 	"wfsearch": "Search a tutorial",
 	"wffooter-recent-changes": "Recent changes",
-	"wffootersubtitle-1": "Wikifab - a non profit organization made with",
-	"wffootersubtitle-2": "by volunteers",
+	"wffootersubtitle": "Wikifab.org",
 	"wfprint-pagelink": "Tutorial's URL : ' : $1",
 	"wfprint-versionnumber": "Last modification on $1, at $2."
 }

@@ -33,7 +33,20 @@ class WikifabFooter extends Component {
 
 
 		$ret = '
-					'. wfMessage( 'wffootersubtitle-1' )->text() .' <span class="glyphicon glyphicon-heart" style="color:red" aria-hidden="true"></span> '. wfMessage( 'wffootersubtitle-2' )->text() .'.
+			<div class="row">
+				<div class="col-md-5">
+					'. wfMessage( 'wffootersubtitle' )->text() .'.
+				</div>
+				<div class="col-md-7 footer-social-icons">
+					<ul class="list-unstyled">
+						<li><a href="https://www.facebook.com/wikifab.org" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+						<li><a href="https://twitter.com/wiki_fab" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="https://www.youtube.com/channel/UC4wxjCQFTttfvVceVudo68Q" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+						<li><a href="https://instagram.com/wikifab/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						<li><a href="https://github.com/wikifab" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
 		';
 		return $ret;
 
