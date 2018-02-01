@@ -42,12 +42,11 @@ class WikifabFooterLinks extends Component {
 					<h4>'. wfMessage( 'wffootertitle-about' )->text() .'</h4>
 					<ul class="list-unstyled">
 						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:About">'. wfMessage( 'wffooter-about' )->text() .'</a></li>
-						<li><a href="http://feedback.wikifab.org" target="_blank">'. wfMessage( 'wffooter-forum' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Press">'. wfMessage( 'wffooter-press' )->text() .'</a></li>
 						<li><a href="' . $wgScriptPath . '/index.php/Formulaire:Group">'. wfMessage( 'wffooter-fablabs' )->text() .'</a></li>
 						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Developers">'. wfMessage( 'wffooter-developers' )->text() .'</a></li>
-						<li><a href="http://blog.wikifab.org" target="_blank">Blog</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Press">'. wfMessage( 'wffooter-press' )->text() .'</a></li>
 						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Contact_us">'. wfMessage( 'wffooter-contact' )->text() .'</a></li>
+						<li><a href="http://blog.wikifab.org" target="_blank">Blog</a></li>
 					</ul>
 				</div>
 				<div class="col-md-7 col-sm-6 col-xs-6">
@@ -78,7 +77,6 @@ class WikifabFooterLinks extends Component {
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-6">
-					<h4>&nbsp;</h4>
 					<ul class="list-unstyled">
 					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Furniture=on">'. wfMessage( 'wffooter-categoriename-furniture' )->text() .'</a></li>
 					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Health+and+Wellbeing=on">'. wfMessage( 'wffooter-categoriename-health-wellbeing' )->text() .'</a></li>
@@ -86,7 +84,6 @@ class WikifabFooterLinks extends Component {
 					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Machines+and+Tools=on">'. wfMessage( 'wffooter-categoriename-machines-tools' )->text() .'</a></li>
 					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Music+and+Sound=on">'. wfMessage( 'wffooter-categoriename-music-sound' )->text() .'</a></li>
 					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Sport+and+Outside=on">'. wfMessage( 'wffooter-categoriename-play-outside' )->text() .'</a></li>
-					
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-6">
