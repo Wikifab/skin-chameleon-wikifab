@@ -36,32 +36,32 @@ class WikifabFooterLinks extends Component {
 
 		$ret = '
 			<div class="row footer-links">
-				<div class="col-md-6 col-sm-6 col-xs-12">
-				<div class="row">
-				<div class="col-md-6 col-sm-6 col-xs-6">
-					<h4>'. wfMessage( 'wffootertitle-about' )->text() .'</h4>
-					<ul class="list-unstyled">
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:About">'. wfMessage( 'wffooter-about' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Formulaire:Group">'. wfMessage( 'wffooter-fablabs' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Developers">'. wfMessage( 'wffooter-developers' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Press">'. wfMessage( 'wffooter-press' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Contact_us">'. wfMessage( 'wffooter-contact' )->text() .'</a></li>
-					</ul>
+				<div class="col-md-5 col-sm-6 col-xs-12">
+					<div class="row">
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<h4>'. wfMessage( 'wffootertitle-about' )->text() .'</h4>
+							<ul class="list-unstyled">
+								<li><a href="' . $wgScriptPath . '/index.php/Wikifab:About">'. wfMessage( 'wffooter-about' )->text() .'</a></li>
+								<li><a href="' . $wgScriptPath . '/index.php/Wikifab:AboutGroups">'. wfMessage( 'wffooter-fablabs' )->text() .'</a></li>
+								<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Developers">'. wfMessage( 'wffooter-developers' )->text() .'</a></li>
+								<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Press">'. wfMessage( 'wffooter-press' )->text() .'</a></li>
+								<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Contact_us">'. wfMessage( 'wffooter-contact' )->text() .'</a></li>
+							</ul>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<h4>'. wfMessage( 'wffootertitle-support' )->text() .'</h4>
+							<ul class="list-unstyled">
+								<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Help">'. wfMessage( 'wffooter-help' )->text() .'</a></li>
+								<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Creator_handbook">'. wfMessage( 'wffooter-creator-handbook' )->text() .'</a></li>
+								<li><a href="' . $wgScriptPath . '/index.php/Special:Recentchanges">'. wfMessage( 'wffooter-recent-changes' )->text() .'</a></li>
+								<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Privacy_policy">'. wfMessage( 'wffooter-privacy-policy' )->text() .'</a></li>
+								<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Cookie_policy">'. wfMessage( 'wffooter-cookie-policy' )->text() .'</a></li>
+								<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Terms_of_use">'. wfMessage( 'wffooter-terms-of-use' )->text() .'</a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-6 col-sm-6 col-xs-6">
-					<h4>'. wfMessage( 'wffootertitle-support' )->text() .'</h4>
-					<ul class="list-unstyled">
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Help">'. wfMessage( 'wffooter-help' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Creator_handbook">'. wfMessage( 'wffooter-creator-handbook' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:Recentchanges">'. wfMessage( 'wffooter-recent-changes' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Privacy_policy">'. wfMessage( 'wffooter-privacy-policy' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Cookie_policy">'. wfMessage( 'wffooter-cookie-policy' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Terms_of_use">'. wfMessage( 'wffooter-terms-of-use' )->text() .'</a></li>
-					</ul>
-				</div>
-				</div>
-				</div>
-				<div class="col-md-6 col-sm-6 col-xs-12">
+				<div class="col-md-7 col-sm-6 col-xs-12">
 				<div class="row">
 				<div class="col-md-4 col-sm-4 col-xs-6">
 					<h4>'. wfMessage( 'wffootertitle-discover' )->text() .'</h4>
