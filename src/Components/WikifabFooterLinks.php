@@ -74,20 +74,20 @@ class WikifabFooterLinks extends Component {
 						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Food+and+Agriculture=on">'. wfMessage( 'wffooter-categoriename-food-agriculture' )->text() .'</a></li>
 						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Furniture=on">'. wfMessage( 'wffooter-categoriename-furniture' )->text() .'</a></li>
 						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Health+and+Wellbeing=on">'. wfMessage( 'wffooter-categoriename-health-wellbeing' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-House=on">'. wfMessage( 'wffooter-categoriename-house' )->text() .'</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-6">
 					<h4>&nbsp;</h4>
-					<ul class="list-unstyled">
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-House=on">'. wfMessage( 'wffooter-categoriename-house' )->text() .'</a></li>
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Machines+and+Tools=on">'. wfMessage( 'wffooter-categoriename-machines-tools' )->text() .'</a></li>
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Music+and+Sound=on">'. wfMessage( 'wffooter-categoriename-music-sound' )->text() .'</a></li>
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Sport+and+Outside=on">'. wfMessage( 'wffooter-categoriename-play-outside' )->text() .'</a></li>
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Play+and+Hobbies=on">'. wfMessage( 'wffooter-categoriename-play-recreation' )->text() .'</a></li>
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Recycling+and+Upcycling=on">'. wfMessage( 'wffooter-categoriename-recycling-upcycling' )->text() .'</a></li>
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Robotics=on">'. wfMessage( 'wffooter-categoriename-robotics' )->text() .'</a></li>
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Science+and+Biology=on">'. wfMessage( 'wffooter-categoriename-science-biology' )->text() .'</a></li>
-					<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Transport+and+Mobility=on">'. wfMessage( 'wffooter-categoriename-transport-mobility' )->text() .'</a></li>
+					<ul class="list-unstyled">					
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Machines+and+Tools=on">'. wfMessage( 'wffooter-categoriename-machines-tools' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Music+and+Sound=on">'. wfMessage( 'wffooter-categoriename-music-sound' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Sport+and+Outside=on">'. wfMessage( 'wffooter-categoriename-play-outside' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Play+and+Hobbies=on">'. wfMessage( 'wffooter-categoriename-play-recreation' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Recycling+and+Upcycling=on">'. wfMessage( 'wffooter-categoriename-recycling-upcycling' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Robotics=on">'. wfMessage( 'wffooter-categoriename-robotics' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Science+and+Biology=on">'. wfMessage( 'wffooter-categoriename-science-biology' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Transport+and+Mobility=on">'. wfMessage( 'wffooter-categoriename-transport-mobility' )->text() .'</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-12">
