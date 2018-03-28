@@ -166,6 +166,25 @@ class PermissionsHelper {
 	}
 
 	/**
+	 * 
+	 * @param string $attributeNameInDomElement
+	 *
+	 * @return bool
+	 */
+	public function isEmbed($attributeNameInDomElement) {
+
+		if ( !$this->hasAttribute( $attributeNameInDomElement ) ) {
+			return false;
+		}
+
+		if($this->skin->getContext()->getRequest()->getVal( 'embed' ) === 'yes'){
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
 	 * @param null|string $value
 	 *
 	 * @return int
