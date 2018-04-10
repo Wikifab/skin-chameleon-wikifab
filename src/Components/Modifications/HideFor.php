@@ -55,6 +55,14 @@ class HideFor extends Modification {
 	 */
 	private function isHidden() {
 		$p = $this->getPermissionsHelper();
+		if($this->getSkinTemplate()->getSkin()->getTitle()->getDBkey() == "Accueil"){
+			var_dump($p->isEmbed('embed'));
+			var_dump($p->userHasGroup( 'group' ));
+			var_dump($p->userHasPermission( 'permission' ));
+			var_dump($p->pageIsInNamespace( 'namespace' ));
+			var_dump($p->pageIsInNamespace( 'namespace' ));
+			var_dump($p->pageTitleIs( 'page' ));
+		}
 		return $p->userHasGroup( 'group' ) && $p->userHasPermission( 'permission' ) && $p->pageIsInNamespace( 'namespace' ) && $p->pageTitleIs( 'page' ) && $p->isEmbed( 'embed' );
 	}
 
