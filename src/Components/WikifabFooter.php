@@ -33,7 +33,7 @@ class WikifabFooter extends Component {
 
 
 		$ret = '
-					'. wfMessage( 'wffootersubtitle-1' )->text() .' <span class="glyphicon glyphicon-heart" style="color:red" aria-hidden="true"></span> '. wfMessage( 'wffootersubtitle-2' )->text() .'.
+					'. wfMessage( 'wffootersubtitle' )->text() .'.
 		';
 		return $ret;
 

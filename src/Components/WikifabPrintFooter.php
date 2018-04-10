@@ -43,7 +43,7 @@ class WikifabPrintFooter extends Component {
 				);
 		$ret .= \Html::closeElement("div");
 		$ret .= \Html::openElement("div", array('class'=> 'footerText'));
-		$ret .= wfMessage( 'wffootersubtitle-1' )->text() .' <span class="glyphicon glyphicon-heart" style="color:red" aria-hidden="true"></span> '. wfMessage( 'wffootersubtitle-2' )->text();
+		$ret .= wfMessage( 'wffootersubtitle' )->text();
 
 		$ret .= \Html::closeElement("div");
 

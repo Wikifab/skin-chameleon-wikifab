@@ -383,7 +383,7 @@ class NavbarHorizontal extends Component {
 
 		// start notifications widgets :
 		$personnalsToolsWidgets = [
-				"notifications-alert",
+//				"notifications-alert",
 				"notifications-notice",
 		        "social-message-link",
 				"uls",

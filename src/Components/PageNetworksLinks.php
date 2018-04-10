@@ -91,6 +91,7 @@ class PageNetworksLinks extends Component {
 		if ($counter == 0) {
 			$url = '#';
 		}
+		$button .= '<div class="dropdownParent">';
 		$button .= '<a href="'.$url.'" class="UsersPagesLinksButtonCounter '.$addClass.'" data-linkstype="'.$type.'" data-page="'.$pageUri.'" data-listid ="'.$buttonId.'" >';
 		$button .= '<button>';
 		$button .= $counter;
@@ -102,6 +103,8 @@ class PageNetworksLinks extends Component {
 		$test = Buttons::getShortUsersListHtml($pageTitle, $type,3,$numPage,$counter) ;
 		$button .= $test ;
 		$button .= '</div>';
+		$button .= '</div>';
+
 
 		return $button;
 	}
