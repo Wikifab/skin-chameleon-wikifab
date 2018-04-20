@@ -42,7 +42,7 @@ class WikifabFooterLinks extends Component {
 							<h4>'. wfMessage( 'wffootertitle-about' )->text() .'</h4>
 							<ul class="list-unstyled">
 								<li><a href="' . $wgScriptPath . '/index.php/Wikifab:About">'. wfMessage( 'wffooter-about' )->text() .'</a></li>
-								<li><a href="' . $wgScriptPath . '/index.php/Wikifab:AboutGroups">'. wfMessage( 'wffooter-fablabs' )->text() .'</a></li>
+								<li><a href="' . $wgScriptPath . '/index.php/AboutGroups">'. wfMessage( 'wffooter-fablabs' )->text() .'</a></li>
 								<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Developers">'. wfMessage( 'wffooter-developers' )->text() .'</a></li>
 								<li><a href="' . $wgScriptPath . '/index.php/Wikifab:Press">'. wfMessage( 'wffooter-press' )->text() .'</a></li>
 								<li><a href="' . $wgScriptPath . '/index.php/Contact">'. wfMessage( 'wffooter-contact' )->text() .'</a></li>
