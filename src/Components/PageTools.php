@@ -71,7 +71,7 @@ class PageTools extends Component {
 
 		$pageToolsStructure = $this->getPageToolsStructure();
 
-		$ret = '';
+		$ret = '<ul class="list-inline">';
 
 		if ( array_key_exists( 'namespaces', $pageToolsStructure ) &&
 			array_key_exists( 'main', $pageToolsStructure[ 'namespaces' ] )
@@ -93,6 +93,8 @@ class PageTools extends Component {
 			$ret .= $this->buildTab( $pageToolsStructure[ 'views' ]['history'], 'history' );
 			$this->setRedundant( 'history' );
 		}
+
+		$ret .= "</ul>";
 
 		return $ret;
 	}
