@@ -242,7 +242,7 @@ class PageTools extends Component {
 	 *
 	 * @return string
 	 */
-	public function buildTab( $tabDescription, $key ) {
+	protected function buildTab( $tabDescription, $key ) {
 	    // skip redundant links (i.e. the 'view' link)
 	    // TODO: make this dependent on an option
 	    if ( array_key_exists( 'redundant', $tabDescription ) && $tabDescription[ 'redundant' ] === true ) {
