@@ -271,7 +271,7 @@ class MainContentHeader extends Component {
 		if ( $editLinkHtml || $pageToolsHtml ) {
 			$ret =
 				$this->indent() . '<!-- page tools -->' .
-				$this->indent() . '<ul class="navbar-tools navbar-nav navbar-personaltools-tools" >';
+				$this->indent() . '<ul class="page-tools-dropdown" >';
 
 			if ( $editLinkHtml !== '' ) {
 				$ret .= $this->indent( 1 ) . $editLinkHtml;
@@ -279,7 +279,7 @@ class MainContentHeader extends Component {
 
 			if ( $pageToolsHtml !== '' ) {
 				$ret .=
-					$this->indent( 1 ) . '<li class="navbar-tools-tools dropdown">' .
+					$this->indent( 1 ) . '<li class="page-tools-dropdown-tools dropdown">' .
 					$this->indent( 1 ) . '<a data-toggle="dropdown" class="dropdown-toggle" href="#" title="' . $this->getSkinTemplate()->getMsg( 'specialpages-group-pagetools' )->text() . '" ><span>...</span></a>' .
 					$pageToolsHtml .
 					$this->indent( -1 ) . '</li>';
@@ -343,9 +343,9 @@ class MainContentHeader extends Component {
 		$editActionStructure[ 'text' ] = '';
 
 		if ( array_key_exists( 'class', $editActionStructure ) ) {
-			$editActionStructure[ 'class' ] .= ' navbar-tools-tools';
+			$editActionStructure[ 'class' ] .= ' page-tools-dropdown-tools';
 		} else {
-			$editActionStructure[ 'class' ] = 'navbar-tools-tools';
+			$editActionStructure[ 'class' ] = 'page-tools-dropdown-tools';
 		}
 
 		$options = array (
