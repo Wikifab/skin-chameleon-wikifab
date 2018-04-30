@@ -81,10 +81,19 @@ class PageTools extends Component {
 		}
 
 		if ( array_key_exists( 'namespaces', $pageToolsStructure ) &&
-			array_key_exists( 'talk', $pageToolsStructure[ 'namespaces' ] )
+			array_key_exists( 'talk', $pageToolsStructure[ 'namespaces' ] ) &&
+			class_exists('Comments')
 		) {
-			$ret .= $this->buildTab( $pageToolsStructure[ 'namespaces' ]['talk'], 'talk' );
-			$this->setRedundant( 'talk' );
+
+			$comments = \Comment::getAssociatedComments($this->getSkin()->getTitle()->getArticleID());
+			$commentsCount = count($comments);
+
+			$array = [];
+			$array['text'] = wfMessage('chameleon-comments');
+			$array['count'] = $commentsCount;
+			$array['href'] = '#cs-comments';
+
+			$ret .= $this->buildTab( $array, 'comments' );
 		}
 
 		if ( array_key_exists( 'views', $pageToolsStructure ) &&
