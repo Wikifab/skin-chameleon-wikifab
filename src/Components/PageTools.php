@@ -82,7 +82,7 @@ class PageTools extends Component {
 
 		if ( array_key_exists( 'namespaces', $pageToolsStructure ) &&
 			array_key_exists( 'talk', $pageToolsStructure[ 'namespaces' ] ) &&
-			class_exists('Comments')
+			class_exists('Comment')
 		) {
 
 			$comments = \Comment::getAssociatedComments($this->getSkin()->getTitle()->getArticleID());
