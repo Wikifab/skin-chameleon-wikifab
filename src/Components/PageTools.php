@@ -63,6 +63,43 @@ class PageTools extends Component {
 	}
 
 	/**
+	 * page, talk and history
+	 *
+	 * @return string the HTML code
+	 */
+	public function getPageToolsTabs() {
+
+		$pageToolsStructure = $this->getPageToolsStructure();
+
+		$ret = '<ul class="list-inline">';
+
+		if ( array_key_exists( 'namespaces', $pageToolsStructure ) &&
+			array_key_exists( 'main', $pageToolsStructure[ 'namespaces' ] )
+		) {
+			$ret .= $this->buildTab( $pageToolsStructure[ 'namespaces' ]['main'], 'main' );
+			$this->setRedundant( 'main' );
+		}
+
+		if ( array_key_exists( 'namespaces', $pageToolsStructure ) &&
+			array_key_exists( 'talk', $pageToolsStructure[ 'namespaces' ] )
+		) {
+			$ret .= $this->buildTab( $pageToolsStructure[ 'namespaces' ]['talk'], 'talk' );
+			$this->setRedundant( 'talk' );
+		}
+
+		if ( array_key_exists( 'views', $pageToolsStructure ) &&
+			array_key_exists( 'history', $pageToolsStructure[ 'views' ] )
+		) {
+			$ret .= $this->buildTab( $pageToolsStructure[ 'views' ]['history'], 'history' );
+			$this->setRedundant( 'history' );
+		}
+
+		$ret .= "</ul>";
+
+		return $ret;
+	}
+
+	/**
 	 * Builds the HTML code for this component
 	 *
 	 * @return string the HTML code
@@ -226,8 +263,6 @@ class PageTools extends Component {
 	    }
 
 	    return $html;
-
-
 	}
 
 	/**
