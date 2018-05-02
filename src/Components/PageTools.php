@@ -80,10 +80,7 @@ class PageTools extends Component {
 			$this->setRedundant( 'main' );
 		}
 
-		if ( array_key_exists( 'namespaces', $pageToolsStructure ) &&
-			array_key_exists( 'talk', $pageToolsStructure[ 'namespaces' ] ) &&
-			class_exists('Comment')
-		) {
+		if ( class_exists('Comment') ) {
 
 			$comments = \Comment::getAssociatedComments($this->getSkin()->getTitle()->getArticleID());
 			$commentsCount = count($comments);
