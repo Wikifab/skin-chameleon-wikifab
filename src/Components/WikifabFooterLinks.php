@@ -66,28 +66,28 @@ class WikifabFooterLinks extends Component {
 				<div class="col-md-4 col-sm-4 col-xs-6">
 					<h4>'. wfMessage( 'wffootertitle-discover' )->text() .'</h4>
 					<ul class="list-unstyled">
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Art=on">'. wfMessage( 'wffooter-categoriename-art' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Clothing+and+Accessories=on">'. wfMessage( 'wffooter-categoriename-clothing-accessories' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Decoration=on">'. wfMessage( 'wffooter-categoriename-decoration' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Electronics=on">'. wfMessage( 'wffooter-categoriename-electronics' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Energy=on">'. wfMessage( 'wffooter-categoriename-energy' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Food+and+Agriculture=on">'. wfMessage( 'wffooter-categoriename-food-agriculture' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Furniture=on">'. wfMessage( 'wffooter-categoriename-furniture' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Health+and+Wellbeing=on">'. wfMessage( 'wffooter-categoriename-health-wellbeing' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-House=on">'. wfMessage( 'wffooter-categoriename-house' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Art=on">'. wfMessage( 'wffooter-categoriename-art' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Clothing+and+Accessories=on">'. wfMessage( 'wffooter-categoriename-clothing-accessories' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Decoration=on">'. wfMessage( 'wffooter-categoriename-decoration' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Electronics=on">'. wfMessage( 'wffooter-categoriename-electronics' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Energy=on">'. wfMessage( 'wffooter-categoriename-energy' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Food+and+Agriculture=on">'. wfMessage( 'wffooter-categoriename-food-agriculture' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Furniture=on">'. wfMessage( 'wffooter-categoriename-furniture' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Health+and+Wellbeing=on">'. wfMessage( 'wffooter-categoriename-health-wellbeing' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-House=on">'. wfMessage( 'wffooter-categoriename-house' )->text() .'</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-6">
 					<h4>&nbsp;</h4>
 					<ul class="list-unstyled">					
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Machines+and+Tools=on">'. wfMessage( 'wffooter-categoriename-machines-tools' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Music+and+Sound=on">'. wfMessage( 'wffooter-categoriename-music-sound' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Sport+and+Outside=on">'. wfMessage( 'wffooter-categoriename-play-outside' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Play+and+Hobbies=on">'. wfMessage( 'wffooter-categoriename-play-recreation' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Recycling+and+Upcycling=on">'. wfMessage( 'wffooter-categoriename-recycling-upcycling' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Robotics=on">'. wfMessage( 'wffooter-categoriename-robotics' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Science+and+Biology=on">'. wfMessage( 'wffooter-categoriename-science-biology' )->text() .'</a></li>
-						<li><a href="' . $wgScriptPath . '/index.php/Special:WfExplore?wf-expl-area-Transport+and+Mobility=on">'. wfMessage( 'wffooter-categoriename-transport-mobility' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Machines+and+Tools=on">'. wfMessage( 'wffooter-categoriename-machines-tools' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Music+and+Sound=on">'. wfMessage( 'wffooter-categoriename-music-sound' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Sport+and+Outside=on">'. wfMessage( 'wffooter-categoriename-play-outside' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Play+and+Hobbies=on">'. wfMessage( 'wffooter-categoriename-play-recreation' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Recycling+and+Upcycling=on">'. wfMessage( 'wffooter-categoriename-recycling-upcycling' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Robotics=on">'. wfMessage( 'wffooter-categoriename-robotics' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Science+and+Biology=on">'. wfMessage( 'wffooter-categoriename-science-biology' )->text() .'</a></li>
+						<li><a href="' . $wgScriptPath . '/index.php/Explore?title=Special:WfExplore&query=&wf-expl-Area-Transport+and+Mobility=on">'. wfMessage( 'wffooter-categoriename-transport-mobility' )->text() .'</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-12">
