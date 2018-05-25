@@ -190,7 +190,7 @@ class MainContentHeader extends Component {
 	protected function getPageToolsTabs( \DOMElement $domElement = null ) {
 
 		$ret = $this->indent().'<!-- Page Tools Tabs -->';
-		$ret .= $this->indent().'<div class="page-tools-tabs">';
+		$ret .= $this->indent().'<div class="page-tools-tabs smooth-scroll">';
 
 		$pageTools = new PageTools( $this->getSkinTemplate());
 
