@@ -105,9 +105,12 @@ class MainContentHeader extends Component {
 		/** @var \DOMElement[] $children */
 		$children = $this->getDomElement()->hasChildNodes() ? $this->getDomElement()->childNodes : array();
 
+
+		$pageTools = new PageTools( $this->getSkinTemplate());
+
 		// add components
 		foreach ( $children as $node ) {
-			$this->buildAndCollectContentHeaderElementFromDomElement( $node, $elements );
+			$this->buildAndCollectContentHeaderElementFromDomElement( $node, $elements, $pageTools);
 		}
 		return $elements;
 	}
@@ -116,7 +119,7 @@ class MainContentHeader extends Component {
 	 * @param \DOMElement $node
 	 * @param $elements
 	 */
-	protected function buildAndCollectContentHeaderElementFromDomElement( $node, &$elements ) {
+	protected function buildAndCollectContentHeaderElementFromDomElement( $node, &$elements, $pageTools) {
 
 		if ( is_a( $node, 'DOMElement' ) && $node->tagName === 'component' && $node->hasAttribute( 'type' ) ) {
 
@@ -129,7 +132,7 @@ class MainContentHeader extends Component {
 			$indentation = ( $position === 'right' ) ? 2 : 1;
 
 			$this->indent( $indentation );
-			$html = $this->buildContentHeaderElementFromDomElement( $node );
+			$html = $this->buildContentHeaderElementFromDomElement( $node, $pageTools);
 			$this->indent( -$indentation );
 
 			$elements[ $position ][ ] = $html;
@@ -144,7 +147,9 @@ class MainContentHeader extends Component {
 	 *
 	 * @return string
 	 */
-	protected function buildContentHeaderElementFromDomElement( $node ) {
+	protected function buildContentHeaderElementFromDomElement( $node, $pageTools) {
+
+
 
 		switch ( $node->getAttribute( 'type' ) ) {
 			case 'Title':
@@ -154,10 +159,10 @@ class MainContentHeader extends Component {
 				$html = $this->getPageLinks( $node );
 				break;
 			case 'PageToolsDropdown':
-				$html = $this->getPageToolsDropdown( $node );
+				$html = $this->getPageToolsDropdown( $node, $pageTools);
 			break;
 			case 'PageToolsTabs':
-				$html = $this->getPageToolsTabs( $node );
+				$html = $this->getPageToolsTabs( $node, $pageTools);
 			break;
 			default:
 		}
@@ -187,13 +192,11 @@ class MainContentHeader extends Component {
 	 *
 	 * @return string
 	 */
-	protected function getPageToolsTabs( \DOMElement $domElement = null ) {
+	protected function getPageToolsTabs( \DOMElement $domElement = null, PageTools $pageTools) {
 
 		$ret = $this->indent().'<!-- Page Tools Tabs -->';
 
 		$ret .= $this->indent().'<div class="page-tools-tabs smooth-scroll">';
-
-		$pageTools = new PageTools( $this->getSkinTemplate());
 
 		$ret .= $pageTools->getPageToolsTabs();
 		$ret .= $this->indent().'</div>';
@@ -224,15 +227,12 @@ class MainContentHeader extends Component {
 	 *
 	 * @return string
 	 */
-	protected function getPageToolsDropdown( \DOMElement $domElement = null ) {
+	protected function getPageToolsDropdown( \DOMElement $domElement = null, PageTools $pageTools) {
 
 		$ret = '';
 
-		$pageTools = new PageTools( $this->getSkinTemplate(), $domElement, $this->getIndent() + 1 );
-
-		$pageTools->setRedundant( 'main' );
-		$pageTools->setRedundant( 'talk' );
-		$pageTools->setRedundant( 'history' );
+		$pageTools->setRedundant('talk');
+		$pageTools->setRedundant('history');
 
 		$pageTools->setFlat( true );
 		$pageTools->removeClasses( 'text-center list-inline' );

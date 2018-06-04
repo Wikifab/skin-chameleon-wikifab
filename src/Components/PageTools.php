@@ -73,11 +73,14 @@ class PageTools extends Component {
 
 		$ret = '<ul class="list-inline">';
 
-		if ( array_key_exists( 'namespaces', $pageToolsStructure ) &&
-			array_key_exists( 'main', $pageToolsStructure[ 'namespaces' ] )
+		if ( array_key_exists( 'namespaces', $pageToolsStructure )
 		) {
-			$ret .= $this->buildTab( $pageToolsStructure[ 'namespaces' ]['main'], 'main' );
-			$this->setRedundant( 'main' );
+			$key = $value = NULL;
+			foreach ($pageToolsStructure[ 'namespaces' ] as $key => $value) {
+			    break;
+			}
+			$ret .= $this->buildTab( $value, $key );
+			$this->setRedundant( $key );
 		}
 
 		if ( class_exists('Comment') ) {
@@ -294,6 +297,7 @@ class PageTools extends Component {
 	 * @param string|string[] $tools
 	 */
 	public function setRedundant( $tools ) {
+
 		if ( is_string( $tools ) ) {
 			$tools = array( $tools );
 		}
