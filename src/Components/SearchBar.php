@@ -50,14 +50,14 @@ class SearchBar extends Component {
 		global $egChameleonSearchPage;
 
 		switch ($egChameleonSearchPage ) {
+			case 'WfSearch' :
+				$searchPageName = 'WfSearch';
+				$inputName = 'wfsearch';
 			case 'Search' :
+			default :
 				$searchPageName = 'Search';
 				$inputName = 'search';
 				break;
-			case 'WfSearch' :
-			default :
-				$searchPageName = 'WfSearch';
-				$inputName = 'wfsearch';
 				break;
 		}
 
