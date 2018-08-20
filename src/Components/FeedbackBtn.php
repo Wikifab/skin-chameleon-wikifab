@@ -36,7 +36,7 @@ class FeedbackBtn extends Component {
 		if ($wgWfFeedbackUrl) {
 			$ret = '
 				<div class="Feedback-btn">
-					<a href="http://feedback.wikifab.org" target="_blank"><img src="/skins/wikifabStyleModule/images/feedback-btn.jpg" alt="feedback"></a>
+					<a href="http://feedback.wikifab.org" target="_blank"><img src="/skins/wikifab-style-module/images/feedback-btn.jpg" alt="feedback"></a>
 				</div>
 			';
 			return $ret;
