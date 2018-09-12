@@ -59,7 +59,7 @@ class AdminTopBar extends Component {
 		$openingTags =
 			$this->indent() . '<!-- main content header -->' .
 			$this->indent() . \Html::openElement( 'div', array(
-					'id' => 'main-content-header'
+					'id' => 'AdminTopBar'
 				)
 			) .
 			$this->indent( 1 ) . '<div class="container">';
