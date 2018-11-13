@@ -52,6 +52,7 @@ body {
 #main-content-header {
     margin-bottom: 25px;
     background-color: #fafbfc !important;
+    -webkit-print-color-adjust: exact;
 }
 
 #main-content-header #firstHeading {
@@ -61,7 +62,7 @@ body {
     font-weight: bold;
     margin: 0;
     padding: 50px 0;
-    width: calc~("100% - 150px");
+    width: calc~("100% - 170px");
     float: left;
 }
 
@@ -111,7 +112,7 @@ body {
 }
 
 .mw-body .tuto-items-container .printTOC #toc .toctitle h2 {
-    font-size: 1.5em;
+    font-size: 1.7em;
     float: unset;
     font-weight: bold;
     border-bottom: 1px solid #ddd;
@@ -122,10 +123,20 @@ body {
     font-size: 18px;
     line-height: 1.7em;
     margin-left: 0;
+    display: block !important;
+}
+
+.mw-body .tuto-items-container .printTOC .toc.tochidden,
+.mw-body .tuto-items-container .printTOC .toctoggle {
+	display: block !important;
 }
 
 .print-description {
     font-size: 1.4em;
+}
+
+.print-image img {
+	height:auto;
 }
 
 .print-image {
@@ -134,7 +145,7 @@ body {
     background: red !important;
     position: absolute;
     top: -146px;
-    right: 0;
+    right: 30px;
     border: 1px solid #ccc;
 }
 
@@ -295,7 +306,12 @@ body {
 }
 
 .mw-body ul.wf-nav-tabs {
-    display: block;
+    display: none;
+}
+
+.tab-content h2 {
+	float: left;
+    width: 100%;
 }
 
 	.noprint, .navbar, .wiki-nav, .feedback, .PageNetworkLinks, .footerdata,
@@ -419,10 +435,11 @@ body {
 	}
 	#bodyContent .tuto-items-container .tuto-items-details-container.printTOC
 		{
-		    background: #ffffff !important;
+		    background: #f9f9f9 !important;
 		    border: 1px solid #ddd;
 		    border-radius: 0;
 		    padding: 20px;
+		    -webkit-print-color-adjust: exact;
 	}
 	#bodyContent .tuto-items-container .tuto-items-details-container.printTOC #toctitle,
 		#bodyContent .tuto-items-container .tuto-items-details-container.printTOC .fa
