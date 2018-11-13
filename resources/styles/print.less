@@ -37,6 +37,231 @@
 }
 
 @media print {
+
+	body {
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizeLegibility;
+    font-size: 18px !important;
+}
+
+#main-content-header .maincontent-header-tail {
+    display: none;
+}
+
+#main-content-header {
+    margin-bottom: 25px;
+    background-color: #fafbfc !important;
+}
+
+#main-content-header #firstHeading {
+    font-size: 2.4em;
+    text-align: left;
+    border-bottom: 0px;
+    font-weight: bold;
+    margin: 0;
+    padding: 50px 0;
+    width: calc(100% - 150px);
+    float: left;
+}
+
+.content h1 {
+    font-size: 4.3em;
+    font-weight: bold;
+}
+
+.mw-body .tuto-items-container .printTOC #toc .toctitle {
+    padding-left:0;
+}
+
+.mw-body .tuto-items-container .printTOC #toc .toctitle h2 {
+    font-size: 1.5em;
+    float: unset;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.mw-body .tuto-items-container .printTOC #toc ul{
+    font-size: 18px;
+    line-height: 1.7em;
+    margin-left: 0;
+}
+
+.print-description {
+    font-size: 1.4em;
+}
+
+.print-image {
+    width: 140px;
+    height: 100px;
+    background: red !important;
+    position: absolute;
+    top: -146px;
+    right: 0;
+    border: 1px solid #ccc;
+}
+
+.content {
+    padding-left: 70px;
+    padding-right: 70px;
+    page-break-after:always
+}
+
+.book-main-description {
+    font-size: 1.7em;
+    color: #888;
+    margin-top: 30px;
+}
+
+.book-title-container h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.book-title-container ul {
+    font-size: 1.5em;
+    border: 5px solid #52bad5;
+    padding: 15px 35px;
+    width: max-content;
+    line-height: 1.7em;
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+.book-main-banner {
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.book-title-banner {
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.book-main-banner img,
+.book-title-banner img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 1200px;
+    max-height: 1200px;
+    -ms-transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+.book-title-banner img {
+    -webkit-filter: blur(10px); /* Safari 6.0 - 9.0 */
+    filter: blur(10px);
+}
+
+.print-stripes {
+    width: 100%;
+    height: 120px;
+    background: white !important;
+    float: left;
+    -webkit-transform: skewY(-5deg);
+    transform: skewY(-5deg);
+    -webkit-transform-origin: 0;
+    transform-origin: 0;
+    overflow: hidden;
+    float: left;
+}
+
+.mini-title-content {
+    -webkit-print-color-adjust: exact;
+    background: #52bad5 !important;
+    color: #fff !important;
+    padding: 10px 40px 20px;
+    margin-bottom: 20px;
+}
+
+.mini-title-content h1 {
+    color: #fff !important;
+    font-size: 40px;
+}
+
+.stripesbottomcover,
+.stripesbottomtitle {
+    position: relative;
+    top: 855px;
+    -webkit-print-color-adjust: exact;
+}
+
+.stripesbottomtitle {
+    top: 1300px;
+}
+
+.stripesbottomtriangle {
+    border-left: 1250px solid transparent;
+    border-bottom: 120px solid #52bad5;
+}
+
+.stripesbottomrectangle {
+    width: 100%;
+    height: 100px;
+    background: #52bad5 !important;
+    -webkit-print-color-adjust: exact;
+}
+
+.stripestoptitre {
+    border-right: 1250px solid transparent;
+    border-top: 120px solid #52bad5;
+    -webkit-print-color-adjust: exact;
+    margin-bottom: 70px;
+}
+
+.book-main-logo {
+    position: relative;
+    float: right;
+    width: 450px;
+    height: 450px;
+    overflow: hidden;
+    margin-top: -400px;
+    left: -100px;
+    border-radius: 6px;
+    -webkit-print-color-adjust: exact;
+    box-shadow: 0 0 50px rgba(0,0,0,0.3) !important;
+}
+
+.book-site-logo {
+    position: absolute;
+    z-index: 1;
+    left: 50px;
+    top: 50px;
+    -webkit-print-color-adjust: exact;
+    padding: 20px;
+    background: #fff !important;
+    border-radius: 5px;
+}
+
+.book-main-logo img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    min-width: 100%;
+    -webkit-print-color-adjust: exact;
+    min-height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+    -ms-transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+.tab-content > .tab-pane {
+    display: block;
+}
+
+.mw-body ul.wf-nav-tabs {
+    display: block;
+}
+
 	.noprint, .navbar, .wiki-nav, .feedback, .PageNetworkLinks, .footerdata,
 		.footer-main, .mw-editsection, .mw-editsection-like, .toctoggle,
 		.magnify, .footer-places { .hidden ();
@@ -158,8 +383,10 @@
 	}
 	#bodyContent .tuto-items-container .tuto-items-details-container.printTOC
 		{
-		background: #ffffff !important;
-		border: none;
+		    background: #ffffff !important;
+		    border: 1px solid #ddd;
+		    border-radius: 0;
+		    padding: 20px;
 	}
 	#bodyContent .tuto-items-container .tuto-items-details-container.printTOC #toctitle,
 		#bodyContent .tuto-items-container .tuto-items-details-container.printTOC .fa
