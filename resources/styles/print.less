@@ -42,7 +42,7 @@ body {
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif !important;
     -webkit-font-smoothing: subpixel-antialiased;
     text-rendering: optimizeLegibility;
-    font-size: 18px !important;
+    font-size: 20px !important;
 }
 
 #main-content-header .maincontent-header-tail {
@@ -63,12 +63,15 @@ body {
     font-weight: bold;
     margin: 0;
     padding: 50px 0;
-    width: calc(~"100% - 170px");
     float: left;
 }
 
+#mw-content-text .mw-pt-translate-header + hr {
+	display:none;
+}
+
 .content h1 {
-    font-size: 4.3em;
+    font-size: 3.3em;
     font-weight: bold;
 }
 
@@ -144,9 +147,9 @@ body {
     width: 140px;
     height: 100px;
     position: absolute;
-    top: -160px;
+    top: -150px;
     right: 30px;
-    border: 1px solid #ccc;
+    overflow: hidden;
 }
 
 .content {
@@ -156,8 +159,8 @@ body {
 }
 
 .book-main-description {
-    font-size: 1.7em;
-    color: #888;
+    font-size: 1.6em;
+    color: #666 !important;
     margin-top: 30px;
 }
 
@@ -271,7 +274,9 @@ body {
     float: right;
     width: 450px;
     height: 450px;
+    background: #fff !important;
     overflow: hidden;
+    z-index: 10;
     margin-top: -400px;
     left: -100px;
     border-radius: 6px;
@@ -298,7 +303,6 @@ body {
     border-radius: 6px;
     min-width: 100%;
     -webkit-print-color-adjust: exact;
-    min-height: 100%;
     max-width: 500px;
     max-height: 500px;
     -ms-transform: translateY(-50%) translateX(-50%);
