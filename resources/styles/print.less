@@ -42,7 +42,7 @@ body {
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif !important;
     -webkit-font-smoothing: subpixel-antialiased;
     text-rendering: optimizeLegibility;
-    font-size: 20px !important;
+    font-size: 2em !important;
 }
 
 #main-content-header .maincontent-header-tail {
@@ -54,6 +54,10 @@ body {
     background-color: #fafbfc !important;
     -webkit-print-color-adjust: exact;
     page-break-before: always;
+}
+
+#main-content-header:first-child {
+	page-break-before: auto;
 }
 
 #main-content-header #firstHeading {
