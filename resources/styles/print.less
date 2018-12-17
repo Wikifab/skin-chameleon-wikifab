@@ -49,14 +49,49 @@ body {
 	margin : 0%;
 }
 
+@page:first footer,
+@page:first header {
+	display:none;
+}
+
 @page { 
-   margin: 10;
+   margin: auto;
    size: auto;
 }
      
-footer { position: fixed; bottom: 0; }
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+    right: 0;
+}
 
-header { position: fixed; top: 0; }
+footer .date {
+	float: left;
+}
+
+footer .pagenum {
+	float: right;
+}
+
+header {
+	position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.book-toc {
+	page-break-after: always;
+}
+
+header .manualname {
+    float: right;
+}
+
+header .sitename {
+    float: left;
+}
 
 #main-content-header .maincontent-header-tail {
     display: none;
