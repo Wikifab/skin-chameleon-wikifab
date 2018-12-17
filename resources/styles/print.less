@@ -43,15 +43,11 @@ body {
     -webkit-font-smoothing: subpixel-antialiased;
     text-rendering: optimizeLegibility;
     font-size: 2em !important;
-}
-
-@page:first footer,
-@page:first header {
-	display:none;
+    padding: 1.6em;
 }
 
 @page { 
-   margin: auto;
+   margin: 0;
    size: auto;
 }
      
@@ -72,7 +68,7 @@ footer .pagenum {
 
 header {
 	position: fixed;
-    top: 0;
+    top: 0px;
     right: 0;
     left: 0;
 }
@@ -88,6 +84,8 @@ header .manualname {
 header .sitename {
     float: left;
 }
+
+
 
 #main-content-header .maincontent-header-tail {
     display: none;
