@@ -36,14 +36,6 @@
 	}
 }
 
-@page:first {
-margin : 0%;
-}
-     
-@page {
- 	margin: auto;
-}
-
 @media print {
 
 body {
@@ -52,6 +44,19 @@ body {
     text-rendering: optimizeLegibility;
     font-size: 2em !important;
 }
+
+@page:first {
+	margin : 0%;
+}
+
+@page { 
+   margin: 10;
+   size: auto;
+}
+     
+footer { position: fixed; bottom: 0; }
+
+header { position: fixed; top: 0; }
 
 #main-content-header .maincontent-header-tail {
     display: none;
