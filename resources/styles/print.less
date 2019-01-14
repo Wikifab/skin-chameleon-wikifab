@@ -46,6 +46,10 @@ body {
     padding: 1.6em;
 }
 
+.container {
+	padding: 0;	
+}
+
 @page { 
    margin: 0;
    size: auto;
@@ -92,7 +96,6 @@ header .sitename {
 
 #main-content-header {
     margin-bottom: 25px;
-    background-color: #fafbfc !important;
     -webkit-print-color-adjust: exact;
     page-break-before: always;
     margin-top: 40px;
@@ -103,13 +106,13 @@ header .sitename {
 }
 
 #main-content-header #firstHeading {
-    font-size: 2.4em;
+    font-size: 2em;
     text-align: left;
     width: 100%;
     border-bottom: 0px;
     font-weight: bold;
     margin: 0;
-    padding: 50px 0;
+    padding: 10px 0;
     float: left;
 }
 
@@ -183,7 +186,16 @@ header .sitename {
 }
 
 .print-description {
-    font-size: 1.4em;
+    font-size: 1.2em;
+}
+
+.step-instructions h2 {
+	font-size: 28px;
+}
+
+.mw-body ul, p,
+.icon-instructions-text {
+	font-size: 1.1em !important;
 }
 
 .content {
