@@ -42,12 +42,12 @@ body {
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif !important;
     -webkit-font-smoothing: subpixel-antialiased;
     text-rendering: optimizeLegibility;
-    font-size: 2em !important;
+    font-size: 2.2em !important;
     padding: 1.6em;
 }
 
 .container {
-	padding: 0;	
+	padding: 0px !important;	
 }
 
 @page { 
@@ -190,12 +190,7 @@ header .sitename {
 }
 
 .step-instructions h2 {
-	font-size: 28px;
-}
-
-.mw-body ul, p,
-.icon-instructions-text {
-	font-size: 1.1em !important;
+	font-size: 28px !important;
 }
 
 .content {
@@ -499,6 +494,11 @@ header .sitename {
 		    padding: 20px;
 		    -webkit-print-color-adjust: exact;
 	}
+
+	.mw-special-MainPdf .page #bodyContent .tuto-items-container .tuto-items-details-container.printTOC {
+		display:none;
+	}
+
 	#bodyContent .tuto-items-container .tuto-items-details-container.printTOC #toctitle,
 		#bodyContent .tuto-items-container .tuto-items-details-container.printTOC .fa
 		{
