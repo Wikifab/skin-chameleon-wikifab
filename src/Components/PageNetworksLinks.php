@@ -42,10 +42,12 @@ class PageNetworksLinks extends Component {
 
 	public function getLinkButton($type, $label, $url, $options = array()) {
 
+		$faClass = '';
+
 		switch($type) {
 
 			case 'download':
-				$faClass ='fa fa-file-pdf-o';
+				$faClass = 'fa fa-file-pdf-o';
 				break;
 			default:
 				break;
