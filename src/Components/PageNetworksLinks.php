@@ -40,8 +40,27 @@ class PageNetworksLinks extends Component {
 		$this->addClasses( 'list-inline text-center' );
 	}
 
+	public function getLinkButton($type, $label, $url, $options = array()) {
 
-	public function getButton($type, $pageUri, $counter, $active){
+		switch($type) {
+
+			case 'download':
+				$faClass ='fa fa-file-pdf-o';
+				break;
+			default:
+				break;
+
+		}
+
+		$button = '<a type="button" class="btn" target="_blank" href="' . $url . '">';
+		$button .= '<i class="'. $faClass .'" aria-hidden="true"></i>';
+		$button .= $label;
+		$button .= '</a>';
+
+		return $button;
+	}
+
+	public function getCounterButton($type, $pageUri, $counter, $active){
 
 		static $buttonId=0;
 		$buttonId++;
@@ -195,15 +214,25 @@ class PageNetworksLinks extends Component {
 		// Buttons for social link counter :
 		foreach ( $contentNavigation['NetworksLinks'] as $type => $link ) {
 			if ($link['buttonType'] == 'counter') {
-				$ret .= $this->indent() . $this->getButton($type, $link['pageUri'], $link['count'], $link['active']);
+				$ret .= $this->indent() . $this->getCounterButton($type, $link['pageUri'], $link['count'], $link['active']);
 			}
 		}
 		// button with dropdown :
 		foreach ( $contentNavigation['NetworksLinks'] as $type => $link ) {
+			
 			if ($link['buttonType'] == 'dropDown') {
 				$ret .= $this->indent() . $this->getDropDownButton($type, $link['label'], $link['pageUri'], $link['groups'], $link);
 			}
 		}
+
+		// link button
+		foreach ( $contentNavigation['NetworksLinks'] as $type => $link ) {
+
+			if ($link['buttonType'] == 'link') {
+				$ret .= $this->indent() . $this->getLinkButton($type, $link['label'], $link['url']);
+			}
+		}
+
 
 		$this->indent( -2 );
 
