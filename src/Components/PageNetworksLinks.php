@@ -46,7 +46,7 @@ class PageNetworksLinks extends Component {
 
 		switch($type) {
 
-			case 'download':
+			case 'download-pdfbook':
 				$faClass = 'fa fa-file-pdf-o';
 				break;
 			default:
