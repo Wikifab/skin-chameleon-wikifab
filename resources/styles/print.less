@@ -68,6 +68,42 @@ footer .pagenum {
 	float: right;
 }
 
+.dokit-manual-print-banner {
+    height: 300px;
+    background: #000;
+    -webkit-print-color-adjust: exact;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.dokit-manual-print-banner img {
+	object-fit: cover;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    -webkit-print-color-adjust: exact;
+    -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
+  	filter: blur(5px);
+}
+
+.dokit-manual-print-logo {
+	width: 300px;
+    height: 300px;
+    background: red;
+    margin: -150px auto;
+    position: relative;
+    -webkit-print-color-adjust: exact;
+}
+
+.dokit-manual-print-logo img {
+	object-fit: cover;
+    width: 100%;
+    -webkit-print-color-adjust: exact;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
 header {
 	position: fixed;
     top: 0px;
