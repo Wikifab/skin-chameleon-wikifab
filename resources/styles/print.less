@@ -81,8 +81,7 @@ footer .pagenum {
     min-width: 100%;
     min-height: 100%;
     opacity: 0.5;
-    -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
-  	filter: blur(5px);
+	filter: alpha(opacity=50);
   	border-radius: 10px;
     -webkit-print-color-adjust: exact;
 }
@@ -97,7 +96,7 @@ footer .pagenum {
 }
 
 h1.booktitle {
-	font-size: 4em;
+	font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 25px;
 }
@@ -109,6 +108,8 @@ h1.booktitle {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5) !important;
     -webkit-print-color-adjust: exact;
+    display: block;
+    position: relative;
 }
 
 header {
