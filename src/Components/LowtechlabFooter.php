@@ -32,7 +32,7 @@ class LowtechlabFooter extends Component {
 	public function getHtml() {
 
 		$ret = '
-					'. wfMessage( 'wfexternalfootersubtitle-1' )->text() .' <a href="http://wikifab.org" target="_blank"> '. wfMessage( 'wfexternalfootersubtitle-2' )->text() .'</a>. '. wfMessage( 'wfexternalfootersubtitle-3' )->text() .' <a href="http://feedback.wikifab.org" target="_blank"> '. wfMessage( 'wfexternalfootersubtitle-4' )->text() .'</a>.
+					'. wfMessage( 'wfexternalfootersubtitle-1' )->text() .' <a href="https://dokit.io" target="_blank"> '. wfMessage( 'wfexternalfootersubtitle-2' )->text() .'</a>.
 		';
 		return $ret;
 
