@@ -69,48 +69,68 @@ footer .pagenum {
 }
 
 .dokit-manual-print-banner {
-    height: 300px;
     background: #000 !important;
-    overflow: hidden;
     border-radius: 10px;
     -webkit-print-color-adjust: exact;
+    height: 300px;
+    overflow: hidden;
+    opacity: 0.9;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
 }
 
 .dokit-manual-print-banner img {
-	object-fit: cover;
-    min-width: 100%;
-    min-height: 100%;
     opacity: 0.5;
-	filter: alpha(opacity=50);
-  	border-radius: 10px;
+    filter: alpha(opacity=50);
+    border-radius: 10px;
     -webkit-print-color-adjust: exact;
+    width: 100%;
+    height: -webkit-fill-available;
+    position: absolute;
+    object-fit: cover;
+    left: 50%;
+    z-index: -1;
+    top: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    -ms-transform: translateY(-50%) translateX(-50%);
 }
 
 .dokit-manual-print-logo {
-	width: 300px;
+    width: 300px;
     height: 300px;
     background: red;
-    margin: -150px auto;
+    margin: auto;
     position: relative;
+    -webkit-print-color-adjust: exact;
+    overflow: hidden;
+    top: 150px;
+    background: #fff !important;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5) !important;
     -webkit-print-color-adjust: exact;
 }
 
 h1.booktitle {
-	font-size: 1.5em;
+	font-size: 60px;
     font-weight: bold;
     margin-bottom: 25px;
 }
 
 .dokit-manual-print-logo img {
-	object-fit: contain;
     min-width: 100%;
     min-height: 100%;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5) !important;
-    -webkit-print-color-adjust: exact;
     display: block;
     position: relative;
-    background: #fff !important;
+    width: 100%;
+    height: -webkit-fill-available;
+    position: absolute;
+    object-fit: cover;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    -ms-transform: translateY(-50%) translateX(-50%);
 }
 
 header {
