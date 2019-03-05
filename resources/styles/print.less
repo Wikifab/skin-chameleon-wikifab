@@ -90,19 +90,22 @@ footer .pagenum {
     left: 50%;
     top: 50%;
     min-height: 100%;
-    width: 100%;
+    min-width: 100%;
     height: auto;
+    width: auto;
     -webkit-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     -webkit-print-color-adjust: exact;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
 .dokit-manual-print-logo {
     width: 300px;
     height: 300px;
     position: relative;
-	margin: -100px auto;
+	margin: -150px auto 0;
 	overflow: hidden;
     -webkit-print-color-adjust: exact;
     overflow: hidden;
@@ -121,6 +124,8 @@ footer .pagenum {
   -ms-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
   -webkit-print-color-adjust: exact;
+  min-height: 100%;
+  min-width: 100%;
 }
 
 h1.booktitle {
@@ -156,6 +161,12 @@ header .sitename {
 #main-content-header {
     margin-bottom: 25px;
     -webkit-print-color-adjust: exact;
+}
+
+.attach-link-table,
+.attach-link-table:first-child{
+	border: 0;
+	padding: 5px 0;
 }
 
 #main-content-header .firstHeading {
