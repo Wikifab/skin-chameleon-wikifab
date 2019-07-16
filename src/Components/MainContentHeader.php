@@ -155,6 +155,9 @@ class MainContentHeader extends Component {
 			case 'Title':
 				$html = $this->getTitle( $node );
 				break;
+			case 'CategoryTitle':
+				$html = $this->getCategoryTitle($node);
+				break;
 			case 'PageLinks':
 				$html = $this->getPageLinks( $node );
 				break;
@@ -183,6 +186,32 @@ class MainContentHeader extends Component {
 
 		return $this->indent() . $idRegistry->element( 'h1', array( 'id' => 'firstHeading', 'class' => 'firstHeading' ), $skintemplate->get( 'title' ) );
 		
+	}
+
+	/**
+	 * Get the translated category title
+	 * @param \DOMElement|null $domElement
+	 * @return string
+	 * @throws \MWException
+	 */
+	protected function getCategoryTitle( \DOMElement $domElement = null){
+
+		$skintemplate = $this->getSkinTemplate();
+		$idRegistry = IdRegistry::getRegistry();
+
+		$discussionCategoryTitle = $skintemplate->get( 'title' );
+		$categoryTitle = explode(':', $discussionCategoryTitle);
+		$discussionCategory = $categoryTitle[0];
+		$categoryTitle = $categoryTitle[1];
+		if(class_exists('CategoryManagerCore')){
+			$title = Title::makeTitleSafe(NS_CATEGORY, $categoryTitle);
+			$translatedCategoryTitle = $discussionCategory . ":" . CategoryManagerCore::getTranslatedCategoryTitle($title);
+		} else {
+			$translatedCategoryTitle = $discussionCategoryTitle;
+		}
+		
+		return $this->indent() . $idRegistry->element( 'h1', array( 'id' => 'firstHeading', 'class' => 'firstHeading' ), $translatedCategoryTitle );
+
 	}
 
 	/**
