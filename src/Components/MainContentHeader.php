@@ -9,6 +9,8 @@ namespace Skins\Chameleon\Components;
 
 use Hooks;
 use Skins\Chameleon\IdRegistry;
+use Title;
+use CategoryManagerCore;
 
 /**
  * Custom content header
