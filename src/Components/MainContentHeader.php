@@ -202,12 +202,10 @@ class MainContentHeader extends Component {
 		$idRegistry = IdRegistry::getRegistry();
 
 		$discussionCategoryTitle = $skintemplate->get( 'title' );
-		$categoryTitle = explode(':', $discussionCategoryTitle);
-		$discussionCategory = $categoryTitle[0];
-		$categoryTitle = $categoryTitle[1];
+		$categoryTitle = explode(':', $discussionCategoryTitle)[1];
 		if(class_exists('CategoryManagerCore')){
 			$title = Title::makeTitleSafe(NS_CATEGORY, $categoryTitle);
-			$translatedCategoryTitle = $discussionCategory . ":" . CategoryManagerCore::getTranslatedCategoryTitle($title);
+			$translatedCategoryTitle = CategoryManagerCore::getTranslatedCategoryTitle($title);
 		} else {
 			$translatedCategoryTitle = $discussionCategoryTitle;
 		}
