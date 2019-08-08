@@ -204,17 +204,19 @@ class MainContentHeader extends Component {
 
 		$discussionCategoryTitle = $skintemplate->get( 'title' );
 		$categoryTitle = explode(':', $discussionCategoryTitle)[1];
-		$title = Title::makeTitleSafe(NS_CATEGORY, $categoryTitle);
 		if(class_exists('CategoryManagerCore')){
+			$title = Title::makeTitleSafe(NS_CATEGORY, $categoryTitle);
 			$translatedCategoryTitle = CategoryManagerCore::getTranslatedCategoryTitle($title);
 		} else {
 			$translatedCategoryTitle = $discussionCategoryTitle;
 		}
-		if($wgUser->isWatched($title)){
-			$href = $title->getLinkURL().'?action=unwatch';
+
+		$discussionTitle = Title::newFromText($discussionCategoryTitle);
+		if($wgUser->isWatched($discussionTitle)){
+			$href = $discussionTitle->getLinkURL().'?action=unwatch';
 			$msg = wfMessage('category-latestdiscussions-btn-unwatch');
 		} else {
-			$href = $title->getLinkURL().'?action=watch';
+			$href = $discussionTitle->getLinkURL().'?action=watch';
 			$msg = wfMessage('category-latestdiscussions-btn-watch');
 		}
 		$button = $idRegistry->element( 'a', array('class' => 'btn btn-default pull-right', 'href' => $href), '<i class="fa fa-rss" aria-hidden="true"></i> '.$msg);
