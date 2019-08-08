@@ -197,20 +197,29 @@ class MainContentHeader extends Component {
 	 * @throws \MWException
 	 */
 	protected function getCategoryTitle( \DOMElement $domElement = null){
+		global $wgUser;
 
 		$skintemplate = $this->getSkinTemplate();
 		$idRegistry = IdRegistry::getRegistry();
 
 		$discussionCategoryTitle = $skintemplate->get( 'title' );
 		$categoryTitle = explode(':', $discussionCategoryTitle)[1];
+		$title = Title::makeTitleSafe(NS_CATEGORY, $categoryTitle);
 		if(class_exists('CategoryManagerCore')){
-			$title = Title::makeTitleSafe(NS_CATEGORY, $categoryTitle);
 			$translatedCategoryTitle = CategoryManagerCore::getTranslatedCategoryTitle($title);
 		} else {
 			$translatedCategoryTitle = $discussionCategoryTitle;
 		}
-		
-		return $this->indent() . $idRegistry->element( 'h1', array( 'id' => 'firstHeading', 'class' => 'firstHeading' ), $translatedCategoryTitle );
+		if($wgUser->isWatched($title)){
+			$href = $title->getLinkURL().'?action=unwatch';
+			$msg = wfMessage('category-latestdiscussions-btn-unwatch');
+		} else {
+			$href = $title->getLinkURL().'?action=watch';
+			$msg = wfMessage('category-latestdiscussions-btn-watch');
+		}
+		$button = $idRegistry->element( 'a', array('class' => 'btn btn-default pull-right', 'href' => $href), '<i class="fa fa-rss" aria-hidden="true"></i> '.$msg);
+
+		return $this->indent() . $idRegistry->element( 'h1', array( 'id' => 'firstHeading', 'class' => 'firstHeading' ), $translatedCategoryTitle . $button );
 
 	}
 
