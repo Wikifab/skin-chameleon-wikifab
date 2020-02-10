@@ -43,6 +43,7 @@ class PageNetworksLinks extends Component {
 	public function getLinkButton($type, $label, $url, $options = array()) {
 
 		$faClass = '';
+		$class = '';
 
 		switch($type) {
 
@@ -53,8 +54,11 @@ class PageNetworksLinks extends Component {
 				break;
 
 		}
+		if (isset($options['class'])) {
+			$class = $options['class'];
+		}
 
-		$button = '<a type="button" class="btn" target="_blank" href="' . $url . '">';
+		$button = '<a type="button" class="btn ' . $class . '" target="_blank" href="' . $url . '">';
 		$button .= '<i class="'. $faClass .'" aria-hidden="true"></i>';
 		$button .= $label;
 		$button .= '</a>';
@@ -221,7 +225,7 @@ class PageNetworksLinks extends Component {
 		}
 		// button with dropdown :
 		foreach ( $contentNavigation['NetworksLinks'] as $type => $link ) {
-			
+
 			if ($link['buttonType'] == 'dropDown') {
 				$ret .= $this->indent() . $this->getDropDownButton($type, $link['label'], $link['pageUri'], $link['groups'], $link);
 			}
@@ -231,7 +235,7 @@ class PageNetworksLinks extends Component {
 		foreach ( $contentNavigation['NetworksLinks'] as $type => $link ) {
 
 			if ($link['buttonType'] == 'link') {
-				$ret .= $this->indent() . $this->getLinkButton($type, $link['label'], $link['url']);
+				$ret .= $this->indent() . $this->getLinkButton($type, $link['label'], $link['url'], $link);
 			}
 		}
 
