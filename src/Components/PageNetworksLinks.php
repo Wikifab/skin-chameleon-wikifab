@@ -45,10 +45,12 @@ class PageNetworksLinks extends Component {
 		$faClass = '';
 		$class = '';
 
+		$target = '';
 		switch($type) {
 
 			case 'download-pdfbook':
 				$faClass = 'fa fa-file-pdf-o';
+				$target = 'target="_blank"';
 				break;
 			default:
 				break;
@@ -58,7 +60,7 @@ class PageNetworksLinks extends Component {
 			$class = $options['class'];
 		}
 
-		$button = '<a type="button" class="btn ' . $class . '" target="_blank" href="' . $url . '">';
+		$button = '<a type="button" class="btn ' . $class . '" ' . $target . ' href="' . $url . '">';
 		$button .= '<i class="'. $faClass .'" aria-hidden="true"></i>';
 		$button .= $label;
 		$button .= '</a>';
