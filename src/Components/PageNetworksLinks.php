@@ -218,6 +218,12 @@ class PageNetworksLinks extends Component {
 
 		$ret = $this->indent() . '<div class="PageNetworkLinks">';
 
+		foreach ( $contentNavigation['NetworksLinks'] as $type => $link ) {
+			if ($link['buttonType'] == 'html') {
+				$ret .= $link['html'];
+			}
+		}
+
 		$this->indent( 2 );
 		// Buttons for social link counter :
 		foreach ( $contentNavigation['NetworksLinks'] as $type => $link ) {
