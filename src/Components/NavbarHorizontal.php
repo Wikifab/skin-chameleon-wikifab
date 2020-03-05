@@ -146,7 +146,6 @@ class NavbarHorizontal extends Component {
 				$this->indent( 1 ) . '<div class="navbar-right-aligned">' .
 				implode( $elements[ 'right' ] ) .
 				$this->indent() . '</div> <!-- navbar-right-aligned -->';
-
 			$this->indent( -1 );
 		}
 
@@ -377,7 +376,6 @@ class NavbarHorizontal extends Component {
 
 		$linkText = '<span class="glyphicon glyphicon-user"></span>';
 		\Hooks::run('ChameleonNavbarHorizontalPersonalToolsLinkText', array( &$linkText, $this->getSkin() ) );
-
 		// add personal tools (links to user page, user talk, prefs, ...)
 		$ret = '';
 
@@ -404,7 +402,7 @@ class NavbarHorizontal extends Component {
 			$widgets .=
                 $this->indent(+1) . '<ul class="navbar-personaltools navbar-nav navbar-personaltoolwidgets navbar-nav-widgets" >' .
 			 	$this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item, $options ) .
-			    $this->indent(-1) . '</ul>';
+				$this->indent(-1) . '</ul>';
 		}
 		if ($widgetsUls) {
 			$ret .=
@@ -414,12 +412,38 @@ class NavbarHorizontal extends Component {
 				$this->indent(-1) . '</ul>' ;
 		}
 		if ($widgets) {
+			$parametersLinks = ['administration','gallery','special-book'];
+			Hooks::run("chameleon-parametersLinks",[&$parametersLinks]);
 			$ret .=
 				$this->indent() . '<!-- personal widgets -->' .
-				$widgets ;
+				$widgets	.
+				//Parametre mennu
+				//TODO modifier css, 2 bande blanche de chaque côté de l'icone
+				$this->indent() . '<ul class="navbar-tools navbar-nav" >' .
+				$this->indent( 1 ) . '<li class="dropdown navbar-tools-tools">'	.
+				$this->indent( 1 ) . '<a class="dropdown-toggle ' . $toolsClass . '" href="#" data-toggle="dropdown" title="Paramètre" > <span class="glyphicon glyphicon-cog"></span> </a>' .
+				$this->indent() . '<ul class="p-personal-tools dropdown-menu dropdown-menu-right" >'.
+				$this->indent( 1 );
+				//Add Administration, gallery, special_book in menu parametre
+				foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
+					if ( in_array($key, $personnalsToolsWidgets) ) {
+							continue;	
+					}
+					if ( in_array( $key, $parametersLinks ) ){
+						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+					} else {
+					//Do nothing
+					}
+				}
+				$ret .=
+				$this->indent( -1 ) . '</li>' .
+				$this->indent( -1 ) . '</ul>'.
+				$this->indent( -1 ) . '</ul>';
+				//End of menu
 		}
 
 		// start personal tools element
+		
 
 		$ret .=
 			$this->indent() . '<!-- personal tools -->' .
@@ -436,14 +460,20 @@ class NavbarHorizontal extends Component {
 			if(in_array($key, $personnalsToolsWidgets)) {
 				continue;
 			}
-
+			if($key==='administration'||$key==='gallery'||$key==='special-book'){
+				// Do nothing
+			}
+			else{
 			$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-		}
+			}
+			
+		}				$this->indent( 1 ) . '<a><span class="glyphicon glyphicon-cog"></span></a>'.
 
 
 		$ret .=
 			$this->indent( -1 ) . '</ul>' .
 			$this->indent( -1 ) . '</li>';
+
 
 		// if the user is logged in, add the newtalk notifier
 		if ( $user->isLoggedIn() ) {
