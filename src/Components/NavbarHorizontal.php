@@ -412,7 +412,7 @@ class NavbarHorizontal extends Component {
 				$this->indent(-1) . '</ul>' ;
 		}
 		if ($widgets) {
-			$parametersLinks = ['administration','gallery','special-book'];
+			$parametersLinks = ['administration','gallery','special-book','recent-activity'];
 			Hooks::run("chameleon-parametersLinks",[&$parametersLinks]);
 			$ret .=
 				$this->indent() . '<!-- personal widgets -->' .
@@ -424,17 +424,17 @@ class NavbarHorizontal extends Component {
 				$this->indent( 1 ) . '<a class="dropdown-toggle ' . $toolsClass . '" href="#" data-toggle="dropdown" title="Paramètre" > <span class="glyphicon glyphicon-cog"></span> </a>' .
 				$this->indent() . '<ul class="p-personal-tools dropdown-menu dropdown-menu-right" >'.
 				$this->indent( 1 );
-				//Add Administration, gallery, special_book in menu parametre
-				foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
-					if ( in_array($key, $personnalsToolsWidgets) ) {
-							continue;	
-					}
-					if ( in_array( $key, $parametersLinks ) ){
-						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-					} else {
-					//Do nothing
-					}
-				}
+		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
+			if ( in_array( $key, $personnalsToolsWidgets ) ) {
+				continue;	
+			}
+			//Add Administration, gallery, special_book in menu parametre
+			if ( in_array( $key, $parametersLinks ) ) {
+				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+			} else {
+				//Do nothing
+			}
+		}
 				$ret .=
 				$this->indent( -1 ) . '</li>' .
 				$this->indent( -1 ) . '</ul>'.
@@ -455,19 +455,35 @@ class NavbarHorizontal extends Component {
 		$this->indent( 1 );
 
 
-		// add personal tools (links to user page, user talk, prefs, ...)
+		// Add personal tools (links to user page, user talk, prefs, ...)
 		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
-			if(in_array($key, $personnalsToolsWidgets)) {
+			if ( in_array( $key, $personnalsToolsWidgets) ) {
 				continue;
 			}
-			if($key==='administration'||$key==='gallery'||$key==='special-book'){
-				// Do nothing
-			}
-			else{
+			if ( !empty($parametersLinks) && in_array( $key, $parametersLinks ) ) {
+				// Link in this array parametre menu not in user menu, do nothing
+			} else {
+					if ( $key === "preferences" ){
+						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+						// After <a>preferences</a> add <hr>
+						$ret .= "<hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'>";
+						continue;
+					} 
+					if ( $key === "saved-drafts" ) {
+						$savedDrafts = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+						//all after </a> is save in $endbalise(</a></li> ..)
+						$endBalise = strstr($savedDrafts,"</a>");
+						//all before </a>
+						$xplode = explode( "</a>", $savedDrafts );
+						$key = $xplode[0];
+						//add icone <i ..></i> in explode of saveDraft + end of balise (</a><li>..)
+						$addIcone = $key.' '.'<i class="fa fa-info-circle" aria-hidden="true"></i>'.$endBalise;
+						$ret .= $addIcone;
+						continue;
+					}
 			$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 			}
-			
-		}				$this->indent( 1 ) . '<a><span class="glyphicon glyphicon-cog"></span></a>'.
+		}
 
 
 		$ret .=
@@ -505,7 +521,6 @@ class NavbarHorizontal extends Component {
 		}
 
 		$ret .= $this->indent( -1 ) . '</ul>' . "\n";
-
 		return $ret;
 	}
 
