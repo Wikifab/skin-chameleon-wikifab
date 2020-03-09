@@ -412,13 +412,13 @@ class NavbarHorizontal extends Component {
 				$this->indent(-1) . '</ul>' ;
 		}
 		if ($widgets) {
-			$parametersLinks = ['administration','gallery','special-book','recent-activity'];
+			$parametersLinks = ['administration','gallery','special-book','recent-activity','language-translate', 
+			'stat-language','manage-path','reusable-step', 'pending-change'];
 			Hooks::run("chameleon-parametersLinks",[&$parametersLinks]);
 			$ret .=
 				$this->indent() . '<!-- personal widgets -->' .
 				$widgets	.
-				//Parametre mennu
-				//TODO modifier css, 2 bande blanche de chaque côté de l'icone
+				//Parametre menu
 				$this->indent() . '<ul class="navbar-tools navbar-nav" >' .
 				$this->indent( 1 ) . '<li class="dropdown navbar-tools-tools">'	.
 				$this->indent( 1 ) . '<a class="dropdown-toggle ' . $toolsClass . '" href="#" data-toggle="dropdown" title="Paramètre" > <span class="glyphicon glyphicon-cog"></span> </a>' .
@@ -457,10 +457,10 @@ class NavbarHorizontal extends Component {
 
 		// Add personal tools (links to user page, user talk, prefs, ...)
 		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
-			if ( in_array( $key, $personnalsToolsWidgets) ) {
+			if ( in_array( $key, $personnalsToolsWidgets ) ) {
 				continue;
 			}
-			if ( !empty($parametersLinks) && in_array( $key, $parametersLinks ) ) {
+			if ( !empty( $parametersLinks ) && in_array( $key, $parametersLinks ) ) {
 				// Link in this array parametre menu not in user menu, do nothing
 			} else {
 					if ( $key === "preferences" ){
@@ -473,8 +473,9 @@ class NavbarHorizontal extends Component {
 						$savedDrafts = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 						//all after </a> is save in $endbalise(</a></li> ..)
 						$endBalise = strstr($savedDrafts,"</a>");
-						//all before </a>
+						//all before </a> is save in array $xplode
 						$xplode = explode( "</a>", $savedDrafts );
+						// get key in array $xplode
 						$key = $xplode[0];
 						//add icone <i ..></i> in explode of saveDraft + end of balise (</a><li>..)
 						$addIcone = $key.' '.'<i class="fa fa-info-circle" aria-hidden="true"></i>'.$endBalise;
@@ -484,7 +485,6 @@ class NavbarHorizontal extends Component {
 			$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 			}
 		}
-
 
 		$ret .=
 			$this->indent( -1 ) . '</ul>' .
