@@ -428,7 +428,7 @@ class NavbarHorizontal extends Component {
 			if ( in_array( $key, $personnalsToolsWidgets ) ) {
 				continue;	
 			}
-			//Add Administration, gallery, special_book in menu parametre
+			//Add Administration, gallery, special_book .. in menu parametre
 			if ( in_array( $key, $parametersLinks ) ) {
 				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 			} else {
@@ -471,15 +471,14 @@ class NavbarHorizontal extends Component {
 					} 
 					if ( $key === "saved-drafts" ) {
 						$savedDrafts = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-						//all after </a> is save in $endbalise(</a></li> ..)
-						$endBalise = strstr($savedDrafts,"</a>");
-						//all before </a> is save in array $xplode
-						$xplode = explode( "</a>", $savedDrafts );
-						// get key in array $xplode
-						$key = $xplode[0];
-						//add icone <i ..></i> in explode of saveDraft + end of balise (</a><li>..)
-						$addIcone = $key.' '.'<i class="fa fa-info-circle" aria-hidden="true"></i>'.$endBalise;
-						$ret .= $addIcone;
+						$savedDrafts = str_replace( "</a>", "<i class='fa fa-info-circle' aria-hidden='true'></i></a>", $savedDrafts );
+						$ret .= $savedDrafts;
+						continue;
+					}
+					if ( $key === "help-target" ) {
+						$savedHelp = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+						$savedHelp = str_replace( "<a", " <a target='_blanck'",$savedHelp);
+						$ret .=$savedHelp;
 						continue;
 					}
 			$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
