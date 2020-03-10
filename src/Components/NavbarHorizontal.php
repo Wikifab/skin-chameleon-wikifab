@@ -469,10 +469,15 @@ class NavbarHorizontal extends Component {
 						$ret .= "<hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'>";
 						continue;
 					} 
-					if ( $key === "saved-drafts" ) {
-						$savedDrafts = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-						$savedDrafts = str_replace( "</a>", "<i class='fa fa-info-circle' aria-hidden='true'></i></a>", $savedDrafts );
-						$ret .= $savedDrafts;
+					// if user own saved drafts
+					if ( $key === "saved-drafts") {
+						$draft = \Drafts::num();
+						if ( $draft >=1 ){
+							$savedDrafts = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+							$savedDrafts = str_replace( "</a>", "<i class='fa fa-info-circle' aria-hidden='true'></i></a>", $savedDrafts );
+							$ret .= $savedDrafts;
+							continue;
+						}
 						continue;
 					}
 					if ( $key === "help-target" ) {
