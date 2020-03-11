@@ -430,9 +430,13 @@ class NavbarHorizontal extends Component {
 			}
 			//Add Administration, gallery, special_book .. in menu parametre
 			if ( in_array( $key, $parametersLinks ) ) {
+				if ( $key === 'administration') {
+					$adminLink = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+					$adminLink = str_replace("<a","<hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'><a",$adminLink);
+					$ret .= $adminLink;
+					continue;
+				}
 				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-			} else {
-				//Do nothing
 			}
 		}
 				$ret .=
