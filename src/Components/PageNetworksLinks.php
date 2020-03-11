@@ -59,8 +59,14 @@ class PageNetworksLinks extends Component {
 		if (isset($options['class'])) {
 			$class = $options['class'];
 		}
+		$dataAttr = '';
+		foreach ($options as $key => $val) {
+			if ( substr($key, 0,5) == 'data-' && preg_match('/([0-9a-zA-Z\-_])/', $key)) {
+				$dataAttr .= ' ' . $key . '="' .addslashes($val) . '"';
+			}
+		}
 
-		$button = '<a type="button" class="btn ' . $class . '" ' . $target . ' href="' . $url . '">';
+		$button = '<a type="button" class="btn page-tools-button ' . $class . '" ' . $target . $dataAttr .' href="' . $url . '">';
 		$button .= '<i class="'. $faClass .'" aria-hidden="true"></i>';
 		$button .= $label;
 		$button .= '</a>';
