@@ -457,7 +457,7 @@ class NavbarHorizontal extends Component {
 				// TODO modify param for array getenableDoctption
 				/*
 				if ( $key === 'reusable-step' ) {
-					$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitReusableStep];
+					$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitReusableStep"];
 					if ( $optionActived == true ) {
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 						continue;
