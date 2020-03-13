@@ -413,7 +413,7 @@ class NavbarHorizontal extends Component {
 		}
 		if ($widgets) {
 			$parametersLinks = ['administration','gallery','special-book','recent-activity','language-translate', 
-			'stat-language','manage-path','reusable-step', 'pending-change'];
+			'stat-language','manage-path','reusable-step', 'pending-change','manage-toolsparts'];
 			Hooks::run("chameleon-parametersLinks",[&$parametersLinks]);
 			$ret .=
 				$this->indent() . '<!-- personal widgets -->' .
@@ -437,6 +437,34 @@ class NavbarHorizontal extends Component {
 					$ret .= $adminLink;
 					continue;
 				}
+				# check if DocOptions if actived
+				if ( $key === 'special-book' ) {
+					$test = \DokitPaths\Hooks::testFunction();
+					$optionActived = \DokitPaths\Hooks::getEnabledDocOptions();
+					if ( array_key_exists( "DokitManualEnable", $optionActived ) == true ) {
+						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+						continue;
+					}
+						continue;
+				}
+				if ( $key === 'manage-toolsparts') {
+					$optionActived = \DokitPaths\Hooks::getEnabledDocOptions();
+					if ( array_key_exists( 'DokitItemEnable', $optionActived ) == true ) {
+						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+						continue;
+					}
+					continue;
+				}
+				// TODO modify param for array key
+				/*
+				if ( $key === 'reusable-step' ) {
+					$optionActived = \DokitPaths\Hooks::getEnabledDocOptions();
+					if ( \array_key_exists( 'DokitReusableStep', $optionActived ) == true ) {
+						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+						continue;
+					}
+					continue;
+				}*/
 				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 			}
 		}
