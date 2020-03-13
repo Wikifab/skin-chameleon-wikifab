@@ -439,27 +439,26 @@ class NavbarHorizontal extends Component {
 				}
 				# check if DocOptions if actived
 				if ( $key === 'special-book' ) {
-					$test = \DokitPaths\Hooks::testFunction();
-					$optionActived = \DokitPaths\Hooks::getEnabledDocOptions();
-					if ( array_key_exists( "DokitManualEnable", $optionActived ) == true ) {
+					$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitManualEnable"];
+					if ( $optionActived == true ) {
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 						continue;
 					}
 						continue;
 				}
 				if ( $key === 'manage-toolsparts') {
-					$optionActived = \DokitPaths\Hooks::getEnabledDocOptions();
-					if ( array_key_exists( 'DokitItemEnable', $optionActived ) == true ) {
+					$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitItemEnable"];
+					if ( $optionActived == true ) {
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 						continue;
 					}
 					continue;
 				}
-				// TODO modify param for array key
+				// TODO modify param for array getenableDoctption
 				/*
 				if ( $key === 'reusable-step' ) {
-					$optionActived = \DokitPaths\Hooks::getEnabledDocOptions();
-					if ( \array_key_exists( 'DokitReusableStep', $optionActived ) == true ) {
+					$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitReusableStep];
+					if ( $optionActived == true ) {
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 						continue;
 					}
