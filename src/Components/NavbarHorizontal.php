@@ -524,7 +524,7 @@ class NavbarHorizontal extends Component {
 						$ret .=$savedHelp;
 						continue;
 					}
-					if ( $key === 'mypaths' ) {
+					if ( $key === 'mypaths' && $user->isAllowed('edit-paths') ) {
 						$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitPathsEnable"];
 						if ( $optionActived == true ) {
 							$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
