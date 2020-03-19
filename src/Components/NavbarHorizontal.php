@@ -454,16 +454,22 @@ class NavbarHorizontal extends Component {
 					}
 					continue;
 				}
-				// TODO modify param for array getenableDoctption
-				/*
 				if ( $key === 'reusable-step' ) {
-					$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitReusableStep"];
+					$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitReusableStepEnable"];
 					if ( $optionActived == true ) {
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 						continue;
 					}
 					continue;
-				}*/
+				}
+				if ( $key === 'manage-path' ) {
+					$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitPathsEnable"];
+					if ( $optionActived == true ) {
+						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+						continue;
+					}
+					continue;
+				}
 				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 			}
 		}
@@ -516,6 +522,14 @@ class NavbarHorizontal extends Component {
 						$savedHelp = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 						$savedHelp = str_replace( "<a", " <a target='_blanck'",$savedHelp);
 						$ret .=$savedHelp;
+						continue;
+					}
+					if ( $key === 'mypaths' ) {
+						$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitPathsEnable"];
+						if ( $optionActived == true ) {
+							$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+							continue;
+						}
 						continue;
 					}
 			$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
