@@ -412,8 +412,8 @@ class NavbarHorizontal extends Component {
 				$this->indent(-1) . '</ul>' ;
 		}
 		if ($widgets) {
-			$parametersLinks = ['administration','gallery','special-book','recent-activity','language-translate', 
-			'stat-language','manage-path','reusable-step', 'pending-change','manage-toolsparts'];
+			$parametersLinks = ['administration','gallery','special-book-Manuals','special-book-Training','recent-activity','language-translate', 
+			'stat-language','reusable-step', 'pending-change','manage-toolsparts'];
 			Hooks::run("chameleon-parametersLinks",[&$parametersLinks]);
 			$ret .=
 				$this->indent() . '<!-- personal widgets -->' .
@@ -438,7 +438,7 @@ class NavbarHorizontal extends Component {
 					continue;
 				}
 				# check if DocOptions if actived
-				if ( $key === 'special-book' ) {
+				if ( $key === 'special-book-Manuals' ) {
 					$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitManualEnable"];
 					if ( $optionActived == true ) {
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
@@ -462,7 +462,7 @@ class NavbarHorizontal extends Component {
 					}
 					continue;
 				}
-				if ( $key === 'manage-path' ) {
+				if ( $key === 'special-book-Training' ) {
 					$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitPathsEnable"];
 					if ( $optionActived == true ) {
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
