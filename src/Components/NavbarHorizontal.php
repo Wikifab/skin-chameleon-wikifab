@@ -491,8 +491,7 @@ class NavbarHorizontal extends Component {
 			$this->indent() . '<ul class="p-personal-tools dropdown-menu dropdown-menu-right" >';
 
 		$this->indent( 1 );
-
-
+		
 		// Add personal tools (links to user page, user talk, prefs, ...)
 		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
 			if ( in_array( $key, $personnalsToolsWidgets ) ) {
@@ -501,6 +500,14 @@ class NavbarHorizontal extends Component {
 			if ( !empty( $parametersLinks ) && in_array( $key, $parametersLinks ) ) {
 				// Link in this array parametre menu not in user menu, do nothing
 			} else {
+					if ( $key === 'mypaths' ) {
+						$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitPathsEnable"];
+						if ( $optionActived == true ) {
+							$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+							continue;
+						}
+						continue;
+					}
 					if ( $key === "preferences" ){
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 						// After <a>preferences</a> add <hr>
@@ -522,14 +529,6 @@ class NavbarHorizontal extends Component {
 						$savedHelp = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 						$savedHelp = str_replace( "<a", " <a target='_blanck'",$savedHelp);
 						$ret .=$savedHelp;
-						continue;
-					}
-					if ( $key === 'mypaths' ) {
-						$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitPathsEnable"];
-						if ( $optionActived == true ) {
-							$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-							continue;
-						}
 						continue;
 					}
 			$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
