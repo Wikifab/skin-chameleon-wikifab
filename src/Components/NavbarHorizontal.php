@@ -494,7 +494,6 @@ class NavbarHorizontal extends Component {
 		
 		// Add personal tools (links to user page, user talk, prefs, ...)
 		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
-			dump($key);
 			if ( in_array( $key, $personnalsToolsWidgets ) ) {
 				continue;
 			}
