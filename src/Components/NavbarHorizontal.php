@@ -424,55 +424,55 @@ class NavbarHorizontal extends Component {
 				$this->indent( 1 ) . '<a class="dropdown-toggle ' . $toolsClass . '" href="#" data-toggle="dropdown" title="Paramètre" > <span class="glyphicon glyphicon-cog"></span> </a>' .
 				$this->indent() . '<ul class="p-personal-tools dropdown-menu dropdown-menu-right" >'.
 				$this->indent( 1 );
-		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
-			if ( in_array( $key, $personnalsToolsWidgets ) ) {
-				continue;	
-			}
-			//Add Administration, gallery, special_book .. in menu parametre
-			if ( in_array( $key, $parametersLinks ) ) {
-				//adminstration link add <hr>
-				if ( $key === 'administration'){
-					$adminLink = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-					$adminLink = \str_replace("<a","<hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'><a",$adminLink);
-					$ret .= $adminLink;
-					continue;
-				}
-				# check if DocOptions if actived
-				if ( $key === 'special-book-Manuals' ) {
-					$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitManualEnable"];
-					if ( $optionActived == true ) {
-						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-						continue;
+				foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
+					if ( in_array( $key, $personnalsToolsWidgets ) ) {
+						continue;	
 					}
-						continue;
-				}
-				if ( $key === 'manage-toolsparts') {
-					$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitItemEnable"];
-					if ( $optionActived == true ) {
+					//Add Administration, gallery, special_book .. in menu parametre
+					if ( in_array( $key, $parametersLinks ) ) {
+						//adminstration link add <hr>
+						if ( $key === 'administration'){
+							$adminLink = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+							$adminLink = \str_replace("<a", " <hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'><a ", $adminLink );
+							$ret .= $adminLink;
+							continue;
+						}
+						# check if DocOptions if actived
+						if ( $key === 'special-book-Manuals' ) {
+							$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitManualEnable"];
+							if ( $optionActived == true ) {
+								$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+								continue;
+							}
+								continue;
+						}
+						if ( $key === 'manage-toolsparts' ) {
+							$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitItemEnable"];
+							if ( $optionActived == true ) {
+								$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+								continue;
+							}
+							continue;
+						}
+						if ( $key === 'reusable-step' ) {
+							$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitReusableStepEnable"];
+							if ( $optionActived == true ) {
+								$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+								continue;
+							}
+							continue;
+						}
+						if ( $key === 'special-book-Training' ) {
+							$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitPathsEnable"];
+							if ( $optionActived == true ) {
+								$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+								continue;
+							}
+							continue;
+						}
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-						continue;
 					}
-					continue;
 				}
-				if ( $key === 'reusable-step' ) {
-					$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitReusableStepEnable"];
-					if ( $optionActived == true ) {
-						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-						continue;
-					}
-					continue;
-				}
-				if ( $key === 'special-book-Training' ) {
-					$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitPathsEnable"];
-					if ( $optionActived == true ) {
-						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-						continue;
-					}
-					continue;
-				}
-				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-			}
-		}
 				$ret .=
 				$this->indent( -1 ) . '</li>' .
 				$this->indent( -1 ) . '</ul>'.
@@ -503,15 +503,15 @@ class NavbarHorizontal extends Component {
 					if ( $key === "preferences" ){
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 						// After <a>preferences</a> add <hr>
-						$ret .= "<hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'>";
+						$ret .= " <hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'> ";
 						continue;
 					} 
 					// if user own saved drafts
-					if ( $key === "saved-drafts") {
+					if ( $key === "saved-drafts" ) {
 						$draft = \Drafts::num();
 						if ( $draft >=1 ){
 							$savedDrafts = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-							$savedDrafts = str_replace( "</a>", "<i class='fa fa-info-circle' aria-hidden='true'></i></a>", $savedDrafts );
+							$savedDrafts = str_replace( "</a>", " <i class='fa fa-info-circle' aria-hidden='true'></i></a> ", $savedDrafts );
 							$ret .= $savedDrafts;
 							continue;
 						}
@@ -519,8 +519,8 @@ class NavbarHorizontal extends Component {
 					}
 					if ( $key === "help-target" ) {
 						$savedHelp = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-						$savedHelp = str_replace( "<a", " <a target='_blanck'",$savedHelp);
-						$ret .=$savedHelp;
+						$savedHelp = str_replace( "<a", " <a target='_blank' ", $savedHelp );
+						$ret .= $savedHelp;
 						continue;
 					}
 					if ( $key === 'mypaths' ) {
