@@ -430,45 +430,11 @@ class NavbarHorizontal extends Component {
 					}
 					//Add Administration, gallery, special_book .. in menu parametre
 					if ( in_array( $key, $parametersLinks ) ) {
-						//adminstration link add <hr>
-						if ( $key === 'administration'){
+
+						if ( key_exists( 'administration', $parametersLinks ) ) {
 							$adminLink = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 							$adminLink = \str_replace("<a", " <hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'><a ", $adminLink );
 							$ret .= $adminLink;
-							continue;
-						}
-						# check if DocOptions if actived
-						if ( $key === 'special-book-Manuals' ) {
-							$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitManualEnable"];
-							if ( $optionActived == true ) {
-								$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-								continue;
-							}
-								continue;
-						}
-						if ( $key === 'manage-toolsparts' ) {
-							$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitItemEnable"];
-							if ( $optionActived == true ) {
-								$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-								continue;
-							}
-							continue;
-						}
-						if ( $key === 'reusable-step' ) {
-							$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitReusableStepEnable"];
-							if ( $optionActived == true ) {
-								$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-								continue;
-							}
-							continue;
-						}
-						if ( $key === 'special-book-Training' ) {
-							$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitPathsEnable"];
-							if ( $optionActived == true ) {
-								$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-								continue;
-							}
-							continue;
 						}
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 					}
@@ -508,27 +474,15 @@ class NavbarHorizontal extends Component {
 					} 
 					// if user own saved drafts
 					if ( $key === "saved-drafts" ) {
-						$draft = \Drafts::num();
-						if ( $draft >=1 ){
 							$savedDrafts = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 							$savedDrafts = str_replace( "</a>", " <i class='fa fa-info-circle' aria-hidden='true'></i></a> ", $savedDrafts );
 							$ret .= $savedDrafts;
 							continue;
-						}
-						continue;
 					}
 					if ( $key === "help-target" ) {
 						$savedHelp = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 						$savedHelp = str_replace( "<a", " <a target='_blank' ", $savedHelp );
 						$ret .= $savedHelp;
-						continue;
-					}
-					if ( $key === 'mypaths' ) {
-						$optionActived = \WAC\Hooks::getEnabledDocOptions()["DokitPathsEnable"];
-						if ( $optionActived == true ) {
-							$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-							continue;
-						}
 						continue;
 					}
 			$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
