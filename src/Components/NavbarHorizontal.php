@@ -466,7 +466,7 @@ class NavbarHorizontal extends Component {
 			$this->indent( 1 );
 
 		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
-			if ( empty( $parameterMenu ) ) {
+			if ( empty( $parameterMenu ) && $key != "language" ) {
 				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 			}
 			if ( in_array( $key, $userMenu ) ) {
