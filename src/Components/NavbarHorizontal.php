@@ -412,13 +412,6 @@ class NavbarHorizontal extends Component {
 				$this->indent(-1) . '</ul>' ;
 		}
 		if ($widgets) {
-			// add here key $personal_url for parameter menu
-			$parametersLinks = ['gallery','special-book-Manuals','special-book-Training','recent-activity','language-translate', 
-			'stat-language','reusable-step', 'pending-change','manage-toolsparts'];
-
-			//add here key $personnal_url for parameter sub menu (under <hr>)
-			$parameterSubMenu = ['administration'];
-			Hooks::run("chameleon-parametersLinks",[&$parametersLinks]);
 			$ret .=
 				$this->indent() . '<!-- personal widgets -->' .
 				$widgets	.
@@ -428,9 +421,8 @@ class NavbarHorizontal extends Component {
 				$this->indent( 1 ) . '<a class="dropdown-toggle ' . $toolsClass . '" href="#" data-toggle="dropdown" title="Paramètre" > <span class="glyphicon glyphicon-cog"></span> </a>' .
 				$this->indent() . '<ul class="p-personal-tools dropdown-menu dropdown-menu-right" >'.
 				$this->indent( 1 );
-				//Add Administration, gallery, special_book .. in menu parametre
 				foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
-					if ( in_array( $key, $parametersLinks ) ) {
+					if ( $item["links"][0]["class"] == "param-menu" ) {
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 					}
 				}
@@ -438,7 +430,7 @@ class NavbarHorizontal extends Component {
 				$this->indent(1) .
 				$ret .= " <hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'> " ;
 				foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
-					if ( in_array( $key, $parameterSubMenu ) ) {
+					if ( $item["links"][0]["class"] == "param-sub-menu" ) {
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 					}
 				}
@@ -447,16 +439,10 @@ class NavbarHorizontal extends Component {
 				$this->indent( -1 ) . '</ul>'.
 				$this->indent( -1 ) . '</ul>';
 				//End of menu parameter
-				// regroup all link in parameter menu in 1 array (use for compare)
-				$parameterMenu = array_merge($parametersLinks,$parameterSubMenu);
 		}
 
 		// start personal tools element
-
-		// Add personal tools (links to user page, user talk, prefs, ...)
-		$userMenu = ['mypaths','userpage','my-pages','preferences','saved-drafts'];
-		//add in sub user menu (under <hr>)
-		$subUserMenu = ['logout','help-target'];		
+	
 		$ret .=
 			$this->indent() . '<!-- personal tools -->' .
 			$this->indent() . '<ul class="navbar-tools navbar-nav" >' .
@@ -466,10 +452,14 @@ class NavbarHorizontal extends Component {
 			$this->indent( 1 );
 
 		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
-			if ( empty( $parameterMenu ) && $key != "language" ) {
+			// if user isn't log show menu special loggin
+			if ( $user->isLoggedIn() == false && $key !== "language" ) {
 				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+				continue;
 			}
-			if ( in_array( $key, $userMenu ) ) {
+			// if link as class user-menu
+			if ( $item["links"][0]["class"] == "user-menu" ) {
+				//add icone 
 				if ( $key == "saved-drafts") {
 					$savedDrafts = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 					$savedDrafts = str_replace("</a>","<i class='fa fa-info-circle' aria-hidden='true'></i></a>",$savedDrafts);
@@ -483,7 +473,11 @@ class NavbarHorizontal extends Component {
 		$this->indent(1) .
 		$ret .= " <hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'> " ;
 		foreach ($this->getSkinTemplate()->getPersonalTools() as $key => $item ){
-			if ( in_array( $key, $subUserMenu ) ) {
+			//Prevent bug if user isn't log
+			if ( $user->isLoggedIn() == false ){
+				continue;
+			}
+			if ( $item["links"][0]["class"] == "user-sub-menu" ) {
 				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 			}
 		}
