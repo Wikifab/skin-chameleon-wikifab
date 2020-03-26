@@ -28,6 +28,7 @@ namespace Skins\Chameleon;
 
 use BaseTemplate;
 use SkinChameleon;
+use Html;
 
 /**
  * BaseTemplate class for the Chameleon skin
@@ -102,14 +103,37 @@ class ChameleonTemplate extends BaseTemplate {
 	 */
 	public function makeListItem( $key, $item, $options = array() ) {
 
-		foreach ( array( 'id', 'single-id' ) as $attrib ) {
+		foreach ( array( 'id', 'single-id') as $attrib ) {
 
 			if ( isset ( $item[ $attrib ] ) ) {
 				$item[ $attrib ] = IdRegistry::getRegistry()->getId( $item[ $attrib ], $this );
-
 			}
-
 		}
 		return parent::makeListItem( $key, $item, $options );
+	}
+	// Custom base template add traget in options
+	function getPersonalTools() {
+		$personal_tools = [];
+		foreach ( $this->get( 'personal_urls' ) as $key => $plink ) {
+			# The class on a personal_urls item is meant to go on the <a> instead
+			# of the <li> so we have to use a single item "links" array instead
+			# of using most of the personal_url's keys directly.
+			$ptool = [
+				'links' => [
+					[ 'single-id' => "pt-$key" ],
+				],
+				'id' => "pt-$key",
+			];
+			if ( isset( $plink['active'] ) ) {
+				$ptool['active'] = $plink['active'];
+			}
+			foreach ( [ 'href', 'class', 'text', 'dir', 'data', 'exists', 'target' ] as $k ) {
+				if ( isset( $plink[$k] ) ) {
+					$ptool['links'][0][$k] = $plink[$k];
+				}
+			}
+			$personal_tools[$key] = $ptool;
+		}
+		return $personal_tools;
 	}
 }
