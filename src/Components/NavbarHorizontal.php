@@ -412,8 +412,12 @@ class NavbarHorizontal extends Component {
 				$this->indent(-1) . '</ul>' ;
 		}
 		if ($widgets) {
-			$parametersLinks = ['administration','gallery','special-book-Manuals','special-book-Training','recent-activity','language-translate', 
+			// add here key $personal_url for parameter menu
+			$parametersLinks = ['gallery','special-book-Manuals','special-book-Training','recent-activity','language-translate', 
 			'stat-language','reusable-step', 'pending-change','manage-toolsparts'];
+
+			//add here key $personnal_url for parameter sub menu (under <hr>)
+			$parameterSubMenu = ['administration'];
 			Hooks::run("chameleon-parametersLinks",[&$parametersLinks]);
 			$ret .=
 				$this->indent() . '<!-- personal widgets -->' .
@@ -424,18 +428,17 @@ class NavbarHorizontal extends Component {
 				$this->indent( 1 ) . '<a class="dropdown-toggle ' . $toolsClass . '" href="#" data-toggle="dropdown" title="Paramètre" > <span class="glyphicon glyphicon-cog"></span> </a>' .
 				$this->indent() . '<ul class="p-personal-tools dropdown-menu dropdown-menu-right" >'.
 				$this->indent( 1 );
+				//Add Administration, gallery, special_book .. in menu parametre
 				foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
-					if ( in_array( $key, $personnalsToolsWidgets ) ) {
-						continue;	
-					}
-					//Add Administration, gallery, special_book .. in menu parametre
 					if ( in_array( $key, $parametersLinks ) ) {
-
-						if ( key_exists( 'administration', $parametersLinks ) ) {
-							$adminLink = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-							$adminLink = \str_replace("<a", " <hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'><a ", $adminLink );
-							$ret .= $adminLink;
-						}
+						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+					}
+				}
+				// Sub menu parameter
+				$this->indent(1) .
+				$ret .= " <hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'> " ;
+				foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
+					if ( in_array( $key, $parameterSubMenu ) ) {
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 					}
 				}
@@ -443,52 +446,47 @@ class NavbarHorizontal extends Component {
 				$this->indent( -1 ) . '</li>' .
 				$this->indent( -1 ) . '</ul>'.
 				$this->indent( -1 ) . '</ul>';
-				//End of menu
+				//End of menu parameter
+				// regroup all link in parameter menu in 1 array (use for compare)
+				$parameterMenu = array_merge($parametersLinks,$parameterSubMenu);
 		}
 
 		// start personal tools element
-		
 
+		// Add personal tools (links to user page, user talk, prefs, ...)
+		$userMenu = ['mypaths','userpage','my-pages','preferences','saved-drafts'];
+		//add in sub user menu (under <hr>)
+		$subUserMenu = ['logout','help-target'];		
 		$ret .=
 			$this->indent() . '<!-- personal tools -->' .
 			$this->indent() . '<ul class="navbar-tools navbar-nav" >' .
 			$this->indent( 1 ) . '<li class="dropdown navbar-tools-tools">' .
 			$this->indent( 1 ) . '<a class="dropdown-toggle ' . $toolsClass . '" href="#" data-toggle="dropdown" title="' . $toolsLinkText . '" >' . $linkText . '</a>' .
-			$this->indent() . '<ul class="p-personal-tools dropdown-menu dropdown-menu-right" >';
+			$this->indent() . '<ul class="p-personal-tools dropdown-menu dropdown-menu-right" >'.
+			$this->indent( 1 );
 
-		$this->indent( 1 );
-		
-		// Add personal tools (links to user page, user talk, prefs, ...)
 		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
-			if ( in_array( $key, $personnalsToolsWidgets ) ) {
-				continue;
+			if ( empty( $parameterMenu ) ) {
+				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 			}
-			if ( !empty( $parametersLinks ) && in_array( $key, $parametersLinks ) ) {
-				// Link in this array parametre menu not in user menu, do nothing
-			} else {
-					if ( $key === "preferences" ){
-						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-						// After <a>preferences</a> add <hr>
-						$ret .= " <hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'> ";
-						continue;
-					} 
-					// if user own saved drafts
-					if ( $key === "saved-drafts" ) {
-							$savedDrafts = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-							$savedDrafts = str_replace( "</a>", " <i class='fa fa-info-circle' aria-hidden='true'></i></a> ", $savedDrafts );
-							$ret .= $savedDrafts;
-							continue;
-					}
-					if ( $key === "help-target" ) {
-						$savedHelp = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-						$savedHelp = str_replace( "<a", " <a target='_blank' ", $savedHelp );
-						$ret .= $savedHelp;
-						continue;
-					}
-			$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+			if ( in_array( $key, $userMenu ) ) {
+				if ( $key == "saved-drafts") {
+					$savedDrafts = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+					$savedDrafts = str_replace("</a>","<i class='fa fa-info-circle' aria-hidden='true'></i></a>",$savedDrafts);
+					$ret .= $savedDrafts;
+					continue;
+				}
+				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+			}
+		}	
+		// Sub user menu
+		$this->indent(1) .
+		$ret .= " <hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'> " ;
+		foreach ($this->getSkinTemplate()->getPersonalTools() as $key => $item ){
+			if ( in_array( $key, $subUserMenu ) ) {
+				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 			}
 		}
-
 		$ret .=
 			$this->indent( -1 ) . '</ul>' .
 			$this->indent( -1 ) . '</li>';
