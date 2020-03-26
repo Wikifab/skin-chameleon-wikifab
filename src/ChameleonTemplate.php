@@ -111,7 +111,7 @@ class ChameleonTemplate extends BaseTemplate {
 		}
 		return parent::makeListItem( $key, $item, $options );
 	}
-	// Custom base template add traget in options
+	// Custom base template add target in options
 	function getPersonalTools() {
 		$personal_tools = [];
 		foreach ( $this->get( 'personal_urls' ) as $key => $plink ) {
