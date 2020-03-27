@@ -453,7 +453,7 @@ class NavbarHorizontal extends Component {
 
 		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
 			// if user isn't log show menu special loggin
-			if ( $user->isLoggedIn() == false && $key !== "language" ) {
+			if ( $user->isLoggedIn() == false && $key !== "language" && $key !== "help-target" ) {
 				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 				continue;
 			}
@@ -474,7 +474,10 @@ class NavbarHorizontal extends Component {
 		$ret .= " <hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'> " ;
 		foreach ($this->getSkinTemplate()->getPersonalTools() as $key => $item ){
 			//Prevent bug if user isn't log
-			if ( $user->isLoggedIn() == false ){
+			if ( $user->isLoggedIn() == false) {
+				if ($key == "help-target" ) {
+					$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+				}
 				continue;
 			}
 			if ( $item["links"][0]["class"] == "user-sub-menu" ) {
