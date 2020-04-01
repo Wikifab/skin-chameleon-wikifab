@@ -127,8 +127,8 @@ class ChameleonTemplate extends BaseTemplate {
 			if ( isset( $plink['active'] ) ) {
 				$ptool['active'] = $plink['active'];
 			}
-			foreach ( [ 'href', 'class', 'text', 'dir', 'data', 'exists', 'target' ] as $k ) {
-				if ( isset( $plink[$k] ) ) {
+			foreach ( [ 'href', 'class', 'text', 'dir', 'data', 'exists', 'target','icon','menu' ] as $k ) {
+								if ( isset( $plink[$k] ) ) {
 					$ptool['links'][0][$k] = $plink[$k];
 				}
 			}
