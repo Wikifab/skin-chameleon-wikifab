@@ -460,10 +460,11 @@ class NavbarHorizontal extends Component {
 			// if link as class user-menu
 			if ( $item["links"][0]["class"] == "user-menu" ) {
 				//add icone 
-				if ( $key == "saved-drafts") {
-					$savedDrafts = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
-					$savedDrafts = str_replace("</a>","<i class='fa fa-info-circle' aria-hidden='true'></i></a>",$savedDrafts);
-					$ret .= $savedDrafts;
+				if ( isset( $item['links'][0]['icon'] ) ) {
+					$icon = $item['links'][0]['icon'];
+					$savedLink = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+					$savedLink = str_replace("</a>",$icon."</a>",$savedLink);
+					$ret .= $savedLink;
 					continue;
 				}
 				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
