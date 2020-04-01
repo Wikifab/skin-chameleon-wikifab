@@ -422,7 +422,7 @@ class NavbarHorizontal extends Component {
 				$this->indent() . '<ul class="p-personal-tools dropdown-menu dropdown-menu-right" >'.
 				$this->indent( 1 );
 				foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
-					if ( $item["links"][0]["class"] == "param-menu" ) {
+					if ( isset( $item["links"][0]["menu"] ) && $item["links"][0]["menu"] == "param-menu" ) {
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 					}
 				}
@@ -430,7 +430,7 @@ class NavbarHorizontal extends Component {
 				$this->indent(1) .
 				$ret .= " <hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'> " ;
 				foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
-					if ( $item["links"][0]["class"] == "param-sub-menu" ) {
+					if ( isset( $item["links"][0]["menu"] ) && $item["links"][0]["menu"] == "param-sub-menu" ) {
 						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 					}
 				}
@@ -442,7 +442,7 @@ class NavbarHorizontal extends Component {
 		}
 
 		// start personal tools element
-	
+		$excludeLink = ['language','help-target','notifications-alert','notifications-notice', 'social-message-link'];
 		$ret .=
 			$this->indent() . '<!-- personal tools -->' .
 			$this->indent() . '<ul class="navbar-tools navbar-nav" >' .
@@ -450,15 +450,14 @@ class NavbarHorizontal extends Component {
 			$this->indent( 1 ) . '<a class="dropdown-toggle ' . $toolsClass . '" href="#" data-toggle="dropdown" title="' . $toolsLinkText . '" >' . $linkText . '</a>' .
 			$this->indent() . '<ul class="p-personal-tools dropdown-menu dropdown-menu-right" >'.
 			$this->indent( 1 );
-
 		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
 			// if user isn't log show menu special loggin
-			if ( $user->isLoggedIn() == false && $key !== "language" && $key !== "help-target" ) {
+			if ( $user->isLoggedIn() == false && !in_array( $key, $excludeLink) ) {
 				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 				continue;
 			}
-			// if link as class user-menu
-			if ( $item["links"][0]["class"] == "user-menu" ) {
+			// all link as no key menu except key in $excludeLink
+			if ( empty($item["links"][0]["menu"]) && !in_array( $key, $excludeLink ) )  {
 				//add icone 
 				if ( isset( $item['links'][0]['icon'] ) ) {
 					$icon = $item['links'][0]['icon'];
@@ -481,7 +480,7 @@ class NavbarHorizontal extends Component {
 				}
 				continue;
 			}
-			if ( $item["links"][0]["class"] == "user-sub-menu" ) {
+			if ( isset( $item["links"][0]["menu"] ) && $item["links"][0]["menu"] == "user-sub-menu" ) {
 				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 			}
 		}
