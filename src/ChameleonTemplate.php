@@ -134,14 +134,7 @@ class ChameleonTemplate extends BaseTemplate {
 			}
 			$personal_tools[$key] = $ptool;
 		}
-		//retrieve the maximum number registered in the personal url sort order
 		$i=  0;
-		foreach( $personal_tools as $key => $value ) {
-				if ( isset($value['links'][0]['sort_order']) ){
-					$i = $value['links'][0]['sort_order'];
-				}
-		}
-		$i++;
 		//If a personal url doesn't have a spell order added one over the previous max.
 		foreach( $personal_tools as $key => $value ) {
 				if ( empty($value['links'][0]['sort_order'] ) ) {
