@@ -28,6 +28,7 @@ namespace Skins\Chameleon;
 
 use BaseTemplate;
 use SkinChameleon;
+use Html;
 
 /**
  * BaseTemplate class for the Chameleon skin
@@ -102,14 +103,54 @@ class ChameleonTemplate extends BaseTemplate {
 	 */
 	public function makeListItem( $key, $item, $options = array() ) {
 
-		foreach ( array( 'id', 'single-id' ) as $attrib ) {
+		foreach ( array( 'id', 'single-id') as $attrib ) {
 
 			if ( isset ( $item[ $attrib ] ) ) {
 				$item[ $attrib ] = IdRegistry::getRegistry()->getId( $item[ $attrib ], $this );
-
 			}
-
 		}
 		return parent::makeListItem( $key, $item, $options );
 	}
+	// Custom base template add target in options
+	function getPersonalTools() {
+		$personal_tools = [];
+		foreach ( $this->get( 'personal_urls' ) as $key => $plink ) {
+			# The class on a personal_urls item is meant to go on the <a> instead
+			# of the <li> so we have to use a single item "links" array instead
+			# of using most of the personal_url's keys directly.
+			$ptool = [
+				'links' => [
+					[ 'single-id' => "pt-$key" ],
+				],
+				'id' => "pt-$key",
+			];
+			if ( isset( $plink['active'] ) ) {
+				$ptool['active'] = $plink['active'];
+			}
+			foreach ( [ 'href', 'class', 'text', 'dir', 'data', 'exists', 'target','icon','menu','sort_order' ] as $k ) {
+								if ( isset( $plink[$k] ) ) {
+					$ptool['links'][0][$k] = $plink[$k];
+				}
+			}
+			$personal_tools[$key] = $ptool;
+		}
+		$i=  0;
+		//If a personal url doesn't have a spell order added one over the previous max.
+		foreach( $personal_tools as $key => $value ) {
+				if ( empty($value['links'][0]['sort_order'] ) ) {
+					$personal_tools[$key]['links'][0]['sort_order'] = $i;
+					$i++;
+				}		
+		}
+		//sorts the table according to the order spell
+		uasort($personal_tools,function( $a, $b ) {
+				if ( $a['links'][0]['sort_order'] == $b['links'][0]['sort_order'] ) {
+					return 0;
+				}
+				return ( $a['links'][0]['sort_order'] < $b['links'][0]['sort_order'] ) ? -1 : 1;
+			});
+
+		return $personal_tools;
+	}
+	
 }

@@ -146,7 +146,6 @@ class NavbarHorizontal extends Component {
 				$this->indent( 1 ) . '<div class="navbar-right-aligned">' .
 				implode( $elements[ 'right' ] ) .
 				$this->indent() . '</div> <!-- navbar-right-aligned -->';
-
 			$this->indent( -1 );
 		}
 
@@ -377,7 +376,6 @@ class NavbarHorizontal extends Component {
 
 		$linkText = '<span class="glyphicon glyphicon-user"></span>';
 		\Hooks::run('ChameleonNavbarHorizontalPersonalToolsLinkText', array( &$linkText, $this->getSkin() ) );
-
 		// add personal tools (links to user page, user talk, prefs, ...)
 		$ret = '';
 
@@ -404,7 +402,7 @@ class NavbarHorizontal extends Component {
 			$widgets .=
                 $this->indent(+1) . '<ul class="navbar-personaltools navbar-nav navbar-personaltoolwidgets navbar-nav-widgets" >' .
 			 	$this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item, $options ) .
-			    $this->indent(-1) . '</ul>';
+				$this->indent(-1) . '</ul>';
 		}
 		if ($widgetsUls) {
 			$ret .=
@@ -416,34 +414,80 @@ class NavbarHorizontal extends Component {
 		if ($widgets) {
 			$ret .=
 				$this->indent() . '<!-- personal widgets -->' .
-				$widgets ;
+				$widgets	.
+				//Parametre menu
+				$this->indent() . '<ul class="navbar-tools navbar-nav" >' .
+				$this->indent( 1 ) . '<li class="dropdown navbar-tools-tools">'	.
+				$this->indent( 1 ) . '<a class="dropdown-toggle ' . $toolsClass . '" href="#" data-toggle="dropdown" title="Paramètre" > <span class="glyphicon glyphicon-cog"></span> </a>' .
+				$this->indent() . '<ul class="p-personal-tools dropdown-menu dropdown-menu-right" >'.
+				$this->indent( 1 );
+				foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
+					if ( isset( $item["links"][0]["menu"] ) && $item["links"][0]["menu"] == "param-menu" ) {
+						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+					}
+				}
+				// Sub menu parameter
+				$this->indent(1) .
+				$ret .= " <hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'> " ;
+				foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
+					if ( isset( $item["links"][0]["menu"] ) && $item["links"][0]["menu"] == "param-sub-menu" ) {
+						$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+					}
+				}
+				$ret .=
+				$this->indent( -1 ) . '</li>' .
+				$this->indent( -1 ) . '</ul>'.
+				$this->indent( -1 ) . '</ul>';
+				//End of menu parameter
 		}
 
 		// start personal tools element
-
+		$excludeLink = ['language','help-target','notifications-alert','notifications-notice', 'social-message-link'];
 		$ret .=
 			$this->indent() . '<!-- personal tools -->' .
 			$this->indent() . '<ul class="navbar-tools navbar-nav" >' .
 			$this->indent( 1 ) . '<li class="dropdown navbar-tools-tools">' .
 			$this->indent( 1 ) . '<a class="dropdown-toggle ' . $toolsClass . '" href="#" data-toggle="dropdown" title="' . $toolsLinkText . '" >' . $linkText . '</a>' .
-			$this->indent() . '<ul class="p-personal-tools dropdown-menu dropdown-menu-right" >';
-
-		$this->indent( 1 );
-
-
-		// add personal tools (links to user page, user talk, prefs, ...)
+			$this->indent() . '<ul class="p-personal-tools dropdown-menu dropdown-menu-right" >'.
+			$this->indent( 1 );
 		foreach ( $this->getSkinTemplate()->getPersonalTools() as $key => $item ) {
-			if(in_array($key, $personnalsToolsWidgets)) {
+			// if user isn't log show menu special loggin
+			if ( $user->isLoggedIn() == false && !in_array( $key, $excludeLink) ) {
+				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
 				continue;
 			}
-
-			$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+			// all link as no key menu except key in $excludeLink
+			if ( empty($item["links"][0]["menu"]) && !in_array( $key, $excludeLink ) )  {
+				//add icone 
+				if ( isset( $item['links'][0]['icon'] ) ) {
+					$icon = $item['links'][0]['icon'];
+					$savedLink = $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+					$savedLink = str_replace("</a>",$icon."</a>",$savedLink);
+					$ret .= $savedLink;
+					continue;
+				}
+				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+			}
+		}	
+		// Sub user menu
+		$this->indent(1) .
+		$ret .= " <hr style='border-bottom-style: solid;margin-top: 2px;margin-bottom: 2px'> " ;
+		foreach ($this->getSkinTemplate()->getPersonalTools() as $key => $item ){
+			//Prevent bug if user isn't log
+			if ( $user->isLoggedIn() == false) {
+				if ($key == "help-target" ) {
+					$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+				}
+				continue;
+			}
+			if ( isset( $item["links"][0]["menu"] ) && $item["links"][0]["menu"] == "user-sub-menu" ) {
+				$ret .= $this->indent() . $this->getSkinTemplate()->makeListItem( $key, $item );
+			}
 		}
-
-
 		$ret .=
 			$this->indent( -1 ) . '</ul>' .
 			$this->indent( -1 ) . '</li>';
+
 
 		// if the user is logged in, add the newtalk notifier
 		if ( $user->isLoggedIn() ) {
@@ -475,7 +519,6 @@ class NavbarHorizontal extends Component {
 		}
 
 		$ret .= $this->indent( -1 ) . '</ul>' . "\n";
-
 		return $ret;
 	}
 
